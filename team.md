@@ -2,6 +2,7 @@
 ## Team Members
 - Alexei Blinov: blinoval
 - Michael De Lisio: delisiom
+- Brandon Joubran: joubranb
 
 # Team Guidelines
 ## Methods of Communication
@@ -16,12 +17,18 @@
   - UTOR-email: michael.delisio@mail.utoronto.ca
   - Personal email: michael.c.delisio@gmail.com
   - Cell phone number: 647-449-7502
+- Brandon Joubran: joubranb: 
+  - UTOR-email: brandon.joubran@mail.utoronto.ca
+  - Personal email: brandonjoubran@gmail.com
+  - Cell phone number: 647-823-4192
 
 ## Response Times
 - Alexei Blinov: blinoval:
   - Can answer immediately or worst case: within a few hours if busy.
 - Michael De Lisio: delisiom:
   - Can respond to text messages fastest (within 0-2 hours) and emails daily 
+- Brandon Joubran: joubranb:
+  - Can respond to text messages and personal email the quickest, within 0-3 hours.
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

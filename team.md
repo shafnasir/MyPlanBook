@@ -8,13 +8,13 @@
 
 ## Contact Information
 - Alexei Blinov: blinoval:
- - UTOR-email: alexei.blinov@mail.utoronto.ca
- - Personal email: blinovalexei97@gmail.com
- - Cell phone number: 647-548-9226
+  - UTOR-email: alexei.blinov@mail.utoronto.ca
+  - Personal email: blinovalexei97@gmail.com
+  - Cell phone number: 647-548-9226
 
 ## Response Times
 - Alexei Blinov: blinoval:
- - Can answer immediately or worst case: within a few hours if busy.
+  - Can answer immediately or worst case: within a few hours if busy.
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

@@ -59,6 +59,7 @@
 ## Meeting Preparation
 - Bring a list of significant issues, suggestions for improvement, and other project matters
 - Bring new user stories or features for the next sprint
+- Alexei Blinov will take minutes or notes during the meetings
 
 ## Git Version Control
 - For the most part, each commit should add a major functionality to the project
@@ -68,8 +69,10 @@
 ## Roles and Work Division
 - Divide user stories by front-end/ back-end
 - Divide user stories by categories (group similar features together)
+- Group collaboration will decide on who does what (distribution of user stories)
 
 ## Sprint Deliverable Submissions
+- Submit sprint deliverables and software when finished: before the deadlines
 - ? will review and submit sprint deliverables
 
 ## Contingency Plan

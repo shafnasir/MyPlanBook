@@ -4,6 +4,7 @@
 - Michael De Lisio: delisiom
 - Brandon Joubran: joubranb
 - Xiaoyang Wu: wuxiaoy9
+- Shaf Nasir: nasirsh8
 
 # Team Guidelines
 ## Methods of Communication
@@ -26,6 +27,11 @@
   - Utor-email: xiaoyang.wu@mail.utoronto.ca
   - Personal email: williamwu0609@hotmail.com
   - Cell phone number: 647-885-1117
+- Shaf Nasir: nasirsh8:
+  - UTOR-email: shaf.nasir@mail.utoronto.ca
+  - Personal email: shaf.nasir@gmail.com
+  - Cell phone number: 647-909-6461
+
 
 ## Response Times
 - Alexei Blinov: blinoval:
@@ -36,6 +42,8 @@
   - Can respond to text messages and personal email the quickest, within 0-3 hours.
 - Xiaoyang Wu: wuxiaoy9
   - Can respond as soon as I see the message, within 0-3 hours.
+- Shaf Nasir: nasirsh8:
+  - Can answer text messages immediately, worst case in a few hours, will check emails daily.
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

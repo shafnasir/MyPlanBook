@@ -41,7 +41,7 @@
 - Alexei Blinov: blinoval:
   - Can answer immediately or worst case: within a few hours if busy.
 - Michael De Lisio: delisiom:
-  - Can respond to text messages fastest (within 0-2 hours) and emails daily 
+  - Can respond to text messages fastest (within 0-2 hours) and emails daily.
 - Brandon Joubran: joubranb:
   - Can respond to text messages and personal email the quickest, within 0-3 hours.
 - Xiaoyang Wu: wuxiaoy9
@@ -52,9 +52,9 @@
   - Can respond as soon as I see the message and email within a few hours
 
 ## Agile Meetings
-- Meet and discuss project in person during and after CSC301 tutorials
+- Meet and discuss project in person during and after CSC301 tutorials (every week if possible)
 - In person meetings somewhere in IB
-- Most communication will occur online
+- Most communication will occur online (through WhatsApp project group chat)
 - Alexei Blinov will take minutes or notes during the meetings
  
 ## Meeting Preparation
@@ -67,13 +67,20 @@
 - Commits should be atomic (one) and standalone (independent of other commits) as much as possible 
 
 ## Roles and Work Division
-- Divide user stories by front-end/ back-end
-- Divide user stories by categories (group similar features together)
+- Divide user stories by front-end / back-end
+- Logically divide user stories by categories (group similar features together)
 - Group collaboration will decide on who does what (distribution of user stories)
+- Team members unique skills will also affect the division of work
 
 ## Sprint Deliverable Submissions
-- Submit sprint deliverables and software when finished: before the deadlines
-- ? will review and submit sprint deliverables
+- Aim to submit sprint deliverables and software one day in advance of deadlines. This can allow
+for a large team to work out difficulties that may arise before the deadline with plenty of time to
+amend them (for example, git commit conflicts, code that does not compile/integrate, etc...).
+- Team members struggling to complete their portion of work should alert team members as soon as possible
+(no less than two days before the deadline) to avoid last minute difficulties.
+- All submissions are collaborative containing commits from all team members
+- The role of the "Submission Reviewer" for each sprint will be rotated throughout the team
+- The Submission Reviewer's job is mainly to ensure all requirements for a sprint have been met
 
 ## Contingency Plan
 - If a group member drops the course, divide remaining user stories equally among group members

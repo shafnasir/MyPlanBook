@@ -3,6 +3,7 @@
 - Alexei Blinov: blinoval
 - Michael De Lisio: delisiom
 - Brandon Joubran: joubranb
+- Xiaoyang Wu: wuxiaoy9
 
 # Team Guidelines
 ## Methods of Communication
@@ -21,6 +22,10 @@
   - UTOR-email: brandon.joubran@mail.utoronto.ca
   - Personal email: brandonjoubran@gmail.com
   - Cell phone number: 647-823-4192
+- Xiaoyang Wu: wuxiaoy9
+  - Utor-email: xiaoyang.wu@mail.utoronto.ca
+  - Personal email: williamwu0609@hotmail.com
+  - Cell phone number: 647-885-1117
 
 ## Response Times
 - Alexei Blinov: blinoval:
@@ -29,6 +34,8 @@
   - Can respond to text messages fastest (within 0-2 hours) and emails daily 
 - Brandon Joubran: joubranb:
   - Can respond to text messages and personal email the quickest, within 0-3 hours.
+- Xiaoyang Wu: wuxiaoy9
+  - Can respond as soon as I see the message, within 0-3 hours.
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

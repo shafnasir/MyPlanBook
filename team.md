@@ -1,6 +1,7 @@
 # The Brogrammers
 ## Team Members
 - Alexei Blinov: blinoval
+- Michael De Lisio: delisiom
 
 # Team Guidelines
 ## Methods of Communication
@@ -11,10 +12,16 @@
   - UTOR-email: alexei.blinov@mail.utoronto.ca
   - Personal email: blinovalexei97@gmail.com
   - Cell phone number: 647-548-9226
+- Michael De Lisio: delisiom:
+  - UTOR-email: michael.delisio@mail.utoronto.ca
+  - Personal email: michael.c.delisio@gmail.com
+  - Cell phone number: 647-449-7502
 
 ## Response Times
 - Alexei Blinov: blinoval:
   - Can answer immediately or worst case: within a few hours if busy.
+- Michael De Lisio: delisiom:
+  - Can respond to text messages fastest (within 0-2 hours) and emails daily 
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

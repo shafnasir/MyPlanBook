@@ -5,6 +5,7 @@
 - Brandon Joubran: joubranb
 - Xiaoyang Wu: wuxiaoy9
 - Shaf Nasir: nasirsh8
+- Yifei Gao: gaoyife2
 
 # Team Guidelines
 ## Methods of Communication
@@ -31,7 +32,10 @@
   - UTOR-email: shaf.nasir@mail.utoronto.ca
   - Personal email: shaf.nasir@gmail.com
   - Cell phone number: 647-909-6461
-
+- Yifei Gao: gaoyife2:
+  - UTOR-email: miko.gao@mail.utoronto.ca
+  - Personal email: gyfme1@gmail.com
+  - Cell phone number: 289-689-1809
 
 ## Response Times
 - Alexei Blinov: blinoval:
@@ -44,6 +48,8 @@
   - Can respond as soon as I see the message, within 0-3 hours.
 - Shaf Nasir: nasirsh8:
   - Can answer text messages immediately, worst case in a few hours, will check emails daily.
+- Yifei Gao: gaoyife2:
+  - Can respond as soon as I see the message and email within a few hours
 
 ## Agile Meetings
 - Meet and discuss project in person during and after CSC301 tutorials

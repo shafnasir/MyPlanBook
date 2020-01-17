@@ -55,11 +55,11 @@
 - Meet and discuss project in person during and after CSC301 tutorials
 - In person meetings somewhere in IB
 - Most communication will occur online
+- Alexei Blinov will take minutes or notes during the meetings
  
 ## Meeting Preparation
 - Bring a list of significant issues, suggestions for improvement, and other project matters
 - Bring new user stories or features for the next sprint
-- Alexei Blinov will take minutes or notes during the meetings
 
 ## Git Version Control
 - For the most part, each commit should add a major functionality to the project

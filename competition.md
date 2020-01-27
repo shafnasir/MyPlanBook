@@ -30,6 +30,22 @@ Our media manager will allow a book logging system similar to that of * My Libra
 of owned books, already read, to read in the near future, and currently reading. The media manager will also have a bookmarking function. 
 In addition, we will include logging and management systems for tracking gameplay and the consumption of movies or shows: media 
 other than just books. 
+# Dollarbird
+
+https://apps.apple.com/ca/app/dollarbird/id1214299218
+
+Dollarbird is a personal planner available on iOS. It helps its users organize their finances and provides a calendar interface that attempts to forecast monthly expenditure.
+
+Some features it includes are:
+
+1) A calendar that helps users visualize and project future expenditures.
+2) A graphical breakdown through charts and graphs of historical and future planned spending.
+3) A categorical breakdown of spending based on AI pattern recognition.
+4) A option for a collaborative mode in which multiple accounts can be synced to be communally tracked and managed through their spending.
+
+This application focuses primarily on financial planning and management, obviously it fails to include a few key features that our app aims to provide. For example, Dollarbird does not provide a time management system or a notification system that we aim to provide. Though, this tradeoff allows for Dollarbird to provide extensive analysis of users' expenditure through machine learning technologies that categorize spending. 
+
+An important feature of a third-party financial planner is that it doesn't require personal information, especially banking details. Although, without directly linking a banking account to the app, a user is required to manually enter all their expenditures. A way that we aim to solve this inconvience is to provide a feature that reads csv or pdf bank statements and automatically loads them into a users account.
 
 # Wallet - Finance Tracker and Budget Planner
 https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en_CA

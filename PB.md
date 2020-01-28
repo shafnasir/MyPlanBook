@@ -48,3 +48,39 @@ I would like to have a summary page where I would be able to see the most recent
 
 **Criteria of Satisfaction**
 - Allow users to access a page where they can view a summary of updates for each planner in a single page
+
+## Workout Logger - User Story #7
+
+As someone who works out, I want to record the exercises, sets, and reps of my workouts on various days so that I can track my strength and fitness progression at the gym over time.
+
+**Criteria of Satisfaction**
+- Input the exercises, the number of sets, and the number of reps for those exercises as part of a workout for a given day.
+- Select a date for a workout.
+- See past workouts from previous days. 
+
+## Bodyfat Percentage Calculator and Logger - User Story #8
+
+As someone who cares about my health and fitness, I want to calculate and record my bodyfat percentage over time and see my progress so that I can determine how lean I am and determine the progression of my bodily composition.
+
+**Criteria of Satisfaction**
+- Calculate and record bodyfat percentage based on skin fold caliper measurements and a waist measurement for a given day.
+- Select a date for bodyfat percentage calculation.
+- See past bodyfat percentages from previous days.
+- See a graphical representation of the change in bodyfat percentage over time.
+
+## Bodyweight Logger - User Story #9
+As someone who cares about my health and fitness, I want to keep records of my bodyweight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
+
+**Criteria of Satisfaction**
+- Record bodyweight in pounds or kilograms and see weight in both of those units.
+- Select a date for weight measurement.
+- See past weights from previous days.
+- See a graphical representation of the change in bodyweight over time.
+
+## Calorie Logger - User Story #10
+As someone who cares about my health, fitness, and nutrition, I want to record the food I ate for a day and the corresponding calories so that I can determine my daily caloric intake.
+
+**Criteria of Satisfaction**
+- Input the foods eaten and the corresponding calories for a given day.
+- Select a date for calorie tracking.
+- See the foods and calories eaten from previous days.

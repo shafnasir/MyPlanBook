@@ -1,7 +1,7 @@
 # Planner Pro - Personal Organizer
 https://play.google.com/store/apps/details?id=com.appxy.planner&hl=en_CA
 
-The app * Planner Pro – Personal Organizer * is a personal planner application that 
+The app *Planner Pro – Personal Organizer* is a personal planner application that 
 has a calendar system for managing deadlines and to-do lists. Our app will differ 
 by having several fixed categories of planning beyond a mere calendar planner with 
 deadlines and to-do lists. These categorized planners will be able to sync with the
@@ -10,14 +10,14 @@ in-app calendar planner to add deadlines and tasks for specific days.
 # FitNotes - Gym Workout Log
 https://play.google.com/store/apps/details?id=com.github.jamesgay.fitnotes&hl=en_CA
 
-The app * FitNotes – Gym Workout Log * is a workout log tool which allows you to track exercises, sets, and reps,
+The app *FitNotes – Gym Workout Log* is a workout log tool which allows you to track exercises, sets, and reps,
 create workout plans, and see graphs of your progress. Our health and fitness planner will differ by also including
 a weight and bodyfat logger, a bodyfat calculator, and a calorie management system. 
 
 # myHomework Student Planner
 https://play.google.com/store/apps/details?id=com.myhomeowork&hl=en_CA
 
-The app * myHomework Student Planner * allows you to track homework for various courses and deadlines. 
+The app *myHomework Student Planner* allows you to track homework for various courses and deadlines. 
 Our school planner will follow the direction of this app but also include a way to track time spent 
 on each course. More than that, our school planner will allow you to track time for specific categories 
 of schoolwork such as priority work, catch-up work, and ongoing group projects.
@@ -25,16 +25,16 @@ of schoolwork such as priority work, catch-up work, and ongoing group projects.
 # My Library
 https://play.google.com/store/apps/details?id=com.vgm.mylibrary&hl=en_CA
 
-The app * My Library * is a book logging tool that allows you to log books by identifiers such as ISBN numbers. 
-Our media manager will allow a book logging system similar to that of * My Library * but also include the categories 
+The app *My Library* is a book logging tool that allows you to log books by identifiers such as ISBN numbers. 
+Our media manager will allow a book logging system similar to that of *My Library* but also include the categories 
 of owned books, already read, to read in the near future, and currently reading. The media manager will also have a bookmarking function. 
 In addition, we will include logging and management systems for tracking gameplay and the consumption of movies or shows: media 
 other than just books. 
-# Dollarbird
 
+# Dollarbird
 https://apps.apple.com/ca/app/dollarbird/id1214299218
 
-Dollarbird is a personal planner available on iOS. It helps its users organize their finances and provides a calendar interface that attempts to forecast monthly expenditure.
+The app *Dollarbird* is a personal planner available on iOS. It helps its users organize their finances and provides a calendar interface that attempts to forecast monthly expenditure.
 
 Some features it includes are:
 
@@ -50,7 +50,7 @@ An important feature of a third-party financial planner is that it doesn't requi
 # Wallet - Finance Tracker and Budget Planner
 https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en_CA
 
-The app * Wallet – Finance Tracker and Budget Planner * is a financial management tool for tracking one’s financial spending and for budgeting. 
+The app *Wallet – Finance Tracker and Budget Planner* is a financial management tool for tracking one’s financial spending and for budgeting. 
 Our financial planner will be similar to this tool but differ in that it will also include employment logging for future resumes, 
 lists of things to buy or sell, debt logging, and potential yearly taxes.
 

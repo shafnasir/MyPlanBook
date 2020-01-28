@@ -9,3 +9,11 @@ as avoiding linking my banking account to the application (which could reveal se
 - Process csv files provided by banking institutions.
 - Allow for manual categorization of transactions.
 - Allow for manual entry of transactions as well.
+
+## Time Management Planner - User Story #2
+
+I would like to be able to add any assessments/things that I need to do in order to keep myself organized, and get updates on my phone to remind me to do them. This allows me to keep myself organized and not forget to do anything I need to do.
+
+**Criteria of Satisfaction**
+- Allow to update as many due dates as I need.
+- Send SMS text message updates whenever the user wants the updates to be sent.

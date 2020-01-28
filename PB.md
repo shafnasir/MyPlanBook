@@ -26,3 +26,18 @@ I would like to be able to set a financial goal for myself, such as saving for a
 - Allow users to input money earned/gained, and having the "goal amount" decreasing (since we are closer to the goal)
 - Allow users to input any expendatures, and having the "goal amount" increase (since we are farther from the goal)
 
+## Login - User Story #4
+
+I would like to be able to make an account and having the program ask for my name, email, and phone number, and also remembering them. This allows me to have the program personalized, and also having the ability for the program to send me notifications.
+
+**Criteria of Satisfaction**
+
+- Allow for login/signup 
+- Having the user to enter their full name, and options for their name and number
+
+## Planner Selector - User Story #5
+
+Since we have different kinds of planning functions (i.e. financial and time management planner), I would like to have a main page where I would be able to choose which function to access. This would allow me to have a simple way of accessing the different functions.
+
+**Criteria of Satisfaction**
+- A page with different buttons and each button takes you to the requested function

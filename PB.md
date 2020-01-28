@@ -18,7 +18,7 @@ I would like to be able to add any assessments/things that I need to do in order
 - Allow to update as many due dates as I need.
 - Send SMS text message updates whenever the user wants the updates to be sent.
 
-## Financial Goal Function - User Story #2
+## Financial Goal Function - User Story #3
 
 I would like to be able to set a financial goal for myself, such as saving for an item that I want to purchase, and have the ability to input money I've earned and money I've spent to guage how close I am to my goal. This allows me to have a better understanding of how close I am to saving the amount of money necessary to buy the item.
 

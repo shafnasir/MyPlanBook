@@ -41,3 +41,10 @@ Since we have different kinds of planning functions (i.e. financial and time man
 
 **Criteria of Satisfaction**
 - A page with different buttons and each button takes you to the requested function
+
+## Summary Page - User Story #6
+
+I would like to have a summary page where I would be able to see the most recent updates from each of my planners in one page without having to click through each.
+
+**Criteria of Satisfaction**
+- Allow users to access a page where they can view a summary of updates for each planner in a single page

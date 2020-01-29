@@ -14,23 +14,6 @@ The app *FitNotes – Gym Workout Log* is a workout log tool which allows you to
 create workout plans, and see graphs of your progress. Our health and fitness planner will differ by also including
 a weight and bodyfat logger, a bodyfat calculator, and a calorie management system. 
 
-# myHomework Student Planner
-https://play.google.com/store/apps/details?id=com.myhomeowork&hl=en_CA
-
-The app *myHomework Student Planner* allows you to track homework for various courses and deadlines. 
-Our school planner will follow the direction of this app but also include a way to track time spent 
-on each course. More than that, our school planner will allow you to track time for specific categories 
-of schoolwork such as priority work, catch-up work, and ongoing group projects.
-
-# My Library
-https://play.google.com/store/apps/details?id=com.vgm.mylibrary&hl=en_CA
-
-The app *My Library* is a book logging tool that allows you to log books by identifiers such as ISBN numbers. 
-Our media manager will allow a book logging system similar to that of *My Library* but also include the categories 
-of owned books, already read, to read in the near future, and currently reading. The media manager will also have a bookmarking function. 
-In addition, we will include logging and management systems for tracking gameplay and the consumption of movies or shows: media 
-other than just books. 
-
 # Dollarbird
 https://apps.apple.com/ca/app/dollarbird/id1214299218
 

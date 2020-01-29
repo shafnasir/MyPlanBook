@@ -84,3 +84,18 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 - Input the foods eaten and the corresponding calories for a given day.
 - Select a date for calorie tracking.
 - See the foods and calories eaten from previous days.
+
+## Visualized Finances - User Story #11
+As someone who is a visual learner, I want a visual representation of my debit and credit transactions. My categorized transactions can be displayed through a monthly pie chart and my yearly spending trends through a scatter plot.
+
+- View yearly expenditure plotted as monthly/weekly points on a scatter plot.
+- View monthly transactions categorized in a pie chart.
+
+## Interactive Calendar - User Story #12
+As someone who finds it difficult to manage and remember my upcoming engagements, I need a digital calendar. This would help me keep track of events electronically, rather than using my old paper agenda that I constantly forget to update. 
+
+**Criteria of Satisfaction**
+
+- Calendar allows user to load multiple daily events.
+- Events can be categorized by type and visually grouped by colour.
+- Events support text notifications that are set by the user to alert them at a certain time. 

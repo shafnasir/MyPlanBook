@@ -53,12 +53,6 @@ https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&h
 The app *Wallet – Finance Tracker and Budget Planner* is a financial management tool for tracking one’s financial spending and for budgeting. 
 Our financial planner will be similar to this tool but differ in that it will also include employment logging for future resumes, 
 lists of things to buy or sell, debt logging, and potential yearly taxes.
-
-Lastly, we will create a new type of planner: a social planner. This planner will have a contact management system that 
-will allow you to add personal information about contacts such as birthdays, emails, phone numbers, and so forth. This planner will also 
-have a social management system for managing various categories of social endeavours such as interviews, sending emails to a given person, 
-romantic dates, sending birthday gifts, and so forth. This planner is ideal for contacts that are hard to reach such as distant relatives or friends 
-who you want to keep in touch with.
  
 Our multi-planner product is ideal for those who have really disorganized personal lives and want to start 
 managing their lives better. This tool is a great way to start that process of organization. In addition, 

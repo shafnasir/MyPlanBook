@@ -104,5 +104,5 @@ As someone who finds it difficult to manage and remember my upcoming engagements
 ## Tally Book - User Story #13
 I would like to have a Tally Book that I could record my daily expenses and budget. Meanwhile, I hope it can help me remember small things and simple things in my daily life such as taking pills, drinking water and go to fitness room. I want my life having a good pattern so I really need this Tally Book.
 
--Send me a notification when I need to take pills.
+-Send me a notification when I need to take pills. 
 -Mention me that I need to drink water at a specific time.

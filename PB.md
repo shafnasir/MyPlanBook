@@ -1,5 +1,11 @@
 # Product Backlog
 
+**Point Estimate Criteria**
+We used the fibonacci sequence to estimate the complexity of each user story with the values in the set {1, 2, 3, 5, 8}, with 8 being the most complex. We used the planning poker method to decide and agree on common point estimates as a team for each user story. These values are recorded on Jira.
+
+**Prioritization Criteria**
+Prioritization of user stories was computed using the ROI (Return on Investment )and COI (Cost of Delay) methods. Agreement was reached similarly to the point estimation calculations. These values are recorded on Jira.
+
 ## Auto-load Monthly Transactions  - User Story #1
 
 As a frequent debit card and credit card user, I would like to be able to quickly load monthly or weekly transactions I've made into my financial planner as to avoid manually inputing every transaction myself. This allows me to avoid spending a long time inputing all my debit/credit history as well

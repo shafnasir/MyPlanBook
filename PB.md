@@ -57,7 +57,7 @@ I would like to be able to make an account and having the program ask for my nam
 
 **Priority: High**
 
-## Planner Selector - User Story #5
+## Planner Selector (Main Page) - User Story #5
 
 Since we have different kinds of planning functions (i.e. financial and time management planner), I would like to have a main page where I would be able to choose which function to access. This would allow me to have a simple way of accessing the different functions.
 

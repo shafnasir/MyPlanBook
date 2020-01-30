@@ -16,7 +16,8 @@ as avoiding linking my banking account to the application (which could reveal se
 - Allow for manual categorization of transactions.
 - Allow for manual entry of transactions as well.
 
-**Story Points: 5**
+**Story Points Estimate: 5**
+
 **Priority: Medium**
 
 ## Time Management Planner - User Story #2
@@ -27,7 +28,8 @@ I would like to be able to add any assessments/things that I need to do in order
 - Allow to update as many due dates as I need.
 - Send SMS text message updates whenever the user wants the updates to be sent.
 
-**Story Points: 5**
+**Story Points Estimate: 5**
+
 **Priority: Medium**
 
 ## Financial Goal Function - User Story #3
@@ -38,7 +40,8 @@ I would like to be able to set a financial goal for myself, such as saving for a
 - Allow users to input money earned/gained, and having the "goal amount" decreasing (since we are closer to the goal)
 - Allow users to input any expendatures, and having the "goal amount" increase (since we are farther from the goal)
 
-**Story Points: 3**
+**Story Points Estimate: 3**
+
 **Priority: Medium**
 
 ## Login - User Story #4
@@ -50,7 +53,8 @@ I would like to be able to make an account and having the program ask for my nam
 - Allow for login/signup 
 - Having the user to enter their full name, and options for their name and number
 
-**Story Points: 2**
+**Story Points Estimate: 2**
+
 **Priority: High**
 
 ## Planner Selector - User Story #5
@@ -60,7 +64,8 @@ Since we have different kinds of planning functions (i.e. financial and time man
 **Criteria of Satisfaction**
 - A page with different buttons and each button takes you to the requested function
 
-**Story Points: 1**
+**Story Points Estimate: 1**
+
 **Priority: Lowest**
 
 ## Summary Page - User Story #6
@@ -70,7 +75,8 @@ I would like to have a summary page where I would be able to see the most recent
 **Criteria of Satisfaction**
 - Allow users to access a page where they can view a summary of updates for each planner in a single page
 
-**Story Points: 2**
+**Story Points Estimate: 2**
+
 **Priority: Low**
 
 ## Workout Logger - User Story #7
@@ -82,7 +88,8 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 - Select a date for a workout.
 - See past workouts from previous days. 
 
-**Story Points: 3**
+**Story Points Estimate: 3**
+
 **Priority: Medium**
 
 ## Body Fat Percentage Calculator and Logger - User Story #8
@@ -95,7 +102,8 @@ As someone who cares about my health and fitness, I want to calculate and record
 - See past bodyfat percentages from previous days.
 - See a graphical representation of the change in bodyfat percentage over time.
 
-**Story Points: 3**
+**Story Points Estimate: 3**
+
 **Priority: Low**
 
 ## Body Weight Logger - User Story #9
@@ -107,7 +115,8 @@ As someone who cares about my health and fitness, I want to keep records of my b
 - See past weights from previous days.
 - See a graphical representation of the change in bodyweight over time.
 
-**Story Points: 2**
+**Story Points Estimate: 2**
+
 **Priority: Medium**
 
 ## Calorie Logger - User Story #10
@@ -118,7 +127,8 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 - Select a date for calorie tracking.
 - See the foods and calories eaten from previous days.
 
-**Story Points: 2**
+**Story Points Estimate: 2**
+
 **Priority: Medium**
 
 ## Visualized Finances - User Story #11
@@ -128,7 +138,8 @@ As someone who is a visual learner, I want a visual representation of my debit a
 - View yearly expenditure plotted as monthly/weekly points on a scatter plot.
 - View monthly transactions categorized in a pie chart.
 
-**Story Points: 3**
+**Story Points Estimate: 3**
+
 **Priority: Medium**
 
 ## Interactive Calendar - User Story #12
@@ -139,7 +150,8 @@ As someone who finds it difficult to manage and remember my upcoming engagements
 - Events can be categorized by type and visually grouped by colour.
 - Events support text notifications that are set by the user to alert them at a certain time. 
 
-**Story Points: 8**
+**Story Points Estimate: 8**
+
 **Priority: High**
 
 ## Tally Book - User Story #13
@@ -149,5 +161,6 @@ I would like to have a Tally Book that I could record my daily expenses and budg
 - Send me a notification when I need to take pills. 
 - Mention me that I need to drink water at a specific time.
 
-**Story Points: 3**
+**Story Points Estimate: 3**
+
 **Priority: Medium**

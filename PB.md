@@ -58,9 +58,9 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 - Select a date for a workout.
 - See past workouts from previous days. 
 
-## Bodyfat Percentage Calculator and Logger - User Story #8
+## Body Fat Percentage Calculator and Logger - User Story #8
 
-As someone who cares about my health and fitness, I want to calculate and record my bodyfat percentage over time and see my progress so that I can determine how lean I am and determine the progression of my bodily composition.
+As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time and see my progress so that I can determine how lean I am and determine the progression of my bodily composition.
 
 **Criteria of Satisfaction**
 - Calculate and record bodyfat percentage based on skin fold caliper measurements and a waist measurement for a given day.
@@ -68,11 +68,11 @@ As someone who cares about my health and fitness, I want to calculate and record
 - See past bodyfat percentages from previous days.
 - See a graphical representation of the change in bodyfat percentage over time.
 
-## Bodyweight Logger - User Story #9
-As someone who cares about my health and fitness, I want to keep records of my bodyweight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
+## Body Weight Logger - User Story #9
+As someone who cares about my health and fitness, I want to keep records of my body weight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
 
 **Criteria of Satisfaction**
-- Record bodyweight in pounds or kilograms and see weight in both of those units.
+- Record body weight in pounds or kilograms and see weight in both of those units.
 - Select a date for weight measurement.
 - See past weights from previous days.
 - See a graphical representation of the change in bodyweight over time.
@@ -88,6 +88,7 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 ## Visualized Finances - User Story #11
 As someone who is a visual learner, I want a visual representation of my debit and credit transactions. My categorized transactions can be displayed through a monthly pie chart and my yearly spending trends through a scatter plot.
 
+**Criteria of Satisfaction**
 - View yearly expenditure plotted as monthly/weekly points on a scatter plot.
 - View monthly transactions categorized in a pie chart.
 

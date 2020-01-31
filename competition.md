@@ -4,8 +4,7 @@ https://play.google.com/store/apps/details?id=com.appxy.planner&hl=en_CA
 The app *Planner Pro – Personal Organizer* is a personal planner application that 
 has a calendar system for managing deadlines and to-do lists. Our app will differ 
 by having several fixed categories of planning beyond a mere calendar planner with 
-deadlines and to-do lists. These categorized planners will be able to sync with the
-in-app calendar planner to add deadlines and tasks for specific days.
+deadlines and to-do lists.
 
 # FitNotes - Gym Workout Log
 https://play.google.com/store/apps/details?id=com.github.jamesgay.fitnotes&hl=en_CA
@@ -24,20 +23,19 @@ Some features it includes are:
 1) A calendar that helps users visualize and project future expenditures.
 2) A graphical breakdown through charts and graphs of historical and future planned spending.
 3) A categorical breakdown of spending based on AI pattern recognition.
-4) A option for a collaborative mode in which multiple accounts can be synced to be communally tracked and managed through their spending.
+4) An option for a collaborative mode in which multiple accounts can be synced to be communally tracked and managed through their spending.
 
-This application focuses primarily on financial planning and management, obviously it fails to include a few key features that our app aims to provide. For example, Dollarbird does not provide a time management system or a notification system that we aim to provide. Though, this tradeoff allows for Dollarbird to provide extensive analysis of users' expenditure through machine learning technologies that categorize spending. 
+This application focuses primarily on financial planning and management and fails to include a few key features that our application aims to provide. 
+For example, Dollarbird does not provide a time management system or a notification system that our application aims to provide. 
+However, this tradeoff allows Dollarbird to provide extensive analysis of users' expenditure through machine learning technologies 
+that categorize spending which is beyond our application's scope. 
 
-An important feature of a third-party financial planner is that it doesn't require personal information, especially banking details. Although, without directly linking a banking account to the app, a user is required to manually enter all their expenditures. A way that we aim to solve this inconvience is to provide a feature that reads csv or pdf bank statements and automatically loads them into a users account.
-
-# Wallet - Finance Tracker and Budget Planner
-https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en_CA
-
-The app *Wallet – Finance Tracker and Budget Planner* is a financial management tool for tracking one’s financial spending and for budgeting. 
-Our financial planner will be similar to this tool but differ in that it will also include employment logging for future resumes, 
-lists of things to buy or sell, debt logging, and potential yearly taxes.
+An important feature of a third-party financial planner is that it does not require personal information, especially banking details. 
+Although, without directly linking a bank account to the app, a user is required to manually enter all their expenditures. 
+A way that we aim to solve this inconvenience in our application is to provide a feature that reads csv or pdf bank statements and automatically loads 
+them into a user's account.
  
-Our multi-planner product is ideal for those who have really disorganized personal lives and want to start 
+Now our multi-planner product is ideal for those who have really disorganized personal lives and want to start 
 managing their lives better. This tool is a great way to start that process of organization. In addition, 
 our planner is ideal for the really organized: those who want to systematically track the various aspects of 
 their lives. That is, this tool is ideal for the super disorganized and the super organized. 
@@ -61,4 +59,5 @@ organized alike. However, competitors have most likely not thought of an all-in-
 added features because such a product might be too large or not focused enough. Competitors might feel it is better to 
 focus on one specific type of planner or organizer and optimize it as much as possible to maximize the quality of that 
 one specific planner or organizer. However, an all-in-one planner or organizer is more compact and interconnected: a 
-benefit which separate planning tools fail to provide.
+benefit which separate planning tools fail to provide. So, compactness and interconnectivity are two of the main advantages our
+application will have over the competition. 

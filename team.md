@@ -9,7 +9,7 @@
 
 # Team Guidelines
 ## Methods of Communication
-- Team members will communicate via Whatsapp and possibly email
+- Team members will communicate via Whatsapp and email
 
 ## Contact Information
 - Alexei Blinov: blinoval:

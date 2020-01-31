@@ -1,86 +1,76 @@
 # Product Backlog
 
-**Point Estimate Criteria**
-We used the fibonacci sequence to estimate the complexity of each user story with the values in the set {1, 2, 3, 5, 8}, with 8 being the most complex. We used the planning poker method to decide and agree on common point estimates as a team for each user story. These values are recorded on Jira.
+## User Story Points Series for Complexity Estimation
+We used the Fibonacci sequence from the lecture slides of week 3 to estimate the complexity of each user story with the values in the set {0, 1, 2, 3, 5, 8} where 8 indicates the greatest complexity and 0 indicates the lowest complexity. We used the planning poker method to decide and agree on common point estimates as a team for each user story. These values are recorded on Jira.
 
-**Prioritization Criteria**
-Prioritization of user stories was computed using the ROI (Return on Investment )and COI (Cost of Delay) methods. Agreement was reached similarly to the point estimation calculations. These values are recorded on Jira.
+## Priority Values
+We assigned the following ordered priority values to the user stories: highest, high, medium, low, and lowest where ‘highest’ is the highest priority value, and ‘lowest’ is the lowest priority value. These values are recorded on Jira.
 
-## Auto-load Monthly Transactions  - User Story #1
-
-As a frequent debit card and credit card user, I would like to be able to quickly load monthly or weekly transactions I've made into my financial planner as to avoid manually inputing every transaction myself. This allows me to avoid spending a long time inputing all my debit/credit history as well
-as avoiding linking my banking account to the application (which could reveal sensitive personal information).
+## Auto-load Monthly Transactions - User Story #1
+As a frequent debit card and credit card user, I want to quickly load monthly or weekly transactions I've made into my financial planner from csv files, manually categorize transactions, and manually enter additional transactions without linking my bank account so that I can organize my transaction history without potentially sharing sensitive personal information.
 
 **Criteria of Satisfaction**
-- Process csv files provided by banking institutions.
-- Allow for manual categorization of transactions.
-- Allow for manual entry of transactions as well.
+- Auto-load transaction history by processing csv files provided by banking institutions.
+- Manually categorize transactions.
+- Manually enter transactions.
 
 **Story Points Estimate: 5**
 
 **Priority: Medium**
 
-## Time Management Planner - User Story #2
-
-I would like to be able to add any assessments/things that I need to do in order to keep myself organized, and get updates on my phone to remind me to do them. This allows me to keep myself organized and not forget to do anything I need to do.
+## Notify of Deadlines - User Story #2
+As someone who is very busy and sometimes forgetful, I want to be notified of my deadlines for the current day so that I can be reminded of my scheduled commitments and deadlines.
 
 **Criteria of Satisfaction**
-- Allow to update as many due dates as I need.
-- Send SMS text message updates whenever the user wants the updates to be sent.
+- Receive a notification about what’s due for the current day
 
 **Story Points Estimate: 5**
 
 **Priority: Medium**
 
-## Financial Goal Function - User Story #3
-
-I would like to be able to set a financial goal for myself, such as saving for an item that I want to purchase, and have the ability to input money I've earned and money I've spent to guage how close I am to my goal. This allows me to have a better understanding of how close I am to saving the amount of money necessary to buy the item.
+## Set Savings Goals - User Story #3
+As a financial planner, I want to set savings goals for myself and track my savings so that I can determine the amount of money I’ve saved for my goal purchases and determine how close I am to my goal amounts.
 
 **Criteria of Satisfaction**
-- Allow users to input money earned/gained, and having the "goal amount" decreasing (since we are closer to the goal)
-- Allow users to input any expendatures, and having the "goal amount" increase (since we are farther from the goal)
+- Input money earned and decrease the goal amount left for a purchase.
+- Input expenditures and increase the goal amount left for a purchase.
 
 **Story Points Estimate: 3**
 
 **Priority: Medium**
 
-## Login - User Story #4
-
-I would like to be able to make an account and having the program ask for my name, email, and phone number, and also remembering them. This allows me to have the program personalized, and also having the ability for the program to send me notifications.
+## Log In - User Story #4
+As a regular user of the multi-planner, I want to log in to my account so that I can see my personal planners and use my multi-planner.
 
 **Criteria of Satisfaction**
-
-- Allow for login/signup 
-- Having the user to enter their full name, and options for their name and number
+- Input login information such as username and password.
+- Enter planner upon correct combination of username and password.
 
 **Story Points Estimate: 2**
 
 **Priority: High**
 
-## Planner Selector (Main Page) - User Story #5
-
-Since we have different kinds of planning functions (i.e. financial and time management planner), I would like to have a main page where I would be able to choose which function to access. This would allow me to have a simple way of accessing the different functions.
+## Select Planner - User Story #5
+As a regular user of the multi-planner, I want to see a main menu where I can select a planner that I want to use so that I can access and use the desired planner.
 
 **Criteria of Satisfaction**
-- A page with different buttons and each button takes you to the requested function
+- Select a planner and go to a new screen or window that displays that planner.
 
 **Story Points Estimate: 1**
 
 **Priority: Lowest**
 
-## Summary Page - User Story #6
-
-I would like to have a summary page where I would be able to see the most recent updates from each of my planners in one page without having to click through each.
+## Summarize Progress - User Story #6
+As a regular user of the multi-planner, I want to see a summary of the progress I’ve made from all the planners for the day, the week, and the month so that I can see what I’ve accomplished.
 
 **Criteria of Satisfaction**
-- Allow users to access a page where they can view a summary of updates for each planner in a single page
+- See a summary of daily, weekly, and monthly accomplishments from all the planners
 
-**Story Points Estimate: 2**
+**Story Points Estimate: 8**
 
 **Priority: Low**
 
-## Workout Logger - User Story #7
-
+## Log Workouts - User Story #7
 As someone who works out, I want to record the exercises, sets, and reps of my workouts on various days so that I can track my strength and fitness progression at the gym over time.
 
 **Criteria of Satisfaction**
@@ -92,21 +82,20 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 
 **Priority: Medium**
 
-## Body Fat Percentage Calculator and Logger - User Story #8
-
-As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time and see my progress so that I can determine how lean I am and determine the progression of my bodily composition.
+## Calculate and Log Body Fat Percentage - User Story #8
+As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time so that I can determine how lean I am and determine the progression of my bodily composition.
 
 **Criteria of Satisfaction**
 - Calculate and record bodyfat percentage based on skin fold caliper measurements and a waist measurement for a given day.
-- Select a date for bodyfat percentage calculation.
-- See past bodyfat percentages from previous days.
-- See a graphical representation of the change in bodyfat percentage over time.
+- Select a date for body fat percentage calculation.
+- See past body fat percentages from previous days.
+- See a graphical representation of the change in body fat percentage over time.
 
 **Story Points Estimate: 3**
 
 **Priority: Low**
 
-## Body Weight Logger - User Story #9
+## Log Body Weight - User Story #9
 As someone who cares about my health and fitness, I want to keep records of my body weight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
 
 **Criteria of Satisfaction**
@@ -119,7 +108,7 @@ As someone who cares about my health and fitness, I want to keep records of my b
 
 **Priority: Medium**
 
-## Calorie Logger - User Story #10
+## Log Calories - User Story #10
 As someone who cares about my health, fitness, and nutrition, I want to record the food I ate for a day and the corresponding calories so that I can determine my daily caloric intake.
 
 **Criteria of Satisfaction**
@@ -131,36 +120,59 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 
 **Priority: Medium**
 
-## Visualized Finances - User Story #11
-As someone who is a visual learner, I want a visual representation of my debit and credit transactions. My categorized transactions can be displayed through a monthly pie chart and my yearly spending trends through a scatter plot.
+## Graph Transactions - User Story #11
+As a visual learner, I want to see a visual representation of my categorized transactions in a monthly pie chart and my yearly spending trends in a scatter plot graph so that I can visualize my spending habits.
 
 **Criteria of Satisfaction**
 - View yearly expenditure plotted as monthly/weekly points on a scatter plot.
 - View monthly transactions categorized in a pie chart.
 
-**Story Points Estimate: 3**
+**Story Points Estimate: 5**
 
 **Priority: Medium**
 
-## Interactive Calendar - User Story #12
-As someone who finds it difficult to manage and remember my upcoming engagements, I need a digital calendar. This would help me keep track of events electronically, rather than using my old paper agenda that I constantly forget to update. 
+## Calendarize Deadlines - User Story #12
+As someone who finds it difficult to manage my deadlines, I want to input and see my deadlines and due dates in a calendar with categorized coloring so that I know what is due for each day of the month and each day of the year.
 
 **Criteria of Satisfaction**
-- Calendar allows user to load multiple daily events.
-- Events can be categorized by type and visually grouped by colour.
-- Events support text notifications that are set by the user to alert them at a certain time. 
+- Input tasks that are due for a given day.
+- See deadlines and due dates in a visual calendar.
+- Categorize and color tasks by type.
 
 **Story Points Estimate: 8**
 
 **Priority: High**
 
-## Tally Book - User Story #13
-I would like to have a Tally Book that I could record my daily expenses and budget. Meanwhile, I hope it can help me remember small things and simple things in my daily life such as taking pills, drinking water and go to fitness room. I want my life having a good pattern so I really need this Tally Book.
+## Tally Purchases and Wish List - User Story #13
+As someone who manages my finances, I want to tally my purchases and the things I want or need to buy in a wish list so that I can keep track of my expenditures and know what I need or want to buy next.
 
 **Criteria of Satisfaction**
-- Send me a notification when I need to take pills. 
-- Mention me that I need to drink water at a specific time.
+- Input expenditures.
+- Input items to wish list of things to purchase.
 
 **Story Points Estimate: 3**
+
+**Priority: Medium**
+
+## Sign Up – User Story #14
+As someone who wants to use the multi-planner and does not yet have an account, I want to sign up and create an account so that I can log in with a personalized account and use the multi-planner.
+
+**Criteria of Satisfaction**
+- Input personal information such as username, password, email, gender, and phone number.
+- Create new account if username is unique.
+- Can log in with created account to gain access to the multi-planner.
+
+**Story Points Estimate: 2**
+
+**Priority: Medium**
+
+## Sign Out – User Story #15
+As someone who has an account for the multi-planner, I want to be able to sign out of the multi-planner.
+
+**Criteria of Satisfaction**
+- Can log out of the multi-planner.
+- Can no longer use the multi-planner once logged out unless logged in again.
+
+**Story Points Estimate: 1**
 
 **Priority: Medium**

@@ -54,6 +54,7 @@ As a regular user of the multi-planner, I want to log in to my account so that I
 As a regular user of the multi-planner, I want to see a main menu where I can select a planner that I want to use so that I can access and use the desired planner.
 
 **Criteria of Satisfaction**
+- See all my planners on a main menu.
 - Select a planner and go to a new screen or window that displays that planner.
 
 **Story Points Estimate: 1**
@@ -86,7 +87,7 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time so that I can determine how lean I am and determine the progression of my bodily composition.
 
 **Criteria of Satisfaction**
-- Calculate and record bodyfat percentage based on skin fold caliper measurements and a waist measurement for a given day.
+- Calculate and record body fat percentage based on skin fold caliper measurements and a waist measurement for a given day.
 - Select a date for body fat percentage calculation.
 - See past body fat percentages from previous days.
 - See a graphical representation of the change in body fat percentage over time.
@@ -102,7 +103,7 @@ As someone who cares about my health and fitness, I want to keep records of my b
 - Record body weight in pounds or kilograms and see weight in both of those units.
 - Select a date for weight measurement.
 - See past weights from previous days.
-- See a graphical representation of the change in bodyweight over time.
+- See a graphical representation of the change in body weight over time.
 
 **Story Points Estimate: 2**
 

@@ -24,7 +24,7 @@ As someone who is very busy and sometimes forgetful, I want to be notified of my
 **Criteria of Satisfaction**
 - Receive a notification about what’s due for the current day
 
-**Story Points Estimate: 5**
+**Story Points Estimate: 3**
 
 **Priority: Medium**
 
@@ -37,7 +37,7 @@ As a financial planner, I want to set savings goals for myself and track my savi
 
 **Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: Lowest**
 
 ## Log In - User Story #4
 As a regular user of the multi-planner, I want to log in to my account so that I can see my personal planners and use my multi-planner.
@@ -46,7 +46,7 @@ As a regular user of the multi-planner, I want to log in to my account so that I
 - Input login information such as username and password.
 - Enter planner upon correct combination of username and password.
 
-**Story Points Estimate: 2**
+**Story Points Estimate: 3**
 
 **Priority: High**
 
@@ -57,9 +57,9 @@ As a regular user of the multi-planner, I want to see a main menu where I can se
 - See all my planners on a main menu.
 - Select a planner and go to a new screen or window that displays that planner.
 
-**Story Points Estimate: 1**
+**Story Points Estimate: 3**
 
-**Priority: Lowest**
+**Priority: Highest**
 
 ## Summarize Progress - User Story #6
 As a regular user of the multi-planner, I want to see a summary of the progress I’ve made from all the planners for the day, the week, and the month so that I can see what I’ve accomplished.
@@ -81,7 +81,7 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 
 **Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: Lowest**
 
 ## Calculate and Log Body Fat Percentage - User Story #8
 As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time so that I can determine how lean I am and determine the progression of my bodily composition.
@@ -92,9 +92,9 @@ As someone who cares about my health and fitness, I want to calculate and record
 - See past body fat percentages from previous days.
 - See a graphical representation of the change in body fat percentage over time.
 
-**Story Points Estimate: 3**
+**Story Points Estimate: 5**
 
-**Priority: Low**
+**Priority: Lowest**
 
 ## Log Body Weight - User Story #9
 As someone who cares about my health and fitness, I want to keep records of my body weight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
@@ -105,9 +105,9 @@ As someone who cares about my health and fitness, I want to keep records of my b
 - See past weights from previous days.
 - See a graphical representation of the change in body weight over time.
 
-**Story Points Estimate: 2**
+**Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: High**
 
 ## Log Calories - User Story #10
 As someone who cares about my health, fitness, and nutrition, I want to record the food I ate for a day and the corresponding calories so that I can determine my daily caloric intake.
@@ -117,9 +117,9 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 - Select a date for calorie tracking.
 - See the foods and calories eaten from previous days.
 
-**Story Points Estimate: 2**
+**Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: High**
 
 ## Graph Transactions - User Story #11
 As a visual learner, I want to see a visual representation of my categorized transactions in a monthly pie chart and my yearly spending trends in a scatter plot graph so that I can visualize my spending habits.
@@ -130,7 +130,7 @@ As a visual learner, I want to see a visual representation of my categorized tra
 
 **Story Points Estimate: 5**
 
-**Priority: Medium**
+**Priority: Low**
 
 ## Calendarize Deadlines - User Story #12
 As someone who finds it difficult to manage my deadlines, I want to input and see my deadlines and due dates in a calendar with categorized coloring so that I know what is due for each day of the month and each day of the year.
@@ -142,7 +142,7 @@ As someone who finds it difficult to manage my deadlines, I want to input and se
 
 **Story Points Estimate: 8**
 
-**Priority: High**
+**Priority: Medium**
 
 ## Tally Purchases and Wish List - User Story #13
 As someone who manages my finances, I want to tally my purchases and the things I want or need to buy in a wish list so that I can keep track of my expenditures and know what I need or want to buy next.
@@ -153,7 +153,7 @@ As someone who manages my finances, I want to tally my purchases and the things 
 
 **Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: Low**
 
 ## Sign Up – User Story #14
 As someone who wants to use the multi-planner and does not yet have an account, I want to sign up and create an account so that I can log in with a personalized account and use the multi-planner.
@@ -165,7 +165,7 @@ As someone who wants to use the multi-planner and does not yet have an account, 
 
 **Story Points Estimate: 2**
 
-**Priority: Medium**
+**Priority: Highest**
 
 ## Sign Out – User Story #15
 As someone who has an account for the multi-planner, I want to be able to sign out of the multi-planner.
@@ -174,6 +174,6 @@ As someone who has an account for the multi-planner, I want to be able to sign o
 - Can log out of the multi-planner.
 - Can no longer use the multi-planner once logged out unless logged in again.
 
-**Story Points Estimate: 1**
+**Story Points Estimate: 2**
 
-**Priority: Medium**
+**Priority: Highest**

@@ -1,5 +1,7 @@
 package utm.csc301.theBrogrammers.myPlanBook.data;
 
+import android.widget.Button;
+
 import utm.csc301.theBrogrammers.myPlanBook.data.model.LoggedInUser;
 
 import java.io.IOException;
@@ -8,7 +10,7 @@ import java.io.IOException;
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
 public class LoginDataSource {
-
+    private Button button;
     public Result<LoggedInUser> login(String username, String password) {
 
         try {

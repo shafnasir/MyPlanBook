@@ -9,4 +9,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="expenditure_preview_title">Expenditure Preview</string>
+
+<!--    Finance Hub Strings-->
+    <string name="manage_finances">Manage Finances</string>
+    <string name="manage_transactions">Manage Transactions</string>
+    <string name="set_goals">"Set Goals"</string>
 </resources>

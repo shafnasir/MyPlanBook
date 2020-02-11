@@ -1,4 +1,4 @@
-package utm.csc301.theBrogrammers.myPlanBook.ui.login;
+package utm.csc301.theBrogrammers.myPlanBook;
 
 
 import android.content.ClipData;

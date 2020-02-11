@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogBodyWeight.LogBodyWeightActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ScrollView
+            android:layout_width="409dp"
+            android:layout_height="644dp"
+            app:layout_constraintBottom_toBottomOf="@+id/include"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="419dp"
+                    android:layout_height="66dp"
+                    android:background="@drawable/myrect"
+                    android:clipToOutline="true"
+                    android:elevation="10dp"
+                    android:gravity="center"
+                    android:text="15"
+                    android:textColor="#2B2B2B"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="413dp"
+            android:layout_height="86dp"
+            android:background="#91E91A"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <TextView
+            android:id="@+id/bodyWeightsTextView"
+            android:layout_width="242dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="Body Weights"
+            android:textSize="36sp"
+            app:fontFamily="sans-serif-thin"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/content_log_body_weight"
+            android:layout_height="552dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="66dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

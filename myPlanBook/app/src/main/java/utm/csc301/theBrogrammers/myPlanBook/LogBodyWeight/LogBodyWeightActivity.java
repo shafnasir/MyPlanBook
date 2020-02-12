@@ -1,15 +1,11 @@
 package utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LogBodyWeightActivity extends AppCompatActivity {
@@ -20,18 +16,22 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_body_weight);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
+        LinearLayout bodyWeights = (LinearLayout) findViewById(R.id.layoutBodyWeights);
+        TextView view = new TextView(this);
+        view.setText("Test");
+        view.setTextColor(0x000000);
+        view.setTextSize(36f);
+        bodyWeights.addView(view);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
-        TextView bodyWeight = (TextView) findViewById(R.id.textView4);
-        bodyWeight.setClipToOutline(true);
+        //
     }
 
 }

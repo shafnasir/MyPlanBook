@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /////////////
 
-                //clickbutton();
+                ///clickbutton();
 
                 /////////////
                 loadingProgressBar.setVisibility(View.VISIBLE);

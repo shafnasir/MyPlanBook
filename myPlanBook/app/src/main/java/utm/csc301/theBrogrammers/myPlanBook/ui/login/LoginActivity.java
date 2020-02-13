@@ -31,6 +31,9 @@ import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private EditText usernameInput;
+    private EditText passwordInput;
+    private String sign, pass;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,5 +42,35 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
+        usernameInput = findViewById(R.id.UsernameInput);
+        passwordInput = findViewById(R.id.PasswordInput);
+        Button login = findViewById(R.id.LoginButton);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String username = usernameInput.getText().toString();
+                String password = passwordInput.getText().toString();
+                valid(username, password);
+
+            }
+        });
+
     }
+
+    public void valid(String username, String password){
+
+        if(username.equals("login") && password.equals("pass") || username.equals(sign) && password.equals(pass)){
+            Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
+            startActivity(intent);
+        }else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
+            Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(LoginActivity.this, sign, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }

@@ -23,3 +23,7 @@
 ## User Story #6 - Select Planner
 - Assigned to: Miko Gao & William Wu.
 - Subtasks
+
+## User Story #23 - Setting Page
+- Assigned to: Miko Gao & William Wu.
+- Subtasks

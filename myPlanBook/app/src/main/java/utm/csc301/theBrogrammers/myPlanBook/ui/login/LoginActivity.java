@@ -23,6 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHubActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginViewModel;
@@ -42,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
+
         usernameInput = findViewById(R.id.UsernameInput);
         passwordInput = findViewById(R.id.PasswordInput);
         Button login = findViewById(R.id.LoginButton);
@@ -56,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     public void valid(String username, String password){
@@ -64,10 +66,10 @@ public class LoginActivity extends AppCompatActivity {
         if(username.equals("login") && password.equals("pass") || username.equals(sign) && password.equals(pass)){
             Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
             startActivity(intent);
-        }else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
+        } else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
             Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
             startActivity(intent);
-        }else{
+        } else{
             Toast.makeText(LoginActivity.this, sign, Toast.LENGTH_SHORT).show();
         }
 

@@ -11,8 +11,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="expenditure_preview_title">Financial Hub</string>
 
-<!--    Finance Hub Strings-->
+    <!--    Finance Hub Strings-->
     <string name="manage_finances">Manage Finances</string>
     <string name="manage_transactions">Manage Transactions</string>
     <string name="set_goals">"Set Goals"</string>
+    <string name="title_activity_main_login">MainLoginActivity</string>
 </resources>

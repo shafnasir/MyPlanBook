@@ -17,17 +17,17 @@ import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 
 public class Settings extends AppCompatActivity {
 
-    private Button button;
+    private Button changepass, feedback;
     private ImageButton LogoutButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        button = findViewById(R.id.Change_Password);
-        button.setOnClickListener(new View.OnClickListener(){
+        changepass = findViewById(R.id.Change_Password);
+        changepass.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
-                clickbutton();
+                clickchangepass();
             }
         });
 
@@ -39,15 +39,28 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        feedback = findViewById(R.id.feedback);
+        feedback.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                clickfeedback();
+            }
+        });
+
     }
 
-    public void clickbutton() {
+    public void clickchangepass() {
         Intent intent = new Intent(this, ChangePassword.class);
         startActivity(intent);
     }
 
     public void clickLogout(){
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickfeedback(){
+        Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
     }
 }

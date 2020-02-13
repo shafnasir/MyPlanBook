@@ -64,6 +64,15 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                 /////////////
+
+//                 clickbutton();
+
+//                 /////////////
+//                 loadingProgressBar.setVisibility(View.VISIBLE);
+//                 loginViewModel.login(usernameEditText.getText().toString(),
+//                         passwordEditText.getText().toString());
+                
                 Intent intent = new Intent(LoginActivity.this, Signup.class);
                 startActivity(intent);
             }

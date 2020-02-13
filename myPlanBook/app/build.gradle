@@ -18,6 +18,9 @@ android {
         }
     }
 }
+repositories {
+    maven { url 'https://jitpack.io' } // Needed by graph API
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -29,4 +32,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+//  New external jar libraries below
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // Graph API added by Michael
 }

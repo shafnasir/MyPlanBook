@@ -54,6 +54,6 @@ public class Calendar extends AppCompatActivity {
     }
     public void openAddEvent(){
         Intent intent = new Intent(this, AddEvent.class);
-        startActivity(intent);
+        startActivity(intent); 
     }
 }

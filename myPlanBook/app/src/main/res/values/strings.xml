@@ -23,4 +23,5 @@
     <string name="manage_transactions">Manage Transactions</string>
     <string name="set_goals">"Set Goals"</string>
     <string name="title_activity_main_login">MainLoginActivity</string>
+    <string name="title_activity_planner_selector">PlannerSelector</string>
 </resources>

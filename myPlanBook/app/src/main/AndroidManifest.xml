@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.login.MainLoginActivity"
+            android:label="@string/title_activity_main_login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".FinancialHubActivity" />
+        <activity
             android:name=".ChangePassword"
             android:label="@string/title_activity_change_password"
             android:theme="@style/AppTheme.NoActionBar"></activity>

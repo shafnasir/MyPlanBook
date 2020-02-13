@@ -23,6 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHubActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginViewModel;
@@ -114,12 +116,24 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /////////////
+
+                ///clickbutton();
+
+                /////////////
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         });
+
     }
+
+    public void clickbutton() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();

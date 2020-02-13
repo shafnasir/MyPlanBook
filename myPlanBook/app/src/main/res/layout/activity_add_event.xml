@@ -5,11 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".calendar.Calendar"
-    tools:showIn="@layout/content_calendar">
-
-
-
-
+    tools:context=".calendar.AddEvent"
+    tools:showIn="@layout/content_add_event">
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

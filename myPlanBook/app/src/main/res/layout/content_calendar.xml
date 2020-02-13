@@ -10,6 +10,23 @@
     tools:showIn="@layout/content_calendar">
     >
     <!-- help from: https://www.youtube.com/watch?v=5WVEbU_bTeg-->
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorSecondary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <TextView
         android:id="@+id/myCalendarDate"
         android:layout_width="wrap_content"
@@ -39,10 +56,11 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/addEvent"
         android:layout_gravity="center"
         android:background="@color/colorAccent"
         android:layout_marginTop="100dp"
-        android:text="Save Date"
+        android:text="Add Event"
         android:textColor="#ffff"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"

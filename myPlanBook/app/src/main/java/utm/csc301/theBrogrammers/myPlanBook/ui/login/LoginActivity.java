@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.UsernameInput);
         passwordInput = findViewById(R.id.PasswordInput);
         Button login = findViewById(R.id.LoginButton);
+        Button signup = findViewById(R.id.SignupButton);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,16 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Signup.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     public void valid(String username, String password){

@@ -39,12 +39,13 @@
         app:layout_constraintVertical_bias="0.905"/>
 
     <Button
+        android:id="@+id/calendar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="260dp"
         android:text="Calender"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,12 +71,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/goals"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="331dp"
         android:text="Goals"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,12 +93,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/fitness"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="402dp"
         android:text="Body Weight and Calories"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

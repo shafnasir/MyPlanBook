@@ -30,27 +30,27 @@ public class Calendar extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // back button pressed
             }
-        });
+        });*/
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        /*calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 String date = (month + 1) + "/" + dayOfMonth + "/" + year;
                 myCalendarDate.setText(date);
             }
-        });
+        });*/
 
-        addEvent.setOnClickListener(new View.OnClickListener() {
+        /*addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAddEvent();
             }
-        });
+        });*/
     }
     public void openAddEvent(){
         Intent intent = new Intent(this, AddEvent.class);

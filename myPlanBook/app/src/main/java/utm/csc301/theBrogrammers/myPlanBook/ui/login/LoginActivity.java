@@ -84,10 +84,10 @@ public class LoginActivity extends AppCompatActivity {
     public void valid(String username, String password){
 
         if(username.equals("login") && password.equals("pass") || username.equals(sign) && password.equals(pass)){
-            Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
-            Intent intent = new Intent(LoginActivity.this, PlannerSelector.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else{
             Toast.makeText(LoginActivity.this, sign, Toast.LENGTH_SHORT).show();

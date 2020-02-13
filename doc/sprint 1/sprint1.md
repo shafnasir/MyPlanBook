@@ -27,3 +27,9 @@
 ## User Story #23 - Setting Page
 - Assigned to: Miko Gao & William Wu.
 - Subtasks
+
+## User Story #7 - Calendarize Deadlines
+- Assigned to: Shaf Nasir.
+- Subtasks
+    - *Calendar Preview*: The Calendar page should show a basic calendar view to see events created.
+    - *Input Events*: The Calendar page should allow a user to input tasks into the calendar.

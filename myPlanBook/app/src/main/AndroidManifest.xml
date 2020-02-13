@@ -11,6 +11,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Feedback"></activity>
         <activity
+            android:name=".ui.login.Signup"
+            android:label="@string/title_activity_signup"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.login.PlannerSelector"
+            android:label="@string/title_activity_planner_selector"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.login.MainLoginActivity"
+            android:label="@string/title_activity_main_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FinancialHubActivity" />
+        <activity
             android:name=".ChangePassword"
             android:label="@string/title_activity_change_password"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -22,6 +35,16 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".calendar.AddEvent"
+            android:label="@string/title_activity_add_event"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".calendar.Calendar"
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FinancialHubActivity"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/app_name">

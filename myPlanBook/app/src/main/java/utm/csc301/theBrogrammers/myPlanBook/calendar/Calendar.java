@@ -24,33 +24,25 @@ public class Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
-        calendarView = findViewById(R.id.calendarView);
-        myCalendarDate = findViewById(R.id.myCalendarDate);
-        addEvent = findViewById(R.id.addEvent);
+        calendarView = (CalendarView) findViewById(R.id.calendarView);
+        myCalendarDate = (TextView) findViewById(R.id.myCalendarDate);
+        addEvent = (Button) findViewById(R.id.addEvent);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onClick(View v) {
-                // back button pressed
-            }
-        });*/
-
-        /*calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 String date = (month + 1) + "/" + dayOfMonth + "/" + year;
                 myCalendarDate.setText(date);
             }
-        });*/
+        });
 
-        /*addEvent.setOnClickListener(new View.OnClickListener() {
+        addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAddEvent();
             }
-        });*/
+        });
+
     }
     public void openAddEvent(){
         Intent intent = new Intent(this, AddEvent.class);

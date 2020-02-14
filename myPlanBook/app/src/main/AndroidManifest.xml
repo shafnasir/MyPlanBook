@@ -38,13 +38,13 @@
         <activity
             android:name=".calendar.AddEvent"
             android:label="@string/title_activity_add_event"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".calendar.Calendar"
             android:label="@string/title_activity_calendar"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".FinancialHubActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".LogBodyWeight.LogBodyWeightActivity"
             android:label="@string/title_activity_log_body_weight"

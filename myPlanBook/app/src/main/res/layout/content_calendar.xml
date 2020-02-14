@@ -24,7 +24,7 @@
 
     <LinearLayout
         android:background="#ffffff"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
@@ -43,7 +43,7 @@
         android:id="@+id/addEvent"
         android:layout_gravity="center"
         android:background="@color/colorAccent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="Add Event"
         android:textColor="#ffff"
         android:paddingLeft="20dp"

@@ -10,11 +10,17 @@
 
 ## Unfinished Tasks ##
 - THEB-18 Links to Financial Functions
-    - New User Story:
-    - New Subtask:
+    - New User Story: THEB-34 Show Financial Hub
+    - New Subtask: THEB-35 Links to Financial Functions
 - THEB-32 Select Date for Body Weight
+    - New User Story: THEB-36 Log Body Weight
+    - New Subtask: THEB-37 Select Date for Body Weight
 - THEB-33 Graph Body Weight
+    - New User Story: THEB-36 Log Body Weight
+    - New Subtask: THEB-38 Graph Body Weights
 - THEB-22 Input Tasks
+    - New User Story: THEB-39 Calendarize Deadlines
+    - New Subtask: THEB-40 Input Tasks
 
 ## Practices to Continue During Next Sprint ##
 - Use of ticket numbers as branch names and for commit prefixes.

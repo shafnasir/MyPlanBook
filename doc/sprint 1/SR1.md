@@ -15,7 +15,7 @@
 - THEB-32 Select Date for Body Weight
     - New User Story: THEB-36 Log Body Weight
     - New Subtask: THEB-37 Select Date for Body Weight
-- THEB-33 Graph Body Weight
+- THEB-33 Graph Body Weights
     - New User Story: THEB-36 Log Body Weight
     - New Subtask: THEB-38 Graph Body Weights
 - THEB-22 Input Tasks
@@ -29,10 +29,10 @@
 - Creating user stories that are logically independant from each other.
 
 ## New Practices for Next Sprint ##
-- Practicing civility and brevity when communicating with team members.
+- Practice civility and brevity when communicating with team members.
 - Conform to a consistent GUI design (theme); appoint member responsible for UI design.
 - Utilize a variety of common object oriented design patterns.
-- Everyone independantly and actively tracking their own user stories & subsequent sub-tasks on JIRA.
+- Everyone should independently and actively track their own user stories & subsequent sub-tasks on JIRA.
 
 ## Harmful Practices ##
 - Starting development without reading sprint 1 guidelines/rubric. This resulted in a considerable amount of time being allocated to revisions that could have been prevented.
@@ -41,5 +41,5 @@
 - Relying on other team members to track and update progress for their sub-tasks on JIRA.
 
 ## Best/ Worse Experiences During Sprint 1 ##
--	Worst: dealing with small bugs that wasted a lot of time, not being able to open the project properly (as a result of complicated gradle configuration files).
--	Best: Getting our application to run properly and display all the features in a timely fashion.
+- Worst: dealing with small bugs that wasted a lot of time, not being able to open the project properly (as a result of complicated gradle configuration files).
+- Best: Getting our application to run properly and display all the features in a timely fashion.

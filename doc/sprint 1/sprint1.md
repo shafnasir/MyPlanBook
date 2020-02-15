@@ -11,12 +11,13 @@ Also, we will discuss the system design at a high level and the framework of the
 - THEB-5: Log In
 - THEB-15: Sign Up
 - THEB-6: Select Main Menu Items
+
 *User Stories to Start But Not Complete for Sprint 1:*
 - THEB-17: Show Financial Hub
 - THEB-11: Log Body Weight
 - THEB-7: Calendarize Deadlines
 
-Participants:
+## Participants
 - Michael De Lisio
 - Brandon Joubran
 - Alexei Blinov
@@ -24,8 +25,8 @@ Participants:
 - Xiaoyang/William Wu
 - Yifei/Miko Gao
 
-Team Capacity:
-- 
+## Team Capacity
+- Each team member has about 2 ideal days per sprint due to school conditions. Since there are 6 group members, the team capacity is 12 for a single sprint.
 
 User Story Ticket Number on Jira: User Story Name
 

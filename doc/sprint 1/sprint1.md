@@ -7,6 +7,7 @@ The last user story to be completed in Sprint 1 is *Select Main Menu Items* whic
 Also, we will discuss the system design at a high level and the framework of the code base as a group.
 
 *Summary:*
+
 *User Stories to Complete for Sprint 1:*
 - THEB-5: Log In
 - THEB-15: Sign Up
@@ -27,6 +28,9 @@ Also, we will discuss the system design at a high level and the framework of the
 
 ## Team Capacity
 - Each team member has about 2 ideal days per sprint due to school conditions. Since there are 6 group members, the team capacity is 12 for a single sprint.
+
+
+## User Stories
 
 User Story Ticket Number on Jira: User Story Name
 

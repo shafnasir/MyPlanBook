@@ -18,61 +18,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/bodyWeightDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginRight="15sp"
+            android:background="@drawable/round_outline"
+            android:gravity="center"
+            android:padding="15sp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="30sp"
+            app:fontFamily="sans-serif-thin" />
+
         <LinearLayout
             android:id="@+id/inputWeightLayout"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/inputWeightEditText"
+                android:id="@+id/bodyWeightsInputTextField"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="5"
-                android:hint="Weight"
-                android:inputType="number"
+                android:ems="6"
+                android:inputType="textPersonName"
+                android:background="@drawable/round_outline_bordered"
+                android:layout_marginTop="15sp"
+                android:layout_marginLeft="15sp"
                 android:textColor="#000000"
-                android:textColorHint="#948A8A"
-                android:textSize="30sp" />
-
-            <ToggleButton
-                android:id="@+id/toggleUnitsButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
-                android:layout_weight="1"
-                android:background="#B4FC5B"
-                android:text="ToggleButton"
-                android:textColor="#000000"
-                android:textOff="KG"
-                android:textOn="LBS"
-                android:textSize="20sp" />
+                android:textSize="30sp"
+                app:fontFamily="sans-serif-thin"
+                android:padding="15sp"
+                android:hint="WEIGHT"
+                android:textColorHint="#000000"/>
 
             <Button
-                android:id="@+id/enterWeightButton"
+                android:id="@+id/bodyWeightsEnterButton"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
-                android:layout_weight="1"
-                android:background="#B4FC5B"
-                android:text="Enter"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="558dp">
-
-            <LinearLayout
-                android:id="@+id/weightsScrollLayout"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+                android:layout_weight="1"
+                android:background="@drawable/round_outline_bordered"
+                android:layout_marginTop="15sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:fontFamily="sans-serif-thin"
+                android:padding="15sp"
+                android:text="ENTER" />
+        </LinearLayout>
 
     </LinearLayout>
 

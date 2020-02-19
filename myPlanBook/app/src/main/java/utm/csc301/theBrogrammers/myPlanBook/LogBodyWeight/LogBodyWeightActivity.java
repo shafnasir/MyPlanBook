@@ -1,26 +1,61 @@
 package utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
+import java.util.Calendar;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LogBodyWeightActivity extends AppCompatActivity {
+
+    CalendarView calendarView;
+    LinearLayout calendarLayout;
+    TextView myCalendarDate;
+    BodyWeightsModel bodyWeightsModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_body_weight);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        // Set Up Calendar
+        calendarView = new CalendarView(this);
+        calendarView.setBackgroundResource(R.drawable.round_outline_bordered);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(45,45,45,0);
+        calendarView.setLayoutParams(params);
+        calendarLayout = (LinearLayout) findViewById(R.id.layoutBodyWeights);
+        calendarLayout.addView(calendarView, 0);
+        myCalendarDate = (TextView)findViewById(R.id.bodyWeightDate);
+
+        // Set current Date
+        Calendar newCalendar = Calendar.getInstance();
+        int currentYear = newCalendar.get(Calendar.YEAR);
+        int currentMonth = newCalendar.get(Calendar.MONTH) + 1;
+        int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
+        String currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
+        myCalendarDate.setText(currentDate);
+
+        bodyWeightsModel = new BodyWeightsModel();
+        String bodyWeight = bodyWeightsModel.getWeight(currentDate);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                myCalendarDate.setText(date);
+                bodyWeightsModel.getWeight(date);
+            }
+        });
+
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         LinearLayout weightsScrollLayout = (LinearLayout) findViewById(R.id.weightsScrollLayout);
@@ -79,18 +114,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                     weightsScrollLayout.addView(newBodyWeight);
                 }
             }
-        });
-
-        /*FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
         });*/
-
-        //
     }
 
 }

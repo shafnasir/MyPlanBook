@@ -1,9 +1,6 @@
 package utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class BodyWeightsModel {
 
@@ -48,15 +45,15 @@ public class BodyWeightsModel {
 
     public HashMap<String,String> getBodyWeightsForMonth(String date){
         String[] split = date.split("/");
-        String month = split[0];
+        String month = split[1];
         String year = split[2];
 
-        HashMap<String,String> bodyWeightsForMonth = new HashMap<String, String>;
+        HashMap<String,String> bodyWeightsForMonth = new HashMap<String, String>();
 
         for (int i = 1; i < 32; i++) {
-            String testDate = month + "/";
-            if (){
-
+            String testDate = String.valueOf(i) + "/" + month + "/" + year;
+            if (this.bodyWeightsByDate.containsKey(testDate)){
+                bodyWeightsForMonth.put(testDate, this.bodyWeightsByDate.get(testDate));
             }
         }
 

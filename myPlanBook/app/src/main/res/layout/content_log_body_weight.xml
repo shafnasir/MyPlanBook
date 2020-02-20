@@ -9,69 +9,103 @@
     tools:context=".LogBodyWeight.LogBodyWeightActivity"
     tools:showIn="@layout/activity_log_body_weight">
 
-    <LinearLayout
-        android:id="@+id/layoutBodyWeights"
+    <ScrollView
+        android:id="@+id/bodyWeightsScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/bodyWeightDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:layout_marginTop="15sp"
-            android:layout_marginRight="15sp"
-            android:background="@drawable/round_outline"
-            android:gravity="center"
-            android:padding="15sp"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="30sp"
-            app:fontFamily="sans-serif-thin" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="243dp">
 
         <LinearLayout
-            android:id="@+id/inputWeightLayout"
+            android:id="@+id/layoutBodyWeights"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/bodyWeightsInputTextField"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/bodyWeightDate"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="6"
-                android:inputType="textPersonName"
-                android:background="@drawable/round_outline_bordered"
-                android:layout_marginTop="15sp"
                 android:layout_marginLeft="15sp"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:fontFamily="sans-serif-thin"
-                android:padding="15sp"
-                android:hint="WEIGHT"
-                android:textColorHint="#000000"/>
-
-            <Button
-                android:id="@+id/bodyWeightsEnterButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/round_outline_bordered"
                 android:layout_marginTop="15sp"
-                android:layout_marginLeft="15sp"
                 android:layout_marginRight="15sp"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:fontFamily="sans-serif-thin"
+                android:background="@drawable/round_outline"
+                android:gravity="center"
                 android:padding="15sp"
-                android:text="ENTER" />
-        </LinearLayout>
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-thin" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/inputWeightLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/inputWeightEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_outline_bordered"
+                    android:ems="6"
+                    android:hint="WEIGHT"
+                    android:inputType="number"
+                    android:padding="15sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000"
+                    android:textSize="20sp"
+                    app:fontFamily="sans-serif-thin" />
+
+                <Button
+                    android:id="@+id/unitsToggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_outline_bordered"
+                    android:padding="15sp"
+                    android:text="KG"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:fontFamily="sans-serif-thin" />
+
+                <Button
+                    android:id="@+id/bodyWeightsEnterButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginRight="15sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_outline_bordered"
+                    android:padding="15sp"
+                    android:text="ENTER"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:fontFamily="sans-serif-thin" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bodyWeightTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="15sp"
+                android:background="@drawable/round_outline"
+                android:gravity="center"
+                android:padding="15sp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-thin" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

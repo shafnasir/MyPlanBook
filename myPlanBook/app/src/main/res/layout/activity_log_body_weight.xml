@@ -10,42 +10,35 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#B4FC5B"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:background="#B4FC5B"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/include"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Body Weights"
+            android:id="@+id/textViewBodyWeightsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="BODY WEIGHTS"
             android:textColor="#000000"
-            android:textSize="36sp"
+            android:textSize="35sp"
+            app:fontFamily="sans-serif-thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/toolbar"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <include
             android:id="@+id/include"
             layout="@layout/content_log_body_weight"
-            android:layout_width="411dp"
-            android:layout_height="643dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@id/textViewBodyWeightsTitle"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

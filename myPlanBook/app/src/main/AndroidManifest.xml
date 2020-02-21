@@ -48,6 +48,7 @@
         <activity
             android:name=".LogBodyWeight.LogBodyWeightActivity"
             android:label="@string/title_activity_log_body_weight"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

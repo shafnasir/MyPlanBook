@@ -1,4 +1,4 @@
-package utm.csc301.theBrogrammers.myPlanBook;
+package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -25,6 +27,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.Random;
 
+import utm.csc301.theBrogrammers.myPlanBook.R;
 import utm.csc301.theBrogrammers.myPlanBook.R.drawable;
 
 import static utm.csc301.theBrogrammers.myPlanBook.R.id.previewExpChart;
@@ -36,6 +39,8 @@ public class FinancialHubActivity extends AppCompatActivity {
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
 
+     private Button setGoalsBtn, loadTrsBtn, mngFinBtn;
+
 
 
 
@@ -46,6 +51,7 @@ public class FinancialHubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_hub);
         graph = findViewById(previewExpChart);
+        setButtonListeners();
 
         styleGraph();
         setExpenditureData();
@@ -146,6 +152,32 @@ public class FinancialHubActivity extends AppCompatActivity {
             if (x == input_range-1) lastly = y;
         }
         return entries;
+    }
+
+    private void setButtonListeners(){
+        setGoalsBtn = findViewById(R.id.set_goals);
+        setGoalsBtn.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                // Intent here for set goals page
+            }
+        });
+
+        loadTrsBtn = findViewById(R.id.import_transactions);
+        setGoalsBtn.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                // Intent here for import transactions page
+            }
+        });
+
+        mngFinBtn = findViewById(R.id.manage_finances);
+        mngFinBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                // Intent here for import manage finances page
+            }
+        });
+
     }
 
 

@@ -22,7 +22,7 @@
             android:name=".ui.login.MainLoginActivity"
             android:label="@string/title_activity_main_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FinancialHubActivity" />
+        <activity android:name=".FinancialHub.FinancialHubActivity" />
         <activity
             android:name=".ChangePassword"
             android:label="@string/title_activity_change_password"

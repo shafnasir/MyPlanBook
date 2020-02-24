@@ -36,6 +36,14 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileSetting"
+            android:label="@string/title_activity_profileSetting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".calendar.AddEvent"
             android:label="@string/title_activity_add_event"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -61,5 +69,7 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

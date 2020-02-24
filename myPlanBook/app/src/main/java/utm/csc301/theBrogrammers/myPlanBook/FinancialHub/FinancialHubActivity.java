@@ -3,6 +3,7 @@ package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -58,6 +59,9 @@ public class FinancialHubActivity extends AppCompatActivity {
         if (doProjDemo) setProjectionData();
     }
 
+    /**
+     * Style this classes chart axes.
+     */
     public void styleGraph() {
         // Set x,y axis dimensions
         XAxis xAxis = graph.getXAxis();
@@ -82,6 +86,10 @@ public class FinancialHubActivity extends AppCompatActivity {
         graph.setPinchZoom(true);
     }
 
+
+    /**
+     * Generate data to be displayed by the preview chart.
+     */
     private void setExpenditureData() {
         // Generate new random data to demo
         ArrayList<Entry> entries = genData(6, 100);
@@ -97,7 +105,11 @@ public class FinancialHubActivity extends AppCompatActivity {
         graph.setData(new LineData(dataSets));
     }
 
-    // For the demo
+    /**
+     * Generate data to be displayed by the preview chart; this data
+     * is generated only when a yearly expenditure goal has been set
+     * by the user.
+     */
     private void setProjectionData(){
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(5, lastly));
@@ -112,7 +124,9 @@ public class FinancialHubActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Style how the data and lines are represented in the preview chart.
+     */
     private void setDataSetStyling(LineDataSet dSet, boolean isProj){
         int fill = drawable.blue_gradient;
         int colour = Color.DKGRAY;
@@ -154,6 +168,11 @@ public class FinancialHubActivity extends AppCompatActivity {
         return entries;
     }
 
+
+    /**
+     * Handle button events; create appropriate activities due to
+     * certain button presses.
+     */
     private void setButtonListeners(){
         setGoalsBtn = findViewById(R.id.set_goals);
         setGoalsBtn.setOnClickListener(new View.OnClickListener(){
@@ -168,6 +187,8 @@ public class FinancialHubActivity extends AppCompatActivity {
 
             public void onClick(View v){
                 // Intent here for import transactions page
+                startActivity(new Intent(FinancialHubActivity.this,
+                        LoadTransactions.class));
             }
         });
 

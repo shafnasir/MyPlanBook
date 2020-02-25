@@ -9,6 +9,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
@@ -17,12 +27,17 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LogBodyWeightActivity extends AppCompatActivity {
 
-    CalendarView calendarView;
-    LinearLayout calendarLayout;
-    TextView myCalendarDate;
-    TextView bodyWeightTextView;
-    BodyWeightsModel bodyWeightsModel;
-    Button unitsToggleButton;
+    private CalendarView calendarView;
+    private LinearLayout calendarLayout;
+    private TextView myCalendarDate;
+    private TextView bodyWeightTextView;
+    private BodyWeightsModel bodyWeightsModel;
+    private Button unitsToggleButton;
+    private LineChart bodyWeightsMonthlyGraph;
+
+    private final String[] dayStrings = {"1", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +78,11 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         else {
             bodyWeightTextView.setText(bodyWeight);
         }
+
+        // Test out Graph
+        bodyWeightsMonthlyGraph = (LineChart) findViewById(R.id.bodyWeightsGraph);
+        this.styleGraph();
+        this.setBodyWeightData(String.valueOf(currentMonth));
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -131,4 +151,49 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         });
     }
 
+    public void styleGraph() {
+        // Set x,y axis dimensions
+        XAxis xAxis = bodyWeightsMonthlyGraph.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
+        //xAxis.setAxisMaximum(11f);
+        //xAxis.setAxisMinimum(0f);
+
+        YAxis leftAxis = bodyWeightsMonthlyGraph.getAxisLeft();
+        leftAxis.setEnabled(false);
+        leftAxis.removeAllLimitLines();
+        //leftAxis.setAxisMaximum(100f);
+        //leftAxis.setAxisMinimum(0f);
+
+        bodyWeightsMonthlyGraph.getDescription().setEnabled(false);
+        bodyWeightsMonthlyGraph.getXAxis().setDrawGridLines(false);
+        bodyWeightsMonthlyGraph.getAxisRight().setEnabled(true);
+        bodyWeightsMonthlyGraph.getAxisRight().setDrawAxisLine(false);
+        bodyWeightsMonthlyGraph.getAxisRight().setDrawGridLines(false);
+    }
+
+    private void setBodyWeightData (String month) {
+        // Generate new random data to demo
+        ArrayList<Entry> entries = genData(month);
+        LineDataSet dSet = new LineDataSet(entries, "Body Weights");
+        //setDataSetStyling(dSet, false);
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dSet);
+        bodyWeightsMonthlyGraph.setData(new LineData(dataSets));
+    }
+
+    private ArrayList<Entry> genData(String month){
+        ArrayList<Entry> entries = new ArrayList<>();
+        entries.add(new Entry (0,0));
+        entries.add(new Entry (1,1));
+        entries.add(new Entry (2,2));
+        entries.add(new Entry (3,3));
+        entries.add(new Entry (4,4));
+        entries.add(new Entry (5,5));
+        entries.add(new Entry (6,6));
+        entries.add(new Entry (7,7));
+        entries.add(new Entry (8,8));
+        entries.add(new Entry (9,9));
+        entries.add(new Entry (10,10));
+        return entries;
+    }
 }

@@ -96,7 +96,6 @@
                 android:layout_marginLeft="15sp"
                 android:layout_marginTop="15sp"
                 android:layout_marginRight="15sp"
-                android:layout_marginBottom="15sp"
                 android:background="@drawable/round_outline"
                 android:gravity="center"
                 android:padding="15sp"
@@ -104,6 +103,16 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:fontFamily="sans-serif-thin" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/bodyWeightsGraph"
+                android:layout_width="match_parent"
+                android:layout_height="400sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="15sp"
+                android:background="@drawable/round_outline" />
 
         </LinearLayout>
     </ScrollView>

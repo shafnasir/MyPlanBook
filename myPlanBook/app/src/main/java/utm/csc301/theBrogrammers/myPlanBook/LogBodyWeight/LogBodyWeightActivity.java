@@ -1,5 +1,6 @@
 package utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,11 +33,14 @@ public class LogBodyWeightActivity extends AppCompatActivity {
     private LinearLayout calendarLayout;
     private TextView myCalendarDate;
     private TextView bodyWeightTextView;
+    private TextView bodyWeightsGraphMonth;
     private BodyWeightsModel bodyWeightsModel;
     private Button unitsToggleButton;
+    private Button enterWeightButton;
     private LineChart bodyWeightsMonthlyGraph;
+    private int currentMonth;
 
-    private final String[] dayStrings = {"1", "2", "3", "4", "5", "6", "7",
+    private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
 
@@ -59,7 +64,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         // Set current Date
         Calendar newCalendar = Calendar.getInstance();
         int currentYear = newCalendar.get(Calendar.YEAR);
-        int currentMonth = newCalendar.get(Calendar.MONTH) + 1;
+        currentMonth = newCalendar.get(Calendar.MONTH) + 1;
         int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
         String currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
         myCalendarDate.setText(currentDate);
@@ -73,25 +78,37 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         bodyWeightTextView = (TextView)findViewById(R.id.bodyWeightTextView);
 
         if (bodyWeight == null) {
-            bodyWeightTextView.setVisibility(View.INVISIBLE);
+            //bodyWeightTextView.setVisibility(View.INVISIBLE);
+            bodyWeightTextView.setText("");
         }
         else {
             bodyWeightTextView.setText(bodyWeight);
         }
+
+        bodyWeightsGraphMonth = (TextView) findViewById(R.id.bodyWeightsGraphMonth);
+        this.setMonth(String.valueOf(currentMonth));
 
         // Test out Graph
         bodyWeightsMonthlyGraph = (LineChart) findViewById(R.id.bodyWeightsGraph);
         this.styleGraph();
         this.setBodyWeightData(String.valueOf(currentMonth));
 
+        // Calendar View
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                 myCalendarDate.setText(date);
+                if (currentMonth != month+1){
+                    currentMonth = month + 1;
+                    setMonth(String.valueOf(currentMonth));
+                    setBodyWeightData(String.valueOf(currentMonth));
+                }
+
                 String weight = bodyWeightsModel.getWeight(date);
                 if (weight == null) {
-                    bodyWeightTextView.setVisibility(View.INVISIBLE);
+                    //bodyWeightTextView.setVisibility(View.INVISIBLE);
+                    bodyWeightTextView.setText("");
                 }
                 else {
                     bodyWeightTextView.setText(weight);
@@ -100,7 +117,8 @@ public class LogBodyWeightActivity extends AppCompatActivity {
             }
         });
 
-        Button enterWeightButton = (Button) findViewById(R.id.bodyWeightsEnterButton);
+        // Enter Button
+        enterWeightButton = (Button) findViewById(R.id.bodyWeightsEnterButton);
         enterWeightButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -124,17 +142,21 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                     String weightInLbsKg = String.format("%.1f", weight)+ " LBS: " + String.format("%.1f", weight*(1/2.20462)) + " KG";
                     bodyWeightsModel.addWeight(date, weightInLbsKg);
                     bodyWeightTextView.setText(weightInLbsKg);
-                    bodyWeightTextView.setVisibility(View.VISIBLE);
+                    //bodyWeightTextView.setVisibility(View.VISIBLE);
                 }
                 else {
                     String weightInLbsKg = String.format("%.1f", weight*(2.20462))+ " LBS: " + String.format("%.1f", weight) + " KG";
                     bodyWeightsModel.addWeight(date, weightInLbsKg);
                     bodyWeightTextView.setText(weightInLbsKg);
-                    bodyWeightTextView.setVisibility(View.VISIBLE);
+                    //bodyWeightTextView.setVisibility(View.VISIBLE);
                 }
+
+                setMonth(String.valueOf(currentMonth));
+                setBodyWeightData(String.valueOf(currentMonth));
             }
         });
 
+        // Units Toggle Button
         unitsToggleButton = (Button) findViewById(R.id.unitsToggleButton);
         unitsToggleButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -151,7 +173,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         });
     }
 
-    public void styleGraph() {
+    private void styleGraph() {
         // Set x,y axis dimensions
         XAxis xAxis = bodyWeightsMonthlyGraph.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
@@ -172,28 +194,114 @@ public class LogBodyWeightActivity extends AppCompatActivity {
     }
 
     private void setBodyWeightData (String month) {
-        // Generate new random data to demo
-        ArrayList<Entry> entries = genData(month);
-        LineDataSet dSet = new LineDataSet(entries, "Body Weights");
-        //setDataSetStyling(dSet, false);
+        ArrayList<Entry>[] dataEntries = genData(myCalendarDate.getText().toString());
+        LineDataSet dSetLbs = new LineDataSet(dataEntries[0], "BODY WEIGHTS IN LBS");
+        LineDataSet dSetKg = new LineDataSet(dataEntries[1], "BODY WEIGHTS IN KG");
+
+        setDataSetStylingLbs(dSetLbs);
+        setDataSetStylingKg(dSetKg);
+
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(dSet);
+        dataSets.add(dSetLbs);
+        dataSets.add(dSetKg);
         bodyWeightsMonthlyGraph.setData(new LineData(dataSets));
     }
 
-    private ArrayList<Entry> genData(String month){
-        ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry (0,0));
-        entries.add(new Entry (1,1));
-        entries.add(new Entry (2,2));
-        entries.add(new Entry (3,3));
-        entries.add(new Entry (4,4));
-        entries.add(new Entry (5,5));
-        entries.add(new Entry (6,6));
-        entries.add(new Entry (7,7));
-        entries.add(new Entry (8,8));
-        entries.add(new Entry (9,9));
-        entries.add(new Entry (10,10));
-        return entries;
+    private ArrayList<Entry>[] genData (String calendarDate){
+        ArrayList<Entry> entriesLbs = new ArrayList<>();
+        ArrayList<Entry> entriesKg = new ArrayList<>();
+
+        HashMap<String, String> bodyWeightsForMonth = bodyWeightsModel.getBodyWeightsForMonth(calendarDate);
+
+        String[] splitDate = calendarDate.split("/");
+        String month = splitDate[1];
+        String year = splitDate[2];
+
+        String[] splitWeights;
+        String weightInLbs;
+        String weightInKg;
+
+        for (int i = 1; i < 32; i++) {
+            String testDate = String.valueOf(i) + "/" + month + "/" + year;
+            if (bodyWeightsForMonth.containsKey(testDate)){
+                splitWeights = bodyWeightsForMonth.get(testDate).split(" ");
+                weightInLbs = splitWeights[0];
+                weightInKg = splitWeights[2];
+
+                entriesLbs.add(new Entry (i, Float.valueOf(weightInLbs)));
+                entriesKg.add(new Entry (i, Float.valueOf(weightInKg)));
+            }
+        }
+
+        ArrayList<Entry>[] dataSets = new ArrayList[2];
+        dataSets[0] = entriesLbs;
+        dataSets[1] = entriesKg;
+
+        return dataSets;
+    }
+
+    private void setDataSetStylingLbs(LineDataSet dSet){
+        int colour = Color.BLUE;
+        float lineWidth = 3f;
+
+        dSet.setDrawCircleHole(false);
+        dSet.setDrawValues(false);
+        dSet.setLineWidth(lineWidth);
+        dSet.setCircleRadius(lineWidth);
+        dSet.setColor(colour);
+        dSet.setCircleColor(colour);
+    }
+
+    private void setDataSetStylingKg(LineDataSet dSet){
+        int colour = Color.RED;
+        float lineWidth = 3f;
+
+        dSet.setDrawCircleHole(false);
+        dSet.setDrawValues(false);
+        dSet.setLineWidth(lineWidth);
+        dSet.setCircleRadius(lineWidth);
+        dSet.setColor(colour);
+        dSet.setCircleColor(colour);
+    }
+
+    private void setMonth(String month){
+        String monthName = "";
+        if (month.equals("1")) {
+            monthName = "JANUARY";
+        }
+        else if (month.equals("2")) {
+            monthName = "FEBRUARY";
+        }
+        else if (month.equals("3")) {
+            monthName = "MARCH";
+        }
+        else if (month.equals("4")) {
+            monthName = "APRIL";
+        }
+        else if (month.equals("5")) {
+            monthName = "MAY";
+        }
+        else if (month.equals("6")) {
+            monthName = "JUNE";
+        }
+        else if (month.equals("7")) {
+            monthName = "JULY";
+        }
+        else if (month.equals("8")) {
+            monthName = "AUGUST";
+        }
+        else if (month.equals("9")) {
+            monthName = "SEPTEMBER";
+        }
+        else if (month.equals("10")) {
+            monthName = "OCTOBER";
+        }
+        else if (month.equals("11")) {
+            monthName = "NOVEMBER";
+        }
+        else if (month.equals("12")) {
+            monthName = "DECEMBER";
+        }
+        bodyWeightsGraphMonth.setText(monthName);
     }
 }

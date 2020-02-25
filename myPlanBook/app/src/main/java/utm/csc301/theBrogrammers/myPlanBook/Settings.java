@@ -47,6 +47,14 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        LogoutButton = findViewById(R.id.Profile);
+        LogoutButton.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                clickProfile();
+            }
+        });
+
     }
 
     public void clickchangepass() {
@@ -61,6 +69,11 @@ public class Settings extends AppCompatActivity {
 
     public void clickfeedback(){
         Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
+    public void clickProfile(){
+        Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
     }
 }

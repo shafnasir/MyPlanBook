@@ -5,16 +5,18 @@ public class BankTransaction {
     private String institution;
     private int cardNum, amount;
     private boolean isDebit;
+    private String date;
 
     // Empty constructor
     public BankTransaction(){}
 
-    public BankTransaction(String institution,int cardNum, int amount,
-                           boolean isDebit, String date){
+    public BankTransaction(String date, String institution, int amount,
+                           boolean isDebit, int cardNum){
         this.institution = institution;
         this.amount = amount;
         this.isDebit = isDebit;
         this.cardNum = cardNum;
+        this.date = date;
     }
 
     public String getInstitution() {

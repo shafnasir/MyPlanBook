@@ -6,16 +6,16 @@
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".calendar.Calendar"
+    tools:context=".calendar.CalendarActivity"
     tools:showIn="@layout/activity_calendar">
 
     <TextView
-        android:id="@+id/myCalendarDate"
+        android:id="@+id/myCalendarMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="48dp"
-        android:text="Important Dates"
+        android:text="Month"
         android:textColor="#ffffff"
         android:textAlignment="center"
         android:textSize="28sp">
@@ -29,13 +29,23 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content">
 
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_gravity="center"
+        <com.github.sundeepk.compactcalendarview.CompactCalendarView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/compactcalendar_view"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="250dp"
 
-        </CalendarView>
+            app:compactCalendarDisplayOtherMonthDays="true"
+            app:compactCalendarOtherMonthDaysTextColor="@color/colorAccent"
+            app:compactCalendarTargetHeight="250dp"
+            app:compactCalendarTextSize="12sp"
+            app:compactCalendarBackgroundColor="@color/colorPrimary"
+            app:compactCalendarTextColor="#fff"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorAccent"
+            app:compactCalendarMultiEventIndicatorColor="#fff">
+
+        </com.github.sundeepk.compactcalendarview.CompactCalendarView>
 
     </LinearLayout>
 
@@ -53,5 +63,18 @@
 
     </Button>
 
+    <TextView
+        android:id="@+id/myEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Event Details"
+        android:textColor="#ffffff"
+        android:textAlignment="gravity"
+        android:textSize="18sp"
+        android:maxLines="4">
+
+    </TextView>
 
 </LinearLayout>

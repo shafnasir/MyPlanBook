@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
-import utm.csc301.theBrogrammers.myPlanBook.calendar.Calendar;
+import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton button;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         cal.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, Calendar.class);
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
 
             }

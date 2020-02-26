@@ -34,7 +34,7 @@ public class FinancialHubActivity extends AppCompatActivity {
      final String[] monthStrings = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
              "Aug", "Sep", "Oct", "Nov", "Dec"};
      int lastly; // the last month's expenditure - for demo purposes
-     boolean doProjDemo = false;
+     boolean doProjDemo = true;
 
 
 

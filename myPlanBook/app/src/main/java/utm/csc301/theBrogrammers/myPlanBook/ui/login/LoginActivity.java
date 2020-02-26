@@ -2,6 +2,7 @@ package utm.csc301.theBrogrammers.myPlanBook.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -23,6 +24,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHubActivity;
@@ -50,6 +56,10 @@ public class LoginActivity extends AppCompatActivity {
         Button login = findViewById(R.id.LoginButton);
         Button signup = findViewById(R.id.SignupButton);
 
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference ref = db.getReference();
+        //ref.child("users").child("test").setValue("hi");
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,14 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                 /////////////
-
-//                 clickbutton();
-
-//                 /////////////
-//                 loadingProgressBar.setVisibility(View.VISIBLE);
-//                 loginViewModel.login(usernameEditText.getText().toString(),
-//                         passwordEditText.getText().toString());
+//
                 
                 Intent intent = new Intent(LoginActivity.this, Signup.class);
                 startActivity(intent);

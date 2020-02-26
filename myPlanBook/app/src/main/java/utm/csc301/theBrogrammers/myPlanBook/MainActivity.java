@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialHubActivity;
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsActivity;
 

@@ -1,12 +1,16 @@
-package utm.csc301.theBrogrammers.myPlanBook;
+package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -25,6 +29,9 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.Random;
 
+import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
+import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
+import utm.csc301.theBrogrammers.myPlanBook.R;
 import utm.csc301.theBrogrammers.myPlanBook.R.drawable;
 
 import static utm.csc301.theBrogrammers.myPlanBook.R.id.previewExpChart;
@@ -36,6 +43,8 @@ public class FinancialHubActivity extends AppCompatActivity {
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
 
+     private Button setGoalsBtn, impTrsBtn, mngFinBtn;
+
 
 
 
@@ -45,13 +54,16 @@ public class FinancialHubActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_hub);
+        //setButtonListeners(savedInstanceState);
         graph = findViewById(previewExpChart);
-
         styleGraph();
         setExpenditureData();
         if (doProjDemo) setProjectionData();
     }
 
+    /**
+     * Style this classes chart axes.
+     */
     public void styleGraph() {
         // Set x,y axis dimensions
         XAxis xAxis = graph.getXAxis();
@@ -76,6 +88,10 @@ public class FinancialHubActivity extends AppCompatActivity {
         graph.setPinchZoom(true);
     }
 
+
+    /**
+     * Generate data to be displayed by the preview chart.
+     */
     private void setExpenditureData() {
         // Generate new random data to demo
         ArrayList<Entry> entries = genData(6, 100);
@@ -91,7 +107,11 @@ public class FinancialHubActivity extends AppCompatActivity {
         graph.setData(new LineData(dataSets));
     }
 
-    // For the demo
+    /**
+     * Generate data to be displayed by the preview chart; this data
+     * is generated only when a yearly expenditure goal has been set
+     * by the user.
+     */
     private void setProjectionData(){
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(5, lastly));
@@ -106,7 +126,9 @@ public class FinancialHubActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Style how the data and lines are represented in the preview chart.
+     */
     private void setDataSetStyling(LineDataSet dSet, boolean isProj){
         int fill = drawable.blue_gradient;
         int colour = Color.DKGRAY;
@@ -146,6 +168,11 @@ public class FinancialHubActivity extends AppCompatActivity {
             if (x == input_range-1) lastly = y;
         }
         return entries;
+    }
+
+    public void switchToImportScreen(View v){
+        Intent myIntent = new Intent(getApplicationContext(),   LoadTransactions.class);
+        startActivity(myIntent);
     }
 
 

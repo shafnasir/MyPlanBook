@@ -3,20 +3,14 @@ package utm.csc301.theBrogrammers.myPlanBook;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
-import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarActivity;
+import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ImageButton button;
@@ -37,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         cal.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                Intent intent = new Intent(MainActivity.this, CalendarEventsActivity.class);
                 startActivity(intent);
 
             }

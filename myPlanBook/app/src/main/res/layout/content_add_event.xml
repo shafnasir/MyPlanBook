@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".calendar.AddEvent"
+    tools:context=".calendar.CalendarEventsModel"
     tools:showIn="@layout/content_add_event">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -33,11 +33,13 @@
 
             <TextView
                 style="@style/createEventToolbarItems"
+                android:clickable="true"
                 android:id="@+id/tv_cancel"
                 android:text="cancel" />
 
             <TextView
                 style="@style/createEventToolbarItems"
+                android:clickable="true"
                 android:id="@+id/tv_save"
                 android:text="save" />
 
@@ -51,6 +53,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/currentDate"
             android:text="placeholder for date"
             android:textSize="20sp"
             android:layout_gravity="center"
@@ -59,32 +62,46 @@
         </TextView>
 
         <EditText
+            android:id="@+id/eventDetails"
             android:layout_width="match_parent"
             android:paddingTop="10dp"
             android:layout_margin="20dp"
             android:textSize="20dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
-            android:text="Title"
+            android:hint="Event details"
             android:background="@null"/>
         <View
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
-        <Button
-            android:id="@+id/addEvent"
-            android:layout_gravity="center"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="80dp"
-            android:text="Save Event"
-            android:textColor="#ffff"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+        <TimePicker
+            android:id="@+id/timePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        </Button>
+        </TimePicker>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Choose a color for your event"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <com.divyanshu.colorseekbar.ColorSeekBar
+            android:id="@+id/colorSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </LinearLayout>
 

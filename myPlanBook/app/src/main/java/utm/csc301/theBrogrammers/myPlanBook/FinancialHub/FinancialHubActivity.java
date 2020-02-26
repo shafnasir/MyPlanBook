@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,6 +29,8 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.Random;
 
+import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
+import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 import utm.csc301.theBrogrammers.myPlanBook.R.drawable;
 
@@ -40,7 +43,7 @@ public class FinancialHubActivity extends AppCompatActivity {
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
 
-     private Button setGoalsBtn, loadTrsBtn, mngFinBtn;
+     private Button setGoalsBtn, impTrsBtn, mngFinBtn;
 
 
 
@@ -51,9 +54,8 @@ public class FinancialHubActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_hub);
+        //setButtonListeners(savedInstanceState);
         graph = findViewById(previewExpChart);
-        setButtonListeners();
-
         styleGraph();
         setExpenditureData();
         if (doProjDemo) setProjectionData();
@@ -168,37 +170,9 @@ public class FinancialHubActivity extends AppCompatActivity {
         return entries;
     }
 
-
-    /**
-     * Handle button events; create appropriate activities due to
-     * certain button presses.
-     */
-    private void setButtonListeners(){
-        setGoalsBtn = findViewById(R.id.set_goals);
-        setGoalsBtn.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-                // Intent here for set goals page
-            }
-        });
-
-        loadTrsBtn = findViewById(R.id.import_transactions);
-        setGoalsBtn.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-                // Intent here for import transactions page
-                startActivity(new Intent(FinancialHubActivity.this,
-                        LoadTransactions.class));
-            }
-        });
-
-        mngFinBtn = findViewById(R.id.manage_finances);
-        mngFinBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                // Intent here for import manage finances page
-            }
-        });
-
+    public void switchToImportScreen(View v){
+        Intent myIntent = new Intent(getApplicationContext(),   LoadTransactions.class);
+        startActivity(myIntent);
     }
 
 

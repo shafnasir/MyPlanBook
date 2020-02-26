@@ -8,18 +8,6 @@ public class TransactionCollection {
     private ArrayList<BankTransaction> transactions;
     private int[] mi; // indices mapping to positions in a csv file
 
-    public TransactionCollection(){
-        this.date = "";
-        this.transactions = new ArrayList<>();
-        this.mi = new int[5];
-    }
-
-    public TransactionCollection(String date){
-        this.date = date;
-        this.transactions = new ArrayList<>();
-        this.mi = new int[5];
-    }
-
     public TransactionCollection(String date, int[] indexMap){
         this.date = date;
         this.transactions = new ArrayList<>();
@@ -32,14 +20,12 @@ public class TransactionCollection {
         this.mi = indexMap;
     }
 
-
-
     public void addTransaction(BankTransaction transaction){
         this.transactions.add(transaction);
 
     }
 
-    public boolean importTransaction(String[] rowParameters){
+    public boolean importSingleTransaction(String[] rowParameters){
         if (rowParameters.length != this.mi.length) return false;
 
         String date = rowParameters[mi[0]];

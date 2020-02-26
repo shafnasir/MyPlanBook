@@ -45,7 +45,6 @@ public class CalendarEventsModel extends AppCompatActivity {
         colorSeekBar = findViewById(R.id.colorSeekBar);
         timePicker = findViewById(R.id.timePicker);
 
-
         dateClickedOn = new Date();
         dateClickedOn.setTime(getIntent().getLongExtra("Date", -1));
 
@@ -86,6 +85,5 @@ public class CalendarEventsModel extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

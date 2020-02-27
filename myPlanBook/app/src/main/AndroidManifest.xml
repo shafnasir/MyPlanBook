@@ -12,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FinancialHub.LoadTransactions"></activity>
+        <activity
+            android:name=".Feedback"
+            android:label="Feedback"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LogBodyFat.LogBodyFatActivity"
             android:label="@string/title_activity_log_body_fat"

@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "666533481373",
+    "firebase_url": "https://myplanbook-a1467.firebaseio.com",
+    "project_id": "myplanbook-a1467",
+    "storage_bucket": "myplanbook-a1467.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666533481373:android:c43a31aa2d8b6382273d74",
+        "android_client_info": {
+          "package_name": "utm.csc301.theBrogrammers.myPlanBook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666533481373-90mceeuellvpfbltah6jkm3ppop2vgm8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "utm.csc301.theBrogrammers.myPlanBook",
+            "certificate_hash": "ae64e52ff05af5b6e6310cc1c11941443254b574"
+          }
+        },
+        {
+          "client_id": "666533481373-s4uhqsmcpaf7ipk4f5l74ehjulr8eedr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "utm.csc301.theBrogrammers.myPlanBook",
+            "certificate_hash": "333f278f9c4b4a23bcd1c009bf0105db1d1fc82c"
+          }
+        },
+        {
+          "client_id": "666533481373-3vnu3j61dqtvbs9gu558ar9l1mue9fgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ8BbVs76-hhetcBUunbAii9EUneyCiv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666533481373-3vnu3j61dqtvbs9gu558ar9l1mue9fgs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

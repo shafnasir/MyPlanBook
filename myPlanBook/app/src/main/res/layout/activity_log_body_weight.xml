@@ -13,6 +13,28 @@
         android:background="#B4FC5B"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editBodyWeightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"
+            android:clickable="true"
+            android:backgroundTint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bodyWeightDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            android:clickable="true"
+            android:backgroundTint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/textViewBodyWeightsTitle"
             android:layout_width="match_parent"

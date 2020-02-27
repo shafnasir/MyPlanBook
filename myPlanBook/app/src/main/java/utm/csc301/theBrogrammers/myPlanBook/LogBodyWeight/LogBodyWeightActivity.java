@@ -6,6 +6,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +41,12 @@ public class LogBodyWeightActivity extends AppCompatActivity {
     private Button enterWeightButton;
     private LineChart bodyWeightsMonthlyGraph;
     private int currentMonth;
+    private FloatingActionButton editBodyWeightButton;
+    private boolean editMode = false;
+    private FloatingActionButton bodyWeightDeleteButton;
+    private CheckBox bodyWeightCheckBox;
+    private LinearLayout.LayoutParams params1;
+    private LinearLayout.LayoutParams params2;
 
     private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
@@ -52,11 +60,15 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         // Set Up Calendar
         calendarView = new CalendarView(this);
         calendarView.setBackgroundResource(R.drawable.round_outline_bordered);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+        params1 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(45,45,45,0);
-        calendarView.setLayoutParams(params);
+        params1.setMargins(45,45,45,0);
+        params2 = new LinearLayout.LayoutParams(
+                875,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params2.setMargins(45,45,45,0);
+        calendarView.setLayoutParams(params1);
         calendarLayout = (LinearLayout) findViewById(R.id.layoutBodyWeights);
         calendarLayout.addView(calendarView, 0);
         myCalendarDate = (TextView)findViewById(R.id.bodyWeightDate);
@@ -97,6 +109,15 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+                if (editMode == true) {
+                    editBodyWeightButton.setImageResource(R.drawable.edit_pencil);
+                    editMode = false;
+                    bodyWeightDeleteButton.hide();
+                    bodyWeightCheckBox.setVisibility(View.GONE);
+                    bodyWeightTextView.setLayoutParams(params1);
+                }
+
                 String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                 myCalendarDate.setText(date);
                 if (currentMonth != month+1){
@@ -107,12 +128,10 @@ public class LogBodyWeightActivity extends AppCompatActivity {
 
                 String weight = bodyWeightsModel.getWeight(date);
                 if (weight == null) {
-                    //bodyWeightTextView.setVisibility(View.INVISIBLE);
                     bodyWeightTextView.setText("");
                 }
                 else {
                     bodyWeightTextView.setText(weight);
-                    bodyWeightTextView.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -171,26 +190,73 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Edit Floating Button
+        editBodyWeightButton = (FloatingActionButton) findViewById(R.id.editBodyWeightButton);
+        editBodyWeightButton.setImageResource(R.drawable.edit_pencil);
+        editBodyWeightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bodyWeightTextView.getText().toString().isEmpty()){
+                    return;
+                }
+                if (editMode == true) {
+                    editBodyWeightButton.setImageResource(R.drawable.edit_pencil);
+                    editMode = false;
+                    bodyWeightDeleteButton.hide();
+                    bodyWeightCheckBox.setVisibility(View.GONE);
+                    bodyWeightTextView.setLayoutParams(params1);
+                }
+                else {
+                    editBodyWeightButton.setImageResource(R.drawable.ex_cancel);
+                    editMode = true;
+                    bodyWeightDeleteButton.show();
+                    bodyWeightCheckBox.setVisibility(View.VISIBLE);
+                    bodyWeightTextView.setLayoutParams(params2);
+                }
+            }
+        });
+
+        // Delete Floating Button
+        bodyWeightDeleteButton = (FloatingActionButton) findViewById(R.id.bodyWeightDeleteButton);
+        bodyWeightDeleteButton.setImageResource(R.drawable.garbage_can);
+        bodyWeightDeleteButton.hide();
+        bodyWeightDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (editMode == true && !bodyWeightTextView.getText().toString().isEmpty() && bodyWeightCheckBox.isChecked()) {
+                    bodyWeightTextView.setText("");
+                    bodyWeightDeleteButton.hide();
+                    bodyWeightCheckBox.setVisibility(View.GONE);
+                    editMode = false;
+                    editBodyWeightButton.setImageResource(R.drawable.edit_pencil);
+                    bodyWeightTextView.setLayoutParams(params1);
+                    bodyWeightsModel.removeWeight(myCalendarDate.getText().toString());
+                    setBodyWeightData(String.valueOf(currentMonth)); // Update Calendar
+                }
+            }
+        });
+
+        //Check Box
+        bodyWeightCheckBox = (CheckBox) findViewById(R.id.bodyWeightCheckBox);
+        bodyWeightCheckBox.setVisibility(View.GONE);
     }
 
     private void styleGraph() {
         // Set x,y axis dimensions
         XAxis xAxis = bodyWeightsMonthlyGraph.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
-        //xAxis.setAxisMaximum(11f);
-        //xAxis.setAxisMinimum(0f);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         YAxis leftAxis = bodyWeightsMonthlyGraph.getAxisLeft();
-        leftAxis.setEnabled(false);
+        leftAxis.setEnabled(true);
         leftAxis.removeAllLimitLines();
-        //leftAxis.setAxisMaximum(100f);
-        //leftAxis.setAxisMinimum(0f);
 
         bodyWeightsMonthlyGraph.getDescription().setEnabled(false);
         bodyWeightsMonthlyGraph.getXAxis().setDrawGridLines(false);
-        bodyWeightsMonthlyGraph.getAxisRight().setEnabled(true);
-        bodyWeightsMonthlyGraph.getAxisRight().setDrawAxisLine(false);
-        bodyWeightsMonthlyGraph.getAxisRight().setDrawGridLines(false);
+        bodyWeightsMonthlyGraph.getAxisRight().setEnabled(false);
+        bodyWeightsMonthlyGraph.getAxisLeft().setDrawAxisLine(false);
+        bodyWeightsMonthlyGraph.getAxisLeft().setDrawGridLines(false);
     }
 
     private void setBodyWeightData (String month) {

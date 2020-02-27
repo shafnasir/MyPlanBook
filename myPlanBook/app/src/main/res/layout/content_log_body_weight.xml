@@ -89,20 +89,36 @@
                     app:fontFamily="sans-serif-thin" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/bodyWeightTextView"
+            <LinearLayout
+                android:id="@+id/displayWeightLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15sp"
-                android:layout_marginTop="15sp"
-                android:layout_marginRight="15sp"
-                android:background="@drawable/round_outline"
-                android:gravity="center"
-                android:padding="15sp"
-                android:text=""
-                android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="sans-serif-thin" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/bodyWeightCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="15sp"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginTop="15sp" />
+
+                <TextView
+                    android:id="@+id/bodyWeightTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginRight="15sp"
+                    android:background="@drawable/round_outline"
+                    android:gravity="center"
+                    android:padding="15sp"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:fontFamily="sans-serif-thin" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/bodyWeightsGraphMonth"

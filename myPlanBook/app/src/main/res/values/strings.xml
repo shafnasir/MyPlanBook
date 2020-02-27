@@ -29,4 +29,7 @@
     <string name="title_activity_main_login">MainLoginActivity</string>
     <string name="title_activity_planner_selector">PlannerSelector</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_log_calories">LogCaloriesActivity</string>
+    <string name="title_activity_log_workouts">LogWorkoutsActivity</string>
+    <string name="title_activity_log_body_fat">LogBodyFatActivity</string>
 </resources>

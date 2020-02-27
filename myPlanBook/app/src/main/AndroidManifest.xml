@@ -12,6 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".LogBodyFat.LogBodyFatActivity"
+            android:label="@string/title_activity_log_body_fat"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LogWorkouts.LogWorkoutsActivity"
+            android:label="@string/title_activity_log_workouts"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LogCalories.LogCaloriesActivity"
+            android:label="@string/title_activity_log_calories"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HealthFitnessMainMenu.HealthFitnessMainMenuActivity" />
         <activity android:name=".FinancialHub.LoadTransactions" />
         <activity android:name=".Feedback" />

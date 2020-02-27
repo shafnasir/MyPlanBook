@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="utm.csc301.theBrogrammers.myPlanBook">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +17,21 @@
             android:name=".Feedback"
             android:label="Feedback"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".LogBodyFat.LogBodyFatActivity"
+            android:label="@string/title_activity_log_body_fat"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LogWorkouts.LogWorkoutsActivity"
+            android:label="@string/title_activity_log_workouts"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LogCalories.LogCaloriesActivity"
+            android:label="@string/title_activity_log_calories"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HealthFitnessMainMenu.HealthFitnessMainMenuActivity" />
+        <activity android:name=".FinancialHub.LoadTransactions" />
+        <activity android:name=".Feedback" />
         <activity
             android:name=".ui.login.Signup"
             android:label="@string/title_activity_signup"
@@ -48,18 +66,18 @@
             android:label="@string/title_activity_profileSetting"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".calendar.AddEvent"
+            android:name=".calendar.CalendarEventsModel"
             android:label="@string/title_activity_add_event"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".calendar.Calendar"
+            android:name=".calendar.CalendarEventsActivity"
             android:label="@string/title_activity_calendar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LogBodyWeight.LogBodyWeightActivity"
             android:label="@string/title_activity_log_body_weight"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/app_name">
@@ -70,7 +88,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>

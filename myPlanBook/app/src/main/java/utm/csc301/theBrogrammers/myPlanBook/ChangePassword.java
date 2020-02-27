@@ -2,9 +2,17 @@ package utm.csc301.theBrogrammers.myPlanBook;
 
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -19,6 +27,7 @@ public class ChangePassword extends AppCompatActivity {
     EditText oldpass, newpass, confirmpass;
     Button button;
     String oldpassword, newpassword, confirmpassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +58,10 @@ public class ChangePassword extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConfirmNewPassword();
+                if(ConfirmNewPassword()){
+                   DatabasePaswordChange();
+                };
+
             }
         });
 
@@ -77,6 +89,31 @@ public class ChangePassword extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please confirm your new password",Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    public void DatabasePaswordChange(){
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), oldpassword);
+
+        user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    user.updatePassword(newpassword).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getApplicationContext(),"Password Changed",Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Password Not Changed",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(),"Old password not correct.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }

@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lbwActivityCLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogBodyWeight.LogBodyWeightActivity">
@@ -12,6 +13,28 @@
         android:layout_height="match_parent"
         android:background="#B4FC5B"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editBodyWeightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bodyWeightDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textViewBodyWeightsTitle"

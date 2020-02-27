@@ -7,13 +7,12 @@
     tools:context=".ui.login.MainLoginActivity">
 
     <TextView
-        android:id="@+id/UsernameText"
+        android:id="@+id/EmailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="72dp"
-        android:text="Username"
+        android:text="@string/prompt_email"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,14 +29,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/UsernameInput"
+        android:id="@+id/EmailInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="116dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/prompt_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

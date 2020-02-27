@@ -1,47 +1,36 @@
 package utm.csc301.theBrogrammers.myPlanBook.ui.login;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
-import utm.csc301.theBrogrammers.myPlanBook.FinancialHubActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
-import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginViewModel;
-import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private EditText usernameInput;
     private EditText passwordInput;
-    private String sign, pass;
+    private EditText emailInput;
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,8 +40,8 @@ public class LoginActivity extends AppCompatActivity {
                 .get(LoginViewModel.class);
 
 
-        usernameInput = findViewById(R.id.UsernameInput);
         passwordInput = findViewById(R.id.PasswordInput);
+        emailInput = findViewById(R.id.EmailInput);
         Button login = findViewById(R.id.LoginButton);
         Button signup = findViewById(R.id.SignupButton);
 
@@ -64,9 +53,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String username = usernameInput.getText().toString();
-                String password = passwordInput.getText().toString();
-                valid(username, password);
+                try{
+                    String email = emailInput.getText().toString();
+                    String password = passwordInput.getText().toString();
+                    valid(email, password);
+                }catch (Exception e){
+
+                }
+
+
 
             }
         });
@@ -82,19 +77,22 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+
     }
 
-    public void valid(String username, String password){
+    public void valid(String email, String password){
 
-        if(username.equals("login") && password.equals("pass") || username.equals(sign) && password.equals(pass)){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else{
-            Toast.makeText(LoginActivity.this, sign, Toast.LENGTH_SHORT).show();
-        }
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 

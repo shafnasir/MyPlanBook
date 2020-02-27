@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FinancialHub.LoadTransactions"></activity>
-        <activity android:name=".Feedback" />
+        <activity
+            android:name=".Feedback"
+            android:label="Feedback"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.login.Signup"
             android:label="@string/title_activity_signup"

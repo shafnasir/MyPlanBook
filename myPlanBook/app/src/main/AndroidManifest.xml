@@ -45,11 +45,11 @@
             android:label="@string/title_activity_profileSetting"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".calendar.AddEvent"
+            android:name=".calendar.CalendarEventsModel"
             android:label="@string/title_activity_add_event"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".calendar.Calendar"
+            android:name=".calendar.CalendarEventsActivity"
             android:label="@string/title_activity_calendar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity

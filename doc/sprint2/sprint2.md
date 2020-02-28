@@ -63,12 +63,9 @@ User Story Ticket Number on Jira: User Story Name
     - *3*: Able to uplaod a picture from the gallery.
     
 ## THEB-44: Database
-- Assigned to: Brandon Joubran
+- Assigned to: Brandon Joubran & Yifei Gao
 -Subtasks
     - *Signup using database*: Allowing the user to input the required information fields into the app, and having the data be sent to a        database. This also verifies that the email used to login is an email that exists.
     - *Login using database*: Allowing the user to login and having the program verify the information being updated is in the database.
-
-## THEB-39: Calendarize Deadlines
-- Assigned to: Shaf Nasir.
-- Subtasks
-    - *Input Tasks*: Allows the user to input new events into the calendar. The user can add event details, select a time for the event and color cordinate the event. Can also view the events added under the main Calendar view when selecting a certain date.
+    - *Feedback to database*: Allowing the user to wirte their opinion about the app and the these feedbacks will be colleted into the database.
+    - *Change password using database*: Allowing the user to change their account password. The program will verify their old password in database and update to the new one so that they can only sign in with their new password next time when they sign into the program.

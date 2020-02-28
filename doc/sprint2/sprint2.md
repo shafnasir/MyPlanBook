@@ -8,13 +8,14 @@ The main issues that this sprint will focus on are the calendarize deadlines int
 
 *User Stories to Complete for Sprint 2:*
 - THEB-34: Financial Hub
-- THEB-39: Calendarize Deadlines
 - THEB-36: Log Body Weight
-- THEB-41: User Profile Page
+- THEB-41: Show User Profile Page
+- THEB-47: Show Health and Fitness Main Menu
 
 *User Stories to Start But Not Complete for Sprint 2:*
 - THEB-4: Auto-Load Transactions
 - THEB-43: Database
+- THEB-39: Calendarize Deadlines
 
 ## Participants
 - Michael De Lisio
@@ -67,7 +68,8 @@ User Story Ticket Number on Jira: User Story Name
 ## THEB-43: Database
 - Assigned to: Brandon Joubran, Yifei Gao
 - Subtasks
-    - *Save Sign Up Information*: Have the user's account information get saved to the database. Allow the user to input the required account information fields into the app, and have the data be sent to a database. This also verifies that the email used to log in is an email that exists.
-    - *Log In Using Database*: Allow the user to log in and have their login information verified using the database.
-	- *Send App Feedback to Database*: Allow the user to write their opinion about the app and have these feedbacks saved in the database.
-    - *Change password using Database*: Allow the user to change their account password. The program will verify their old password in the database and update to the new one so that they can only sign in with their new password next time they sign in to the application.
+    - *Save Sign Up Information*: Have the user's account information get saved to the database. Allow the user to input the required account information fields into the app, and have the data be sent to a database. This also verifies that the email used to log in is an email that exists. Assigned to: Brandon Joubran.
+    - *Log In Using Database*: Allow the user to log in and have their login information verified using the database. Assigned to: Brandon Joubran.
+	- *Send App Feedback to Database*: Allow the user to write their opinion about the app and have these feedbacks saved in the database. Assigned to: Miko Gao.
+    - *Change password using Database*: Allow the user to change their account password. The program will verify their old password in the database and update to the new one so that they can only sign in with their new password next time they sign in to the application. Assigned to: Miko Gao.
+	- *Log out using Database*: Save whether or not a user has logged out so that the user is only allowed to log in if they have logged out. Assigned to: Miko Gao.

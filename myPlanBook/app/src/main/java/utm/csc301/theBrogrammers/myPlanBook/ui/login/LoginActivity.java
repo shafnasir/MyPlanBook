@@ -1,5 +1,6 @@
 package utm.csc301.theBrogrammers.myPlanBook.ui.login;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
@@ -22,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
     private String sign, pass;
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                 .get(LoginViewModel.class);
 
 
-        usernameInput = findViewById(R.id.UsernameInput);
+        usernameInput = findViewById(R.id.EmailInput);
         passwordInput = findViewById(R.id.PasswordInput);
         Button login = findViewById(R.id.LoginButton);
         Button signup = findViewById(R.id.SignupButton);
@@ -50,15 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                 /////////////
 
-//                 clickbutton();
-
-//                 /////////////
-//                 loadingProgressBar.setVisibility(View.VISIBLE);
-//                 loginViewModel.login(usernameEditText.getText().toString(),
-//                         passwordEditText.getText().toString());
-                
                 Intent intent = new Intent(LoginActivity.this, Signup.class);
                 startActivity(intent);
             }
@@ -69,15 +68,22 @@ public class LoginActivity extends AppCompatActivity {
 
     public void valid(String username, String password){
 
-        if(username.equals("login") && password.equals("pass") || username.equals(sign) && password.equals(pass)){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if(username.equals(sign) && password.equals(pass) && username != null && username != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else{
-            Toast.makeText(LoginActivity.this, sign, Toast.LENGTH_SHORT).show();
-        }
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.signInWithEmailAndPassword(username, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+
+                        }
+                    }
+                });
+
 
     }
 

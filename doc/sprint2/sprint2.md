@@ -50,3 +50,9 @@ User Story Ticket Number on Jira: User Story Name
     - *1*: Able to see all the basic information.
     - *2*: Can change those information at any time.
     - *3*: Able to uplaod a picture from the gallery.
+    
+## THEB-44: Database
+- Assigned to: Brandon Joubran
+-Subtasks
+    - *Signup using database*: Allowing the user to input the required information fields into the app, and having the data be sent to a        database. This also verifies that the email used to login is an email that exists.
+    - *Login using database*: Allowing the user to login and having the program verify the information being updated is in the database.

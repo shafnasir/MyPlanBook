@@ -1,6 +1,6 @@
 # Sprint 2 Planning Meeting
 
-**Sprint Goal**: The goal is to begin implementing the primary tools and functionality for each planner. Also, we wish to gather a better understanding of the Firebase interface for Android applications.
+**Sprint Goal**: The goal is to begin implementing the primary tools and functionalities for each planner. Also, we wish to gather a better understanding of the Firebase interface for Android applications.
 This sprint should provide a framework for building the model classes and communication classes that will integrate the database and address persistent data storage that at the moment has not been implemented.
 The main issues that this sprint will focus on are the calendarize deadlines interface, completion of the financial hub main view, the log body weight functionality in the health & fitness planner and the user profile page. Finally, we will continue a dialogue on the system design at a high level and the framework of the code base as a team.
 
@@ -27,7 +27,6 @@ The main issues that this sprint will focus on are the calendarize deadlines int
 ## Team Capacity
 - Each team member has about 2 ideal days per sprint due to school conditions. Since there are 6 group members, the team capacity is 12 for a single sprint.
 
-
 ## User Stories
 
 User Story Ticket Number on Jira: User Story Name
@@ -43,6 +42,18 @@ User Story Ticket Number on Jira: User Story Name
     - *Import CSV Bank Statements*: Create implementation to upload and read csv files and possibly other file extensions in the Upload Transactions activity.
     - *Upload Manager*:A UI component that allows for the user to navigate the local Android file system and upload their banking transaction file (.csv's only).
 
+## THEB-36: Log Body Weight
+- Assigned to: Alexei Blinov
+- Subtasks
+	- *Select Date for Body Weight*: Allow the user to select a date for their body weight input. Estimated time: 2h.
+	- *Graph Body Weights*: Allow the user to see a graphical representation of their change in body weight as a function of weight over time. Estimated time: 5h.
+	- *Delete Body Weight Entry*: Allow the user to delete a body weight entry for a specific. Estimate 2h. 
+
+## THEB-47: Show Health and Fitness Main Menu
+- Assigned to: Alexei Blinov
+- Subtasks:
+	- *Select Health and Fitness Planner*: Be able to select a health and fitness planner and go to the appropriate planner screen/ page. Estimate time: 1h.
+	
 ## THEB-41: User Profile Page
 - Assigned to: Xiaoyang Wu
 - A profile page which allows the user to see all the personal information including name, account number, email, phone number, and city.

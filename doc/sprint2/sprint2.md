@@ -65,7 +65,9 @@ User Story Ticket Number on Jira: User Story Name
 	- *Show User Profile Page*: Be able to see my profile page as a user of My Plan Book.
     
 ## THEB-43: Database
-- Assigned to: Brandon Joubran & Yifei Gao
+- Assigned to: Brandon Joubran, Yifei Gao
 -Subtasks
     - *Save Sign Up Information*: Have the user's account information get saved to the database. Allow the user to input the required account information fields into the app, and have the data be sent to a database. This also verifies that the email used to log in is an email that exists.
     - *Log In Using Database*: Allow the user to log in and have their login information verified using the database.
+	- *Send App Feedback to Database*: Allow the user to write their opinion about the app and have these feedbacks saved in the database.
+    - *Change password using Database*: Allow the user to change their account password. The program will verify their old password in the database and update to the new one so that they can only sign in with their new password next time they sign in to the application.

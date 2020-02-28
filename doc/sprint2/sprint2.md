@@ -67,3 +67,8 @@ User Story Ticket Number on Jira: User Story Name
 -Subtasks
     - *Signup using database*: Allowing the user to input the required information fields into the app, and having the data be sent to a        database. This also verifies that the email used to login is an email that exists.
     - *Login using database*: Allowing the user to login and having the program verify the information being updated is in the database.
+
+## THEB-39: Calendarize Deadlines
+- Assigned to: Shaf Nasir.
+- Subtasks
+    - *Input Tasks*: Allows the user to input new events into the calendar. The user can add event details, select a time for the event and color cordinate the event. Can also view the events added under the main Calendar view when selecting a certain date.

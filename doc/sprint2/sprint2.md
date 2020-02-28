@@ -53,17 +53,19 @@ User Story Ticket Number on Jira: User Story Name
 - Assigned to: Alexei Blinov
 - Subtasks:
 	- *Select Health and Fitness Planner*: Be able to select a health and fitness planner and go to the appropriate planner screen/ page. Estimate time: 1h.
+
+## THEB-39: Calendarize Deadlines
+- Assigned to: Shaf Nasir
+- Subtasks:
+	- *Input Tasks*: The Calendar page should allow a user to input tasks into the calendar.
 	
-## THEB-41: User Profile Page
+## THEB-41: Show User Profile Page
 - Assigned to: Xiaoyang Wu
-- A profile page which allows the user to see all the personal information including name, account number, email, phone number, and city.
-- Properties:
-    - *1*: Able to see all the basic information.
-    - *2*: Can change those information at any time.
-    - *3*: Able to uplaod a picture from the gallery.
+- Subtasks:
+	- *Show User Profile Page*: Be able to see my profile page as a user of My Plan Book.
     
-## THEB-44: Database
-- Assigned to: Brandon Joubran
+## THEB-43: Database
+- Assigned to: Brandon Joubran & Yifei Gao
 -Subtasks
-    - *Signup using database*: Allowing the user to input the required information fields into the app, and having the data be sent to a        database. This also verifies that the email used to login is an email that exists.
-    - *Login using database*: Allowing the user to login and having the program verify the information being updated is in the database.
+    - *Save Sign Up Information*: Have the user's account information get saved to the database. Allow the user to input the required account information fields into the app, and have the data be sent to a database. This also verifies that the email used to log in is an email that exists.
+    - *Log In Using Database*: Allow the user to log in and have their login information verified using the database.

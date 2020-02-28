@@ -6,7 +6,9 @@ We used the Fibonacci sequence from the lecture slides of week 3 to estimate the
 ## Priority Values
 We assigned the following ordered priority values to the user stories: highest, high, medium, low, and lowest where ‘highest’ is the highest priority value, and ‘lowest’ is the lowest priority value. These values are recorded on Jira.
 
-## Auto-load Monthly Transactions - User Story #1
+## User Stories:
+
+## Auto-load Monthly Transactions
 As a frequent debit card and credit card user, I want to quickly load monthly or weekly transactions I've made into my financial planner from csv files, manually categorize transactions, and manually enter additional transactions without linking my bank account so that I can organize my transaction history without potentially sharing sensitive personal information.
 
 **Criteria of Satisfaction**
@@ -18,7 +20,7 @@ As a frequent debit card and credit card user, I want to quickly load monthly or
 
 **Priority: Medium**
 
-## Notify of Deadlines - User Story #2
+## Notify of Deadlines
 As someone who is very busy and sometimes forgetful, I want to be notified of my deadlines for the current day so that I can be reminded of my scheduled commitments and deadlines.
 
 **Criteria of Satisfaction**
@@ -28,7 +30,7 @@ As someone who is very busy and sometimes forgetful, I want to be notified of my
 
 **Priority: Medium**
 
-## Set Savings Goals - User Story #3
+## Set Savings Goals
 As a financial planner, I want to set savings goals for myself and track my savings so that I can determine the amount of money I’ve saved for my goal purchases and determine how close I am to my goal amounts.
 
 **Criteria of Satisfaction**
@@ -39,31 +41,7 @@ As a financial planner, I want to set savings goals for myself and track my savi
 
 **Priority: Lowest**
 
-## Log In - User Story #4
-As a regular user of the multi-planner, I want to log in to my account so that I can see my personal planners and use my multi-planner.
-
-**Criteria of Satisfaction**
-- Input login information such as username and password.
-- Enter planner upon correct combination of username and password.
-
-**Story Points Estimate: 3**
-
-**Priority: High**
-
-## Select Main Menu Items - User Story #5
-As a regular user of the multi-planner, I want to see a main menu where I can select a planner, select a settings button, or select "change password" so that I can access and use a desired planner, access settings, and access the password change form.
-
-**Criteria of Satisfaction**
-- See all my planners on a main menu.
-- Select a planner and go to a new screen or window that displays that planner.
-- See and select a settings button to go to the settings page.
-- See and select a "change password" button or link to go to a change password form window.
-
-**Story Points Estimate: 3**
-
-**Priority: Highest**
-
-## Summarize Progress - User Story #6
+## Summarize Progress
 As a regular user of the multi-planner, I want to see a summary of the progress I’ve made from all the planners for the day, the week, and the month so that I can see what I’ve accomplished.
 
 **Criteria of Satisfaction**
@@ -73,7 +51,7 @@ As a regular user of the multi-planner, I want to see a summary of the progress 
 
 **Priority: Low**
 
-## Log Workouts - User Story #7
+## Log Workouts
 As someone who works out, I want to record the exercises, sets, and reps of my workouts on various days so that I can track my strength and fitness progression at the gym over time.
 
 **Criteria of Satisfaction**
@@ -85,7 +63,7 @@ As someone who works out, I want to record the exercises, sets, and reps of my w
 
 **Priority: Lowest**
 
-## Calculate and Log Body Fat Percentage - User Story #8
+## Calculate and Log Body Fat Percentage
 As someone who cares about my health and fitness, I want to calculate and record my body fat percentage over time so that I can determine how lean I am and determine the progression of my bodily composition.
 
 **Criteria of Satisfaction**
@@ -98,7 +76,7 @@ As someone who cares about my health and fitness, I want to calculate and record
 
 **Priority: Lowest**
 
-## Log Body Weight - User Story #9
+## Log Body Weight
 As someone who cares about my health and fitness, I want to keep records of my body weight in pounds and kilograms over time so that I can keep track of my weight loss, weight maintenance, or weight gain progression.
 
 **Criteria of Satisfaction**
@@ -111,7 +89,7 @@ As someone who cares about my health and fitness, I want to keep records of my b
 
 **Priority: High**
 
-## Log Calories - User Story #10
+## Log Calories
 As someone who cares about my health, fitness, and nutrition, I want to record the food I ate for a day and the corresponding calories so that I can determine my daily caloric intake.
 
 **Criteria of Satisfaction**
@@ -123,7 +101,7 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 
 **Priority: High**
 
-## Graph Transactions - User Story #11
+## Graph Transactions
 As a visual learner, I want to see a visual representation of my categorized transactions in a monthly pie chart and my yearly spending trends in a scatter plot graph so that I can visualize my spending habits.
 
 **Criteria of Satisfaction**
@@ -134,7 +112,7 @@ As a visual learner, I want to see a visual representation of my categorized tra
 
 **Priority: Low**
 
-## Calendarize Deadlines - User Story #12
+## Calendarize Deadlines
 As someone who finds it difficult to manage my deadlines, I want to input and see my deadlines and due dates in a calendar with categorized coloring so that I know what is due for each day of the month and each day of the year.
 
 **Criteria of Satisfaction**
@@ -146,7 +124,7 @@ As someone who finds it difficult to manage my deadlines, I want to input and se
 
 **Priority: Medium**
 
-## Tally Purchases and Wish List - User Story #13
+## Tally Purchases and Wish List
 As someone who manages my finances, I want to tally my purchases and the things I want or need to buy in a wish list so that I can keep track of my expenditures and know what I need or want to buy next.
 
 **Criteria of Satisfaction**
@@ -157,31 +135,8 @@ As someone who manages my finances, I want to tally my purchases and the things 
 
 **Priority: Low**
 
-## Sign Up – User Story #14
-As someone who wants to use the multi-planner and does not yet have an account, I want to sign up and create an account so that I can log in with a personalized account and use the multi-planner.
-
-**Criteria of Satisfaction**
-- Input personal information such as username, password, email, gender, and phone number.
-- Create new account if username is unique.
-- Can log in with created account to gain access to the multi-planner.
-
-**Story Points Estimate: 2**
-
-**Priority: Highest**
-
-## Sign Out – User Story #15
-As someone who has an account for the multi-planner, I want to be able to sign out of the multi-planner.
-
-**Criteria of Satisfaction**
-- Can log out of the multi-planner.
-- Can no longer use the multi-planner once logged out unless logged in again.
-
-**Story Points Estimate: 2**
-
-**Priority: Highest**
-
-## Financial Hub - User Story #16
-As someone who needs to manage my finances, I need a system that allows me a variety of ways to help better manage my finances. Specifically, an easy to use hub (screen) that displays my monthly spending and savings goal targets.
+## Show Financial Hub
+As someone who needs to manage my finances, I want a system that allows me a variety of ways to help better manage my finances. Specifically, an easy to use hub (screen) that displays my monthly spending and savings goal targets.
 
 **Criteria of Satisfaction**
 - The hub should provide a button to navigate back to the main application screen.
@@ -191,3 +146,33 @@ As someone who needs to manage my finances, I need a system that allows me a var
 **Story Points Estimate: 5**
 
 **Priority: High**
+
+## Show User Profile Page
+As a user of My Plan Book, I want to see a profile page so that I could see all my personal information such as my account number, email, phone number, name, and others.
+
+**Criteria of Satisfaction**
+- Able to see all my information on the profile page (email, phone number, name, etc...).
+- Can change user information (email, phone number, name, etc...) at any time.
+- Able to uplaod a picture from the gallery as my profile picture
+
+**Story Points Estimate: **
+
+**Priority: **
+
+## Show Health and Fitness Main Menu
+As a user of the health and fitness planner, I want to select the health and fitness planner so that I can use a desired health and fitness planner (body weight logger, calorie logger, body fat calculator and logger, and a workout logger).
+
+**Criteria of Satisfaction**
+- See links to the four health and fitness planners
+- Go to a new screen with the appropriate health and fitness planner
+
+**Story Points Estimate: **
+
+**Priority: **
+
+## Database
+As a user of My Plan Book, I want to have my data stored and be accessible each time I log in to My Plan Book.
+
+**Criteria of Satisfaction**
+- Be able to access inputted data for each planner even after logging out and logging back in
+- Have user's created account saved so that they can log in again and see their account information and planner data

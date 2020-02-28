@@ -43,3 +43,5 @@ User Story Ticket Number on Jira: User Story Name
     - *Import CSV Bank Statements*: Create implementation to upload and read csv files and possibly other file extensions in the Upload Transactions activity.
     - *Upload Manager*:A UI component that allows for the user to navigate the local Android file system and upload their banking transaction file (.csv's only).
 
+## THEB-41: User Profile Page
+- Assigned to: Xiaoyang Wu

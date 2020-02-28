@@ -46,7 +46,7 @@ User Story Ticket Number on Jira: User Story Name
 ## THEB-41: User Profile Page
 - Assigned to: Xiaoyang Wu
 - A profile page which allows the user to see all the personal information including name, account number, email, phone number, and city.
-        - Properties:
-            1. Able to see all the basic information.
-            2. Can change those information at any time.
-            3. Able to uplaod a picture from the gallery
+    - *Properties*:
+                1. Able to see all the basic information.
+                2. Can change those information at any time.
+                3. Able to uplaod a picture from the gallery

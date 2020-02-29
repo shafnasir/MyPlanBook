@@ -7,7 +7,7 @@ The main issues that this sprint will focus on are the calendarize deadlines int
 *Summary:*
 
 *User Stories to Complete for Sprint 2:*
-- THEB-34: Financial Hub
+- THEB-34: Show Financial Hub
 - THEB-36: Log Body Weight
 - THEB-41: Show User Profile Page
 - THEB-47: Show Health and Fitness Main Menu

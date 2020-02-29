@@ -48,7 +48,8 @@ User Story Ticket Number on Jira: User Story Name
 - Subtasks
 	- *Select Date for Body Weight*: Allow the user to select a date for their body weight input. Estimated time: 2h.
 	- *Graph Body Weights*: Allow the user to see a graphical representation of their change in body weight as a function of weight over time. Estimated time: 5h.
-	- *Delete Body Weight Entry*: Allow the user to delete a body weight entry for a specific. Estimate 2h. 
+	- *Delete Body Weight Entry*: Allow the user to delete a body weight entry for a specific. Estimate 2h.
+	- *Refactor Log Body Weight Files*: Refactor the code for Log Body Weight so that it's simpler. Estimated time: 2h.
 
 ## THEB-47: Show Health and Fitness Main Menu
 - Assigned to: Alexei Blinov

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialHubActivity;
+import utm.csc301.theBrogrammers.myPlanBook.HealthFitnessMainMenu.HealthFitnessMainMenuActivity;
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsActivity;
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fitness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LogBodyWeightActivity.class);
+                Intent intent = new Intent(MainActivity.this, HealthFitnessMainMenuActivity.class);
                 startActivity(intent);
             }
         });

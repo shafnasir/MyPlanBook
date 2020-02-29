@@ -21,6 +21,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -47,7 +48,8 @@ public class LogBodyWeightActivity extends AppCompatActivity {
     private CheckBox bodyWeightCheckBox;
     private LinearLayout.LayoutParams params1;
     private LinearLayout.LayoutParams params2;
-
+    private HashMap<String,String> monthNames;
+    private String currentDate;
     private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
@@ -57,53 +59,19 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_body_weight);
 
-        // Set Up Calendar
-        calendarView = new CalendarView(this);
-        calendarView.setBackgroundResource(R.drawable.round_outline_bordered);
-        params1 = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params1.setMargins(45,45,45,0);
-        params2 = new LinearLayout.LayoutParams(
-                875,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params2.setMargins(45,45,45,0);
-        calendarView.setLayoutParams(params1);
-        calendarLayout = (LinearLayout) findViewById(R.id.layoutBodyWeights);
-        calendarLayout.addView(calendarView, 0);
-        myCalendarDate = (TextView)findViewById(R.id.bodyWeightDate);
-
-        // Set current Date
-        Calendar newCalendar = Calendar.getInstance();
-        int currentYear = newCalendar.get(Calendar.YEAR);
-        currentMonth = newCalendar.get(Calendar.MONTH) + 1;
-        int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
-        String currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
-        myCalendarDate.setText(currentDate);
-
-        EditText bodyWeightsInputTextField = findViewById(R.id.inputWeightEditText);
-        bodyWeightsInputTextField.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-
+        this.assignParams();
+        this.assignCalendarLayout();
+        this.createCalendarView();
+        this.setCurrentDate();
+        this.setBodyWeightInputTextField();
         bodyWeightsModel = new BodyWeightsModel();
-        String bodyWeight = bodyWeightsModel.getWeight(currentDate);
-
-        bodyWeightTextView = (TextView)findViewById(R.id.bodyWeightTextView);
-
-        if (bodyWeight == null) {
-            //bodyWeightTextView.setVisibility(View.INVISIBLE);
-            bodyWeightTextView.setText("");
-        }
-        else {
-            bodyWeightTextView.setText(bodyWeight);
-        }
-
+        this.setBodyWeightTextView();
+        this.setMonthNames();
         bodyWeightsGraphMonth = (TextView) findViewById(R.id.bodyWeightsGraphMonth);
         this.setMonth(String.valueOf(currentMonth));
-
-        // Test out Graph
         bodyWeightsMonthlyGraph = (LineChart) findViewById(R.id.bodyWeightsGraph);
         this.styleGraph();
-        this.setBodyWeightData(String.valueOf(currentMonth));
+        this.setBodyWeightGraphData();
 
         // Calendar View
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -123,7 +91,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                 if (currentMonth != month+1){
                     currentMonth = month + 1;
                     setMonth(String.valueOf(currentMonth));
-                    setBodyWeightData(String.valueOf(currentMonth));
+                    setBodyWeightGraphData();
                 }
 
                 String weight = bodyWeightsModel.getWeight(date);
@@ -171,7 +139,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                 }
 
                 setMonth(String.valueOf(currentMonth));
-                setBodyWeightData(String.valueOf(currentMonth));
+                setBodyWeightGraphData();
             }
         });
 
@@ -232,7 +200,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                     editBodyWeightButton.setImageResource(R.drawable.edit_pencil);
                     bodyWeightTextView.setLayoutParams(params1);
                     bodyWeightsModel.removeWeight(myCalendarDate.getText().toString());
-                    setBodyWeightData(String.valueOf(currentMonth)); // Update Calendar
+                    setBodyWeightGraphData(); // Update Calendar
                 }
             }
         });
@@ -242,30 +210,93 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         bodyWeightCheckBox.setVisibility(View.GONE);
     }
 
+    private void assignParams(){
+        params1 = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params2 = new LinearLayout.LayoutParams(
+                875,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params1.setMargins(45,45,45,0);
+        params2.setMargins(45,45,45,0);
+    }
+
+    private void createCalendarView(){
+        calendarView = new CalendarView(this);
+        calendarView.setBackgroundResource(R.drawable.round_outline_bordered);
+        calendarView.setLayoutParams(params1);
+        calendarLayout.addView(calendarView, 0);
+    }
+
+    private void assignCalendarLayout(){
+        calendarLayout = (LinearLayout) findViewById(R.id.layoutBodyWeights);
+    }
+
+    private void setCurrentDate(){
+        myCalendarDate = (TextView)findViewById(R.id.bodyWeightDate);
+        Calendar newCalendar = Calendar.getInstance();
+        int currentYear = newCalendar.get(Calendar.YEAR);
+        currentMonth = newCalendar.get(Calendar.MONTH) + 1;
+        int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
+        currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
+        myCalendarDate.setText(currentDate);
+    }
+
+    private void setBodyWeightInputTextField(){
+        EditText bodyWeightsInputTextField = findViewById(R.id.inputWeightEditText);
+        bodyWeightsInputTextField.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+    }
+
+    private void setBodyWeightTextView(){
+        String bodyWeight = bodyWeightsModel.getWeight(currentDate);
+        bodyWeightTextView = (TextView)findViewById(R.id.bodyWeightTextView);
+        bodyWeight = (bodyWeight == null)? "": bodyWeight;
+        bodyWeightTextView.setText(bodyWeight);
+    }
+
+    private void setMonthNames() {
+        monthNames = new HashMap<String,String>();
+        monthNames.put("1", "JANUARY");
+        monthNames.put("2", "FEBRUARY");
+        monthNames.put("3", "MARCH");
+        monthNames.put("4", "APRIL");
+        monthNames.put("5", "MAY");
+        monthNames.put("6", "JUNE");
+        monthNames.put("7", "JULY");
+        monthNames.put("8", "AUGUST");
+        monthNames.put("9", "SEPTEMBER");
+        monthNames.put("10", "OCTOBER");
+        monthNames.put("11", "NOVEMBER");
+        monthNames.put("12", "DECEMBER");
+    }
+
+    private void setMonth(String month){
+        bodyWeightsGraphMonth.setText(monthNames.get(month));
+    }
+
     private void styleGraph() {
-        // Set x,y axis dimensions
         XAxis xAxis = bodyWeightsMonthlyGraph.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
 
         YAxis leftAxis = bodyWeightsMonthlyGraph.getAxisLeft();
         leftAxis.setEnabled(true);
         leftAxis.removeAllLimitLines();
+        leftAxis.setDrawAxisLine(false);
+        leftAxis.setDrawGridLines(false);
 
         bodyWeightsMonthlyGraph.getDescription().setEnabled(false);
-        bodyWeightsMonthlyGraph.getXAxis().setDrawGridLines(false);
         bodyWeightsMonthlyGraph.getAxisRight().setEnabled(false);
-        bodyWeightsMonthlyGraph.getAxisLeft().setDrawAxisLine(false);
-        bodyWeightsMonthlyGraph.getAxisLeft().setDrawGridLines(false);
     }
 
-    private void setBodyWeightData (String month) {
-        ArrayList<Entry>[] dataEntries = genData(myCalendarDate.getText().toString());
+    private void setBodyWeightGraphData() {
+        ArrayList<Entry>[] dataEntries = genGraphData(myCalendarDate.getText().toString());
         LineDataSet dSetLbs = new LineDataSet(dataEntries[0], "BODY WEIGHTS IN LBS");
         LineDataSet dSetKg = new LineDataSet(dataEntries[1], "BODY WEIGHTS IN KG");
 
-        setDataSetStylingLbs(dSetLbs);
-        setDataSetStylingKg(dSetKg);
+        setDataSetStyling(dSetLbs, "lbs");
+        setDataSetStyling(dSetKg, "kg");
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dSetLbs);
@@ -273,101 +304,39 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         bodyWeightsMonthlyGraph.setData(new LineData(dataSets));
     }
 
-    private ArrayList<Entry>[] genData (String calendarDate){
-        ArrayList<Entry> entriesLbs = new ArrayList<>();
-        ArrayList<Entry> entriesKg = new ArrayList<>();
-
+    private ArrayList<Entry>[] genGraphData (String calendarDate){
         HashMap<String, String> bodyWeightsForMonth = bodyWeightsModel.getBodyWeightsForMonth(calendarDate);
-
         String[] splitDate = calendarDate.split("/");
-        String month = splitDate[1];
-        String year = splitDate[2];
+        return getDataSets(splitDate[1], splitDate[2], bodyWeightsForMonth);
+    }
 
-        String[] splitWeights;
-        String weightInLbs;
-        String weightInKg;
+    private ArrayList<Entry>[] getDataSets(String month, String year, HashMap<String, String> bodyWeightsForMonth){
+        ArrayList<Entry>[] dataSets = new ArrayList[2];
+        ArrayList<Entry> entriesLbs = new ArrayList<Entry>();
+        ArrayList<Entry> entriesKg = new ArrayList<Entry>();
 
         for (int i = 1; i < 32; i++) {
             String testDate = String.valueOf(i) + "/" + month + "/" + year;
             if (bodyWeightsForMonth.containsKey(testDate)){
-                splitWeights = bodyWeightsForMonth.get(testDate).split(" ");
-                weightInLbs = splitWeights[0];
-                weightInKg = splitWeights[2];
-
-                entriesLbs.add(new Entry (i, Float.valueOf(weightInLbs)));
-                entriesKg.add(new Entry (i, Float.valueOf(weightInKg)));
+                String[] splitWeights = bodyWeightsForMonth.get(testDate).split(" ");
+                entriesLbs.add(new Entry (i, Float.valueOf(splitWeights[0])));
+                entriesKg.add(new Entry (i, Float.valueOf(splitWeights[2])));
             }
         }
 
-        ArrayList<Entry>[] dataSets = new ArrayList[2];
         dataSets[0] = entriesLbs;
         dataSets[1] = entriesKg;
-
         return dataSets;
     }
 
-    private void setDataSetStylingLbs(LineDataSet dSet){
-        int colour = Color.BLUE;
+    private void setDataSetStyling(LineDataSet dSet, String units){
+        int colour = (units.equals("lbs"))? Color.BLUE: Color.RED;
         float lineWidth = 3f;
-
         dSet.setDrawCircleHole(false);
         dSet.setDrawValues(false);
         dSet.setLineWidth(lineWidth);
         dSet.setCircleRadius(lineWidth);
         dSet.setColor(colour);
         dSet.setCircleColor(colour);
-    }
-
-    private void setDataSetStylingKg(LineDataSet dSet){
-        int colour = Color.RED;
-        float lineWidth = 3f;
-
-        dSet.setDrawCircleHole(false);
-        dSet.setDrawValues(false);
-        dSet.setLineWidth(lineWidth);
-        dSet.setCircleRadius(lineWidth);
-        dSet.setColor(colour);
-        dSet.setCircleColor(colour);
-    }
-
-    private void setMonth(String month){
-        String monthName = "";
-        if (month.equals("1")) {
-            monthName = "JANUARY";
-        }
-        else if (month.equals("2")) {
-            monthName = "FEBRUARY";
-        }
-        else if (month.equals("3")) {
-            monthName = "MARCH";
-        }
-        else if (month.equals("4")) {
-            monthName = "APRIL";
-        }
-        else if (month.equals("5")) {
-            monthName = "MAY";
-        }
-        else if (month.equals("6")) {
-            monthName = "JUNE";
-        }
-        else if (month.equals("7")) {
-            monthName = "JULY";
-        }
-        else if (month.equals("8")) {
-            monthName = "AUGUST";
-        }
-        else if (month.equals("9")) {
-            monthName = "SEPTEMBER";
-        }
-        else if (month.equals("10")) {
-            monthName = "OCTOBER";
-        }
-        else if (month.equals("11")) {
-            monthName = "NOVEMBER";
-        }
-        else if (month.equals("12")) {
-            monthName = "DECEMBER";
-        }
-        bodyWeightsGraphMonth.setText(monthName);
     }
 }

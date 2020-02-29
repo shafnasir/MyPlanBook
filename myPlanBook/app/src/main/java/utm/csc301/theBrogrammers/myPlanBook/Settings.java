@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,7 +19,8 @@ import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 public class Settings extends AppCompatActivity {
 
     private Button changepass, feedback;
-    private ImageButton LogoutButton;
+    private ImageButton ProfileButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +33,6 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        LogoutButton = findViewById(R.id.Log_out);
-        LogoutButton.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-                clickLogout();
-            }
-        });
 
         feedback = findViewById(R.id.feedback);
         feedback.setOnClickListener(new View.OnClickListener() {
@@ -47,8 +42,8 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        LogoutButton = findViewById(R.id.Profile);
-        LogoutButton.setOnClickListener(new View.OnClickListener(){
+        ProfileButton = findViewById(R.id.Profile);
+        ProfileButton.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
                 clickProfile();
@@ -62,10 +57,6 @@ public class Settings extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clickLogout(){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
 
     public void clickfeedback(){
         Intent intent = new Intent(this, Feedback.class);

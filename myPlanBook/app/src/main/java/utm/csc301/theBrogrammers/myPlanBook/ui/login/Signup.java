@@ -20,8 +20,8 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class Signup extends AppCompatActivity {
 
-    private String firstName, lastName, username, password, cellphone, email;
-    private EditText lastnameInput, usernameInput, passwordInput, firstnameInput, emailInput, cellphoneInput;
+    private String firstName, lastName, password, cellphone, email;
+    private EditText lastnameInput, passwordInput, firstnameInput, emailInput, cellphoneInput;
     private FirebaseAuth mAuth;
 
     @Override
@@ -32,7 +32,6 @@ public class Signup extends AppCompatActivity {
         Button done = findViewById(R.id.signupDoneButton);
         firstnameInput = findViewById(R.id.firstNameInput);
         lastnameInput = findViewById(R.id.lastNameInput);
-        usernameInput = findViewById(R.id.usernameInput);
         passwordInput = findViewById(R.id.passwordInput);
         emailInput = findViewById(R.id.emailInput);
         cellphoneInput = findViewById(R.id.cellInput);
@@ -52,7 +51,6 @@ public class Signup extends AppCompatActivity {
 
         firstName = firstnameInput.getText().toString();
         lastName = lastnameInput.getText().toString();
-        username = usernameInput.getText().toString();
         password = passwordInput.getText().toString();
         email = emailInput.getText().toString();
         cellphone = cellphoneInput.getText().toString();
@@ -61,7 +59,7 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    if(firstName.equals("") || lastName.equals("") || username.equals("") || password.equals("") || email.equals("") || cellphone.equals("")){
+                    if(firstName.equals("") || lastName.equals("") || password.equals("") || email.equals("") || cellphone.equals("")){
                         Toast.makeText(Signup.this, "One or more fields needs to be filled in", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(Signup.this, "Signup successful", Toast.LENGTH_SHORT).show();
@@ -75,17 +73,6 @@ public class Signup extends AppCompatActivity {
         });
 
 
-        if(firstName.equals("") || lastName.equals("") || username.equals("") || password.equals("") || email.equals("") || cellphone.equals("")){
-            Toast.makeText(Signup.this, "One or more fields needs to be filled in", Toast.LENGTH_SHORT).show();
-        }else{
-            Intent intent = new Intent(Signup.this, LoginActivity.class);
-            startActivity(intent);
-        }
-
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public String getPassword() {

@@ -30,8 +30,7 @@
             android:label="@string/title_activity_log_calories"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HealthFitnessMainMenu.HealthFitnessMainMenuActivity" />
-        <activity android:name=".FinancialHub.LoadTransactions" />
-        <activity android:name=".Feedback" />
+
         <activity
             android:name=".ui.login.Signup"
             android:label="@string/title_activity_signup"

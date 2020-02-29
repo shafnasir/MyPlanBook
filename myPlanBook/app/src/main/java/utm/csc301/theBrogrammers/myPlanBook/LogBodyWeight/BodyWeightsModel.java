@@ -14,22 +14,18 @@ public class BodyWeightsModel {
         if (this.bodyWeightsByDate.containsKey(date)){
             this.bodyWeightsByDate.remove(date);
             this.bodyWeightsByDate.put(date, weight);
-            return;
         }
         else {
             this.bodyWeightsByDate.put(date, weight);
-            return;
         }
     }
 
     public void removeWeight(String date) {
         if (this.bodyWeightsByDate.containsKey(date)){
             this.bodyWeightsByDate.remove(date);
-            return;
         }
         else {
             System.out.println("No weight entry for this date!");
-            return;
         }
     }
 

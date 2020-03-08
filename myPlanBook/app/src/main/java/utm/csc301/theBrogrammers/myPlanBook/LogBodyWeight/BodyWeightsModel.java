@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class BodyWeightsModel {
 
-    HashMap<String, String> bodyWeightsByDate;
+    private HashMap<String, String> bodyWeightsByDate;
 
     public BodyWeightsModel() {
         bodyWeightsByDate = new HashMap<String, String>();

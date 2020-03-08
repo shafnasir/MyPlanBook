@@ -52,7 +52,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/includeLogBodyWeight"
             layout="@layout/content_log_body_weight"
             android:layout_width="match_parent"
             android:layout_height="0dp"

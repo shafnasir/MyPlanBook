@@ -1,21 +1,20 @@
 package utm.csc301.theBrogrammers.myPlanBook.LogCalories;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.text.InputType;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Calendar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
@@ -28,29 +27,40 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private CaloriesModel caloriesModel;
     private int currentMonth;
     private String currentDate;
-    private TextView foodCaloriesTextView;
+    private LinearLayout foodItemsLayout;
+    private int[] foodItemTVIds;
+    private int foodCount;
+    private Button enterFoodButton;
+    private int maxFoodCount = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_calories);
         this.assignParams();
+        this.assignFoodItemsLayout();
         this.setCurrentDate();
         this.setFoodInputTextField();
         this.setCaloriesInputTextField();
-        caloriesModel = new CaloriesModel();
+        caloriesModel = new CaloriesModel(maxFoodCount);
+        this.createFoodItemTextViews();
         this.setFoodItemTextViews();
+        this.setEnterFoodButtonListener();
     }
 
     private void assignParams(){
         params1 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params2 = new LinearLayout.LayoutParams(
-                875,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
         params1.setMargins(45,45,45,0);
-        params2.setMargins(45,45,45,0);
+        params2 = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params2.setMargins(45,45,45,45);
+    }
+
+    private void assignFoodItemsLayout() {
+        foodItemsLayout = (LinearLayout) findViewById(R.id.layoutCalories);
     }
 
     private void setCurrentDate(){
@@ -65,25 +75,80 @@ public class LogCaloriesActivity extends AppCompatActivity {
 
     private void setFoodInputTextField(){
         foodInputTextField = findViewById(R.id.inputFoodEditText);
-        foodInputTextField.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
     }
 
     private void setCaloriesInputTextField(){
         caloriesInputTextField = findViewById(R.id.inputCaloriesEditText);
-        caloriesInputTextField.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+    }
+
+    private void createFoodItemTextViews(){
+        this.foodItemTVIds = new int[maxFoodCount];
+        for (int i = 0; i < maxFoodCount; i++){
+            TextView foodItemTV = new TextView(this);
+            foodItemTV.setBackgroundResource(R.drawable.round_outline);
+            if (i < (maxFoodCount - 1)) {
+                foodItemTV.setLayoutParams(params1);
+            }
+            else {
+                foodItemTV.setLayoutParams(params2);
+            }
+            foodItemTV.setPadding(40,40,40,40);
+            foodItemTV.setTextColor(Color.parseColor("#000000"));
+            foodItemTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size));
+            foodItemTV.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+            foodItemTV.setId(ViewCompat.generateViewId());
+            this.foodItemTVIds[i] = foodItemTV.getId();
+            foodItemTV.setVisibility(View.GONE);
+            foodItemsLayout.addView(foodItemTV, i + 3);
+        }
     }
 
     private void setFoodItemTextViews(){
         ArrayList<String> foodForDate = caloriesModel.getFoodCalories(currentDate);
-        foodCaloriesTextView = (TextView)findViewById(R.id.foodCaloriesTextView);
-        String foodItem = (foodForDate == null)? "": foodForDate.get(0);
-        foodCaloriesTextView.setText(foodItem);
-        int foodCount = foodForDate.size();
-        if (foodForDate != null && foodCount > 1) {
-            for (int i = 1; i < foodCount; i++) {
-                
+        if (foodForDate == null) {
+            this.foodCount = 0;
+            return;
+        }
+        this.foodCount = foodForDate.size();
+        if (this.foodCount > 0) {
+            for (int i = 0; i < foodCount; i++) {
+                TextView foodItemTV = (TextView) findViewById(this.foodItemTVIds[i]);
+                foodItemTV.setText(foodForDate.get(i));
+                foodItemTV.setVisibility(View.VISIBLE);
             }
         }
+        this.hideUnusedFoodItemTextViews();
+    }
+
+    private void hideUnusedFoodItemTextViews(){
+        if (this.foodCount == maxFoodCount) {
+            return;
+        }
+        for (int i = foodCount; i < maxFoodCount; i++) {
+            TextView foodItemTV = (TextView) findViewById(this.foodItemTVIds[i]);
+            foodItemTV.setText("");
+            foodItemTV.setVisibility(View.GONE);
+        }
+    }
+
+    private void setEnterFoodButtonListener(){
+        enterFoodButton = (Button) findViewById(R.id.enterFoodButton);
+        enterFoodButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String food = foodInputTextField.getText().toString();
+                String calories = caloriesInputTextField.getText().toString();
+                if (food.isEmpty() || calories.isEmpty() || foodCount == maxFoodCount){
+                    return;
+                }
+                String foodItemCalories = String.valueOf(foodCount + 1) + " " + food.toUpperCase() + ":" + calories + " CALS";
+                caloriesModel.addFoodCalories(currentDate, foodItemCalories);
+                TextView foodItemTV = (TextView) findViewById(foodItemTVIds[foodCount]);
+                foodItemTV.setText(foodItemCalories);
+                foodItemTV.setVisibility(View.VISIBLE);
+                foodCount++;
+            }
+        });
     }
 
 }

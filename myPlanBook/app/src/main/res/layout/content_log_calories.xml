@@ -26,12 +26,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15sp"
-                android:layout_marginRight="15sp"
                 android:layout_marginTop="15sp"
+                android:layout_marginRight="15sp"
                 android:layout_weight="1"
                 android:background="@drawable/round_outline_bordered"
                 android:hint="FOOD"
-                android:inputType="number"
+                android:inputType="text"
                 android:padding="15sp"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
@@ -56,7 +56,7 @@
                 app:fontFamily="sans-serif-thin" />
 
             <Button
-                android:id="@+id/caloriesEnterButton"
+                android:id="@+id/enterFoodButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15sp"
@@ -69,29 +69,6 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:fontFamily="sans-serif-thin" />
-
-            <LinearLayout
-                android:id="@+id/displayCaloriesLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/foodCaloriesTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15sp"
-                    android:layout_marginTop="15sp"
-                    android:layout_marginRight="15sp"
-                    android:background="@drawable/round_outline"
-                    android:gravity="center"
-                    android:padding="15sp"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    app:fontFamily="sans-serif-thin" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

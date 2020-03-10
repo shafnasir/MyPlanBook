@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wish"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".WishList"
+    tools:showIn="@layout/activity_wish_list">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rellayl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/WishText"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter Your Wish Here!"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/Add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to List"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/WishText" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/WishText"
+            android:src="@drawable/gift"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/YourWishes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Wishes:"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:fontFamily="sans-serif-black"/>
+
+            <Button
+                android:id="@+id/Delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_toRightOf="@+id/YourWishes"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/Share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_toRightOf="@+id/Delete"
+                android:layout_marginLeft="20dp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/wishes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:inputType="textMultiLine"
+            android:fontFamily="sans-serif-white"
+            android:textSize="20sp"
+            android:scrollbars="vertical"
+            android:text="you don't have any wishes yet :("/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -37,7 +37,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int[] foodItemTVIds;
     private int currentMonth;
     private int foodCount;
-    private int maxFoodCount = 100;
+    private int maxFoodCount = 10;
     private int maxFoodStringLength = 200;
     private int maxCalorieLength = 10;
 
@@ -69,10 +69,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
         params2 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params2.setMargins(45,45,45,45);
-        params3 = new LinearLayout.LayoutParams(875,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params3.setMargins(45,45,45,0);
+        params2.setMargins(45,0,45,45);
     }
 
     private void assignFoodItemsLayout() {
@@ -109,15 +106,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
         for (int i = 0; i < maxFoodCount; i++){
             TextView foodItemTV = new TextView(this);
             foodItemTV.setBackgroundResource(R.drawable.round_outline);
-            if (i == 0) {
-
-            }
-            else if (i < (maxFoodCount - 1)) {
-                foodItemTV.setLayoutParams(params1);
-            }
-            else {
-                foodItemTV.setLayoutParams(params2);
-            }
+            foodItemTV.setLayoutParams(params2);
             foodItemTV.setPadding(40,40,40,40);
             foodItemTV.setTextColor(Color.parseColor("#000000"));
             foodItemTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size));
@@ -148,7 +137,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     }
 
     private void hideUnusedFoodItemTextViews(){
-        if (this.foodCount == maxFoodCount) {
+        if (this.foodCount == this.maxFoodCount) {
             return;
         }
         for (int i = foodCount; i < maxFoodCount; i++) {
@@ -167,6 +156,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
                 }*/
                 String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                 calendarDate.setText(date);
+                currentDate = date;
                 currentMonth = (currentMonth != month + 1)? month + 1: currentMonth;
                 setFoodItemTextViews();
             }

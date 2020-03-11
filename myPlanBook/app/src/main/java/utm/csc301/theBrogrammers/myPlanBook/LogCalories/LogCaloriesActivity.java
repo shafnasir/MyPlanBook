@@ -37,7 +37,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int[] foodItemTVIds;
     private int currentMonth;
     private int foodCount;
-    private int maxFoodCount = 10;
+    private int maxFoodCount = 100;
     private int maxFoodStringLength = 200;
     private int maxCalorieLength = 10;
 

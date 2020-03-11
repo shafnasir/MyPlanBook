@@ -35,7 +35,7 @@ public class LoadTransactions extends AppCompatActivity {
     private void openFileExplorer(){
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/*"); // open all types of plain text
+        intent.setType("text/comma-separated-values"); // open all types of plain text
         startActivityForResult(intent, GET_CSV_FILE);
     }
 
@@ -51,8 +51,6 @@ public class LoadTransactions extends AppCompatActivity {
             if (resultData != null) {
                 uri = resultData.getData();
 
-                Log.i("FILE FOUND!!!!!!!!!!!", uri.getEncodedPath());
-
                 readFile(uri);
             }
         }
@@ -61,16 +59,25 @@ public class LoadTransactions extends AppCompatActivity {
     private void readFile(Uri uri)  {
 
         try {
+
+            String mimeType = getContentResolver().getType(uri);
+
+
+
             InputStream inputStream =
                      getContentResolver().openInputStream(uri);
             BufferedReader reader = new BufferedReader(
                      new InputStreamReader(Objects.requireNonNull(inputStream)));
-            ReadCSV.parse(reader);
-
-        } catch (IOException e) {
+            TransactionCollection tc = ReadCSV.parse(reader);
             Toast.makeText(LoadTransactions.this,
-                    "Try importing a file with a csv extension.",
-                    Toast.LENGTH_SHORT).show();
+                    "Imported " + tc.length() + " transactions from . Check \"Manage Transactions" +
+                           "\" page to view them.",
+                    Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            Toast.makeText(LoadTransactions.this,
+                    "Error uploading transactions. Corrupted CSV file and/or format is incorrect.",
+                    Toast.LENGTH_LONG).show();
         }
 
     }

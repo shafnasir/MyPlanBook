@@ -1,5 +1,7 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class TransactionCollection {
@@ -25,17 +27,22 @@ public class TransactionCollection {
 
     }
 
-    public boolean importSingleTransaction(String[] rowParameters){
-        if (rowParameters.length != this.mi.length) return false;
+    public void importSingleTransaction(String[] rowParameters){
 
+        boolean isDebit = false;
         String date = rowParameters[mi[0]];
         String institution = rowParameters[mi[1]];
-        int amount = Integer.parseInt(rowParameters[mi[2]]);
-        boolean isDebit = Boolean.getBoolean(rowParameters[mi[3]]);
-        int cardNum = Integer.parseInt(rowParameters[mi[4]]);
+//        /float amount = Float.parseFloat(rowParameters[mi[2]]);
+        float amount = 0.0f;
+        String cardNum = rowParameters[mi[3]];
+        if (rowParameters[4] == "true") isDebit = true;
 
-        addTransaction(new BankTransaction(date, institution, amount, isDebit, cardNum));
-        return true;
+
+        addTransaction(new BankTransaction(date, institution, amount, cardNum, isDebit));
+    }
+
+    public int length(){
+        return this.transactions.size();
     }
 
 

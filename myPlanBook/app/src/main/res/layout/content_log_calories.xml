@@ -21,6 +21,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/caloriesDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/round_outline"
+                android:gravity="center"
+                android:padding="15sp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-thin" />
+
             <EditText
                 android:id="@+id/inputFoodEditText"
                 android:layout_width="match_parent"
@@ -62,6 +77,7 @@
                 android:layout_marginLeft="15sp"
                 android:layout_marginTop="15sp"
                 android:layout_marginRight="15sp"
+                android:layout_marginBottom="15sp"
                 android:layout_weight="1"
                 android:background="@drawable/round_outline_bordered"
                 android:padding="15sp"

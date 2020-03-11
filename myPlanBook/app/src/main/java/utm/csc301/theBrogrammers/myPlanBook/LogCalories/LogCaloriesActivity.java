@@ -31,7 +31,9 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int[] foodItemTVIds;
     private int foodCount;
     private Button enterFoodButton;
-    private int maxFoodCount = 3;
+    private int maxFoodCount = 100;
+    private int maxFoodStringLength = 200;
+    private int maxCalorieLength = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +140,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String food = foodInputTextField.getText().toString();
                 String calories = caloriesInputTextField.getText().toString();
-                if (food.isEmpty() || calories.isEmpty() || foodCount == maxFoodCount){
+                if (food.isEmpty() || calories.isEmpty() || foodCount == maxFoodCount || food.length() > maxFoodStringLength || calories.length() > maxCalorieLength){
                     return;
                 }
                 String foodItemCalories = String.valueOf(foodCount + 1) + " " + food.toUpperCase() + ":" + calories + " CALS";

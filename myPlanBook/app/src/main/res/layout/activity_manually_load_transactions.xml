@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinancialHub.ManuallyLoadTransactions">
+
+    <TextView
+        android:id="@+id/previewTitle"
+        android:layout_width="342dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+
+        android:selectAllOnFocus="true"
+        android:text="@string/title_transaction_form"
+        android:textColor="#2196F3"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    <ScrollView
+        android:layout_width="435dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:background="#DDDDDD"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/category_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginLeft="501dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Store/Debitor/Category"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/amount_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="55dp"
+                android:ems="10"
+                android:hint="$ Amount"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/card_number_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="100dp"
+                android:ems="10"
+                android:hint="Card Number"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CalendarView
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="52dp"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="145dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+    <View android:id="@+id/rectangle_at_the_top"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:background="#DDDDDD"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+    <Button
+        android:id="@+id/commit_debit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="20dp"
+        android:enabled="true"
+        android:text="@string/commit_debit"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="230dp" />
+
+    <Button
+        android:id="@+id/commit_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:enabled="true"
+        android:text="@string/commit_credit"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="200dp" />
+
+    <View
+        android:id="@+id/rectangle_divider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="390dp"
+        android:background="#DDDDDD"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
+    <Button
+        android:id="@+id/commit_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="16dp"
+        android:enabled="true"
+        android:text="@string/commit_collection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        app:layout_constraintEnd_toEndOf="@id/rectangle_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rectangle_divider"
+        android:layout_alignParentTop="true" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

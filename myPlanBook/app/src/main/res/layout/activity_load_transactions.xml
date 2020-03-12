@@ -43,7 +43,7 @@
 
     <Button
 
-        android:id="@+id/set_goals"
+        android:id="@+id/manually_import_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -53,7 +53,8 @@
         android:enabled="true"
         android:text="@string/manually_load"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="switchToManualLoadTransaction"/>
 
     <View android:id="@+id/rectangle_at_the_top"
         android:layout_width="match_parent"

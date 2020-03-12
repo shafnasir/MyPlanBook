@@ -38,6 +38,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private FloatingActionButton deleteCaloriesButton;
     private CalendarView calendarView;
     private TextView calendarDate;
+    private TextView totalCalsTV;
     private boolean editMode = false;
 
     private int[] foodItemTVIds;
@@ -45,6 +46,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int[] foodItemCheckBoxIds;
     private int currentMonth;
     private int foodCount;
+    private int totalCals;
     private int maxFoodCount = 100;
     private int maxFoodStringLength = 200;
     private int maxCalorieLength = 10;
@@ -59,6 +61,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
         this.setCurrentDate();
         this.setFoodInputTextField();
         this.setCaloriesInputTextField();
+        this.setTotalCalsTextView();
         caloriesModel = new CaloriesModel(maxFoodCount);
         this.createFoodItemLayouts();
         this.createFoodItemCheckBoxes();
@@ -114,6 +117,10 @@ public class LogCaloriesActivity extends AppCompatActivity {
         caloriesInputTextField = findViewById(R.id.inputCaloriesEditText);
     }
 
+    private void setTotalCalsTextView() {
+        totalCalsTV = findViewById(R.id.totalCaloriesTV);
+    }
+
     private void createFoodItemLayouts() {
         this.foodItemLayoutIds = new int[maxFoodCount];
         for (int i = 0; i < maxFoodCount; i++) {
@@ -125,7 +132,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
             foodItemLayout.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
-            foodItemsLayout.addView(foodItemLayout, i + 5);
+            foodItemsLayout.addView(foodItemLayout, i + 6);
         }
     }
 
@@ -166,6 +173,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
 
     private void setFoodItemTextViews(){
         ArrayList<String> foodForDate = caloriesModel.getFoodCalories(currentDate);
+        this.totalCals = 0;
         if (foodForDate == null) {
             this.foodCount = 0;
         }
@@ -178,10 +186,23 @@ public class LogCaloriesActivity extends AppCompatActivity {
                     foodItemTV.setText(String.valueOf(i+1) + " " + foodForDate.get(i));
                     foodItemTV.setVisibility(View.VISIBLE);
                     foodItemLayout.setVisibility(View.VISIBLE);
+                    addCaloriesToTotal(foodForDate.get(i));
                 }
             }
         }
+        this.setTotalCalsTVText();
         this.hideUnusedFoodItemTextViews();
+    }
+
+    private void addCaloriesToTotal(String foodCalories) {
+        String[] foodCalSplitColon = foodCalories.split(":");
+        String[] foodCalSplitSpace = foodCalSplitColon[foodCalSplitColon.length - 1].split(" ");
+        int calsToAdd = Integer.parseInt(foodCalSplitSpace[0]);
+        totalCals += calsToAdd;
+    }
+
+    private void setTotalCalsTVText() {
+        this.totalCalsTV.setText("TOTAL: " + String.valueOf(totalCals) + " CALS");
     }
 
     private void hideUnusedFoodItemTextViews(){
@@ -231,6 +252,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private void setCheckBoxVisibility(){
         for (int i = 0; i < maxFoodCount; i++) {
             CheckBox foodItemCheckBox = (CheckBox) findViewById(foodItemCheckBoxIds[i]);
+            foodItemCheckBox.setChecked(false);
             if (editMode == false) {
                 foodItemCheckBox.setVisibility(View.GONE);
             }
@@ -270,6 +292,8 @@ public class LogCaloriesActivity extends AppCompatActivity {
                 foodItemTV.setVisibility(View.VISIBLE);
                 foodItemLayout.setVisibility(View.VISIBLE);
                 foodCount++;
+                totalCals += Integer.parseInt(calories);
+                setTotalCalsTVText();
             }
         });
     }
@@ -295,9 +319,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
         deleteCaloriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editMode == true) {
-                    deleteCheckedCalorieEntries();
-                }
+                if (editMode == true) { deleteCheckedCalorieEntries(); }
             }
         });
     }
@@ -315,14 +337,10 @@ public class LogCaloriesActivity extends AppCompatActivity {
                 numChecked++;
             }
         }
-        if (numChecked == 0) {
-            return;
-        }
+        if (numChecked == 0) { return; }
         int indexOffset = 0;
         for (int i = 0; i < maxFoodCount; i++) {
-            if (indicesToDelete[i] == 0 && indexOffset > 0) {
-                break;
-            }
+            if (indicesToDelete[i] == 0 && indexOffset > 0) { break; }
             caloriesModel.removeFoodCalories(currentDate, indicesToDelete[i] - indexOffset);
             indexOffset++;
         }

@@ -18,7 +18,7 @@ import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 
 public class Settings extends AppCompatActivity {
 
-    private Button changepass, feedback;
+    private Button changepass, feedback, notificationdemo;
     private ImageButton ProfileButton;
 
     @Override
@@ -50,6 +50,14 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        notificationdemo = findViewById(R.id.button4);
+        notificationdemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickNotificationDemo();
+            }
+        });
+
     }
 
     public void clickchangepass() {
@@ -65,6 +73,11 @@ public class Settings extends AppCompatActivity {
 
     public void clickProfile(){
         Intent intent = new Intent(this, Profile.class);
+        startActivity(intent);
+    }
+
+    public void clickNotificationDemo(){
+        Intent intent = new Intent(this, Notification_Demo.class);
         startActivity(intent);
     }
 }

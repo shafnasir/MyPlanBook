@@ -45,7 +45,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int[] foodItemCheckBoxIds;
     private int currentMonth;
     private int foodCount;
-    private int maxFoodCount = 3;
+    private int maxFoodCount = 100;
     private int maxFoodStringLength = 200;
     private int maxCalorieLength = 10;
 
@@ -114,6 +114,38 @@ public class LogCaloriesActivity extends AppCompatActivity {
         caloriesInputTextField = findViewById(R.id.inputCaloriesEditText);
     }
 
+    private void createFoodItemLayouts() {
+        this.foodItemLayoutIds = new int[maxFoodCount];
+        for (int i = 0; i < maxFoodCount; i++) {
+            LinearLayout foodItemLayout = new LinearLayout(this);
+            foodItemLayout.setId(ViewCompat.generateViewId());
+            this.foodItemLayoutIds[i] = foodItemLayout.getId();
+            foodItemLayout.setOrientation(LinearLayout.HORIZONTAL);
+            foodItemLayout.setVisibility(View.GONE);
+            foodItemLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            foodItemsLayout.addView(foodItemLayout, i + 5);
+        }
+    }
+
+    private void createFoodItemCheckBoxes() {
+        this.foodItemCheckBoxIds = new int[maxFoodCount];
+        for (int i = 0; i < maxFoodCount; i++) {
+            CheckBox foodItemCheckBox = new CheckBox(this);
+            foodItemCheckBox.setId(ViewCompat.generateViewId());
+            this.foodItemCheckBoxIds[i] = foodItemCheckBox.getId();
+            foodItemCheckBox.setVisibility(View.GONE);
+            LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            checkBoxParams.setMargins(45, 0, 0, 0);
+            foodItemCheckBox.setLayoutParams(checkBoxParams);
+            LinearLayout foodItemLayout = (LinearLayout) findViewById(foodItemLayoutIds[i]);
+            foodItemLayout.addView(foodItemCheckBox, 0);
+        }
+    }
+
     private void createFoodItemTextViews(){
         this.foodItemTVIds = new int[maxFoodCount];
         for (int i = 0; i < maxFoodCount; i++){
@@ -132,39 +164,6 @@ public class LogCaloriesActivity extends AppCompatActivity {
         }
     }
 
-    private void createFoodItemLayouts() {
-        this.foodItemLayoutIds = new int[maxFoodCount];
-        for (int i = 0; i < maxFoodCount; i++) {
-            LinearLayout foodItemLayout = new LinearLayout(this);
-            foodItemLayout.setId(ViewCompat.generateViewId());
-            this.foodItemLayoutIds[i] = foodItemLayout.getId();
-            foodItemLayout.setOrientation(LinearLayout.HORIZONTAL);
-            foodItemLayout.setVisibility(View.GONE);
-            foodItemLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.MATCH_PARENT));
-            foodItemsLayout.addView(foodItemLayout, i + 5);
-        }
-    }
-
-    private void createFoodItemCheckBoxes() {
-        this.foodItemCheckBoxIds = new int[maxFoodCount];
-        for (int i = 0; i < maxFoodCount; i++) {
-            CheckBox foodItemCheckBox = new CheckBox(this);
-            foodItemCheckBox.setId(ViewCompat.generateViewId());
-            this.foodItemCheckBoxIds[i] = foodItemCheckBox.getId();
-            foodItemCheckBox.setVisibility(View.GONE);
-            LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-            checkBoxParams.setMargins(45, 45, 0, 0);
-            foodItemCheckBox.setLayoutParams(checkBoxParams);
-            foodItemCheckBox.setPadding(40,40,40,40);
-            LinearLayout foodItemLayout = (LinearLayout) findViewById(foodItemLayoutIds[i]);
-            foodItemLayout.addView(foodItemCheckBox, 0);
-        }
-    }
-
     private void setFoodItemTextViews(){
         ArrayList<String> foodForDate = caloriesModel.getFoodCalories(currentDate);
         if (foodForDate == null) {
@@ -175,8 +174,10 @@ public class LogCaloriesActivity extends AppCompatActivity {
             if (this.foodCount > 0) {
                 for (int i = 0; i < foodCount; i++) {
                     TextView foodItemTV = (TextView) findViewById(this.foodItemTVIds[i]);
-                    foodItemTV.setText(foodForDate.get(i));
+                    LinearLayout foodItemLayout = (LinearLayout) findViewById(this.foodItemLayoutIds[i]);
+                    foodItemTV.setText(String.valueOf(i+1) + " " + foodForDate.get(i));
                     foodItemTV.setVisibility(View.VISIBLE);
+                    foodItemLayout.setVisibility(View.VISIBLE);
                 }
             }
         }
@@ -208,26 +209,6 @@ public class LogCaloriesActivity extends AppCompatActivity {
                 currentDate = date;
                 currentMonth = (currentMonth != month + 1)? month + 1: currentMonth;
                 setFoodItemTextViews();
-            }
-        });
-    }
-
-    private void setEnterFoodButtonListener(){
-        enterFoodButton = (Button) findViewById(R.id.enterFoodButton);
-        enterFoodButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                String food = foodInputTextField.getText().toString();
-                String calories = caloriesInputTextField.getText().toString();
-                if (food.isEmpty() || calories.isEmpty() || foodCount == maxFoodCount || food.length() > maxFoodStringLength || calories.length() > maxCalorieLength){
-                    return;
-                }
-                String foodItemCalories = String.valueOf(foodCount + 1) + " " + food.toUpperCase() + ":" + calories + " CALS";
-                caloriesModel.addFoodCalories(currentDate, foodItemCalories);
-                TextView foodItemTV = (TextView) findViewById(foodItemTVIds[foodCount]);
-                foodItemTV.setText(foodItemCalories);
-                foodItemTV.setVisibility(View.VISIBLE);
-                foodCount++;
             }
         });
     }
@@ -266,9 +247,31 @@ public class LogCaloriesActivity extends AppCompatActivity {
                 foodItemTV.setLayoutParams(params2);
             }
             else {
-                foodItemTV.setLayoutParams(params2);
+                foodItemTV.setLayoutParams(params3);
             }
         }
+    }
+
+    private void setEnterFoodButtonListener(){
+        enterFoodButton = (Button) findViewById(R.id.enterFoodButton);
+        enterFoodButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String food = foodInputTextField.getText().toString();
+                String calories = caloriesInputTextField.getText().toString();
+                if (food.isEmpty() || calories.isEmpty() || foodCount == maxFoodCount || food.length() > maxFoodStringLength || calories.length() > maxCalorieLength){
+                    return;
+                }
+                String foodItemCalories = food.toUpperCase() + ":" + calories + " CALS";
+                caloriesModel.addFoodCalories(currentDate, foodItemCalories);
+                TextView foodItemTV = (TextView) findViewById(foodItemTVIds[foodCount]);
+                LinearLayout foodItemLayout = (LinearLayout) findViewById(foodItemLayoutIds[foodCount]);
+                foodItemTV.setText(String.valueOf(foodCount + 1) + " " + foodItemCalories);
+                foodItemTV.setVisibility(View.VISIBLE);
+                foodItemLayout.setVisibility(View.VISIBLE);
+                foodCount++;
+            }
+        });
     }
 
     private void setEditFloatingButtonListener(){
@@ -302,20 +305,25 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private void deleteCheckedCalorieEntries(){
         int[] indicesToDelete = new int[maxFoodCount];
         int currentIndex = 0;
+        int numChecked = 0;
         for (int i = 0; i < maxFoodCount; i++) {
             CheckBox foodItemCheckBox = (CheckBox) findViewById(foodItemCheckBoxIds[i]);
             TextView foodItemTV = (TextView) findViewById(foodItemTVIds[i]);
             if (!foodItemTV.getText().toString().isEmpty() && foodItemCheckBox.isChecked()) {
                 indicesToDelete[currentIndex] = i;
                 currentIndex++;
+                numChecked++;
             }
         }
+        if (numChecked == 0) {
+            return;
+        }
         int indexOffset = 0;
-        for (Object index: indicesToDelete) {
-            if (index == null) {
+        for (int i = 0; i < maxFoodCount; i++) {
+            if (indicesToDelete[i] == 0 && indexOffset > 0) {
                 break;
             }
-            caloriesModel.removeFoodCalories(currentDate, ((int) index) - indexOffset);
+            caloriesModel.removeFoodCalories(currentDate, indicesToDelete[i] - indexOffset);
             indexOffset++;
         }
         setEditModeFeatures();

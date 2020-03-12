@@ -182,7 +182,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="16dp"
         android:enabled="true"
-        android:onClick="commitCollection"
+        android:onClick="clearCollection"
         android:text="@string/clear_collection"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,12 +191,15 @@
 
     <ListView
         android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_width="360dp"
+        android:layout_height="185dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/clear_transactions"
         app:layout_constraintEnd_toEndOf="@id/rectangle_divider"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rectangle_divider"
-        android:layout_alignParentTop="true" />
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_divider" />
 
 
 

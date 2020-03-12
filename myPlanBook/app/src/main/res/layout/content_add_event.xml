@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:orientation="horizontal"
-            android:background="?attr/colorPrimary">
+            android:background="?attr/colorPrimaryDark">
 
             <TextView
                 style="@style/createEventToolbarItems"
@@ -66,6 +66,7 @@
             android:layout_width="match_parent"
             android:paddingTop="10dp"
             android:layout_margin="20dp"
+            android:maxLength="15"
             android:textSize="20dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"

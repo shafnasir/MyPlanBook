@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".calendar.CalendarEventsActivity"
@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="48dp"
         android:text="Month"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorBlack"
         android:textAlignment="center"
         android:textSize="28sp">
 
@@ -40,7 +40,7 @@
             app:compactCalendarOtherMonthDaysTextColor="@color/colorAccent"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="12sp"
-            app:compactCalendarBackgroundColor="@color/colorPrimary"
+            app:compactCalendarBackgroundColor="@color/colorPrimaryDark"
             app:compactCalendarTextColor="#fff"
             app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorAccent"
             app:compactCalendarMultiEventIndicatorColor="#fff">
@@ -57,7 +57,7 @@
         android:background="@color/colorAccent"
         android:layout_marginTop="10dp"
         android:text="Add Event"
-        android:textColor="#ffff"
+        android:textColor="@color/colorWhite"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"/>
 

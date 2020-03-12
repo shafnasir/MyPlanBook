@@ -33,6 +33,7 @@ import java.util.Locale;
 
 public class CalendarEventsActivity extends AppCompatActivity {
 
+    boolean checkCancel = false;
     CompactCalendarView compactCalendarView = null;
     SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM - yyyy", Locale.getDefault());
     TableLayout displayEvents;
@@ -91,9 +92,22 @@ public class CalendarEventsActivity extends AppCompatActivity {
         for(int i = 0; i < events.size(); i++){
             TextView rowTextView = new TextView(this);
             Button deleteEvent = new Button(this);
+            Button updateEvent = new Button(this);
             deleteEvent.setBackgroundResource(R.drawable.garbage_can);
             deleteEvent.setLayoutParams(new TableRow.LayoutParams(100, 100));
+            updateEvent.setBackgroundResource(R.drawable.edit_pencil);
+            updateEvent.setLayoutParams(new TableRow.LayoutParams(100, 100));
             Event event = events.get(i);
+
+            updateEvent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openAddEvent();
+                    if(checkCancel){
+                        compactCalendarView.removeEvent(event);
+                    }
+                }
+            });
 
             deleteEvent.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -118,15 +132,20 @@ public class CalendarEventsActivity extends AppCompatActivity {
                 am_pm = "PM";
             }
             String time = String.format("%2d:%02d ", hour, minutes);
-            displayEvent = "Event " + (i + 1) + ": " + events.get(i).getData().toString() + ", Time: " + time + am_pm;
+            displayEvent = events.get(i).getData().toString() + ", Time: " + time + am_pm;
 
             rowTextView.setText(displayEvent);
-            rowTextView.setTextColor(Color.WHITE);
+            TableRow.LayoutParams params = new TableRow.LayoutParams();
+            params.leftMargin = 20;
+            rowTextView.setLayoutParams(params);
+            rowTextView.setTextColor(Color.BLACK);
             rowTextView.setGravity(Gravity.CENTER);
             rowTextView.setTextSize(18);
 
             displayEventLayout.addView(rowTextView);
             displayEventLayout.addView(deleteEvent);
+            displayEventLayout.addView(updateEvent);
+
             displayEvents.addView(displayEventLayout);
         }
 
@@ -142,15 +161,18 @@ public class CalendarEventsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
-
                 Event new_event = new Event(
                         data.getIntExtra("eventColor", 0),
                         data.getLongExtra("dateMilliseconds", 0),
                         data.getStringExtra("eventDetails"));
 
                 compactCalendarView.addEvent(new_event);
-
+                checkCancel = true;
             }
+            else{
+                checkCancel = false;
+            }
+
         }
     }
 

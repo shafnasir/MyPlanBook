@@ -14,6 +14,28 @@
         android:background="#B4FC5B"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editCaloriesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:layout_marginRight="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/caloriesDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:layout_marginLeft="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/textViewCaloriesTitle"
             android:layout_width="match_parent"

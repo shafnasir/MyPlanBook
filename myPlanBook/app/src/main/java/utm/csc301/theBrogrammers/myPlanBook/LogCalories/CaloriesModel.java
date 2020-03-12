@@ -33,4 +33,13 @@ public class CaloriesModel {
         }
     }
 
+    public void removeFoodCalories(String date, int index) {
+        if (this.foodByDate.containsKey(date)){
+            String removed = this.foodByDate.get(date).remove(index);
+        }
+        else {
+            return;
+        }
+    }
+
 }

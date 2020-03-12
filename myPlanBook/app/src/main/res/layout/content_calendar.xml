@@ -50,31 +50,27 @@
     </LinearLayout>
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/addEvent"
         android:layout_gravity="center"
         android:background="@color/colorAccent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:text="Add Event"
         android:textColor="#ffff"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:paddingRight="20dp"/>
 
-    </Button>
+    <TableLayout
+        android:layout_gravity="right"
+        android:id="@+id/displayEvents"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/myEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Event Details"
-        android:textColor="#ffffff"
-        android:textAlignment="gravity"
-        android:textSize="18sp"
-        android:maxLines="4">
+    </TableLayout>
 
-    </TextView>
+
+
 
 </LinearLayout>

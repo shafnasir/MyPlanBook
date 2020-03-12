@@ -39,5 +39,6 @@
     <string name="title_activity_wish_list">WishList</string>
     <string name="commit_debit">Debit</string>
     <string name="commit_credit">Credit</string>
-    <string name="commit_collection">Commit Collection</string>
+    <string name="commit_collection">Load All</string>
+    <string name="clear_collection">Clear All</string>
 </resources>

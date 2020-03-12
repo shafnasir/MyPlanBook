@@ -87,7 +87,7 @@ public class LoadTransactions extends AppCompatActivity {
     }
 
     public void switchToManualLoadTransaction(View v){
-//        Intent myIntent = new Intent(getApplicationContext(),   ManualLoad.class);
-//        startActivity(myIntent);
+        Intent myIntent = new Intent(getApplicationContext(),  ManuallyLoadTransactions.class);
+        startActivity(myIntent);
     }
 }

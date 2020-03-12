@@ -31,6 +31,8 @@ public class BankTransaction {
     public float getAmount() {
         return amount;
     }
+    
+
 
     public boolean isDebit() {
         return isDebit;

@@ -32,9 +32,14 @@
     <string name="title_activity_main_login">MainLoginActivity</string>
     <string name="title_activity_planner_selector">PlannerSelector</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_transaction_form">Transaction Form</string>
     <string name="title_activity_log_calories">LogCaloriesActivity</string>
     <string name="title_activity_log_workouts">LogWorkoutsActivity</string>
     <string name="title_activity_log_body_fat">LogBodyFatActivity</string>
     <string name="title_activity_wish_list">WishList</string>
+    <string name="commit_debit">Debit</string>
+    <string name="commit_credit">Credit</string>
+    <string name="commit_collection">Load All</string>
+    <string name="clear_collection">Clear All</string>
     <string name="title_activity_notification__demo">Notification_Demo</string>
 </resources>

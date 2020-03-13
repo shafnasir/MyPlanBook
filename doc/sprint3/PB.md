@@ -83,6 +83,7 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 - Input the foods eaten and the corresponding calories for a given day.
 - Select a date for calorie tracking.
 - See the foods and calories eaten from previous days.
+- Display total calories for a given date.
 
 **Story Points Estimate: 3**
 

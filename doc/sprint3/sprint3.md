@@ -55,3 +55,11 @@ User Story Ticket Number on Jira: User Story Name
 	- *Send App Feedback to Database*: Allow the user to write their opinion about the app and have these feedbacks saved in the database. Assigned to: Miko Gao.
     - *Change password using Database*: Allow the user to change their account password. The program will verify their old password in the database and update to the new one so that they can only sign in with their new password next time they sign in to the application. Assigned to: Miko Gao.
 	- *Log out using Database*: Save whether or not a user has logged out so that the user is only allowed to log in if they have logged out. Assigned to: Miko Gao.
+	- *Save Goal*: Have the user's financials goals get saved to the database. Also have the information set from the previous use load whenever the page is closed or app is closed.
+	
+## THEB-2: Set Savings Goals
+- Assigned to: Brandon Joubran
+- Subtasks
+	- *GUI*: Have the page set up and connecting it to the financial hub activity.
+	-*Adding a goal*: Allow's the user to enter a product that they want to save for. The user can enter the name of the product and the price of it.
+	-*Goal Progression*: Allow the user to enter income and expenditures. This adjusts the progress bar accordingly, while updating the user how close they are to their goal.

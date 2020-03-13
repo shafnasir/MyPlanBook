@@ -49,6 +49,33 @@ public class GoalProgress extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        enter = findViewById(R.id.enterButton);
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                add_goal();
+            }
+        });
+
+
+
+    }
+
+    public void add_goal(){
+        goalText = findViewById(R.id.goalText);
+        priceText = findViewById(R.id.priceText);
+        goal = goalText.getText().toString().trim();
+        price = priceText.getText().toString().trim();
+        //db.child("Goal").setValue(goal);
+        //db.child(goal).child("Price").setValue(price);
+        Log.i("price", price);
+        try {
+            goal_int = Float.parseFloat(price);
+            set = (currently_at/goal_int) * 100;
+            Log.i("goal_int", Float.toString(goal_int));
+        }catch(Exception e){
+
+        }
     }
 
 }

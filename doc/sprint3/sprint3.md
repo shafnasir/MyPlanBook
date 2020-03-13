@@ -51,8 +51,8 @@ User Story Ticket Number on Jira: User Story Name
 - Assigned to: Brandon Joubran
 - Subtasks
 	- *GUI*: Have the page set up and connecting it to the financial hub activity.
-	-*Adding a goal*: Allow's the user to enter a product that they want to save for. The user can enter the name of the product and the price of it.
-	-*Goal Progression*: Allow the user to enter income and expenditures. This adjusts the progress bar accordingly, while updating the user how close they are to their goal.
+	- *Adding a goal*: Allow's the user to enter a product that they want to save for. The user can enter the name of the product and the price of it.
+	- *Goal Progression*: Allow the user to enter income and expenditures. This adjusts the progress bar accordingly, while updating the user how close they are to their goal.
 	
 ## THEB-43: Database
 - Assigned to: Brandon Joubran, Yifei Gao

@@ -32,3 +32,9 @@ User Story Ticket Number on Jira: User Story Name
 	- *Select Date for Calorie Entries*: Be able to select a date for calorie entries and see the calories consumed or entered for that day. Estimated time: 2h.
 	- *Delete Calorie Entry*:  Be able to delete a calorie entry. Estimated time 1 h.
 	- *Display Total Calories*: Display the Total Calorie amount for a given date. Estimated time 1h.
+	
+## THEB-56: Calendarize Deadlines
+- Assigned to: Shaf Nasir
+- Subtasks
+	- *Update Events*: Allow the user to update events in the calendar. Estimated time: 2h.
+	- *Delete Events*: Allow the user to delete events in the calendar. Estimated time: 2h.

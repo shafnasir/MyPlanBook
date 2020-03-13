@@ -1,6 +1,7 @@
 # Sprint 3 Planning Meeting
 
-**Sprint Goal**: 
+**Sprint Goal**: Our goal for sprint 3 is to implement the last key features of our application based on priority. The features detailed below
+including fully implementing all classes with firebase dependencies and updating all UI layouts for cross platform compatibility. A major issue addressed at this sprint planning meeting is the need for a consistent UI styling guideline and theme for all components of the application; this is a major goal we wish to achieve this sprint 3. 
 
 *Summary:*
 

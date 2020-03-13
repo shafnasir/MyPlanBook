@@ -47,6 +47,13 @@ User Story Ticket Number on Jira: User Story Name
 	- *Update Events*: Allow the user to update events in the calendar. Estimated time: 2h.
 	- *Delete Events*: Allow the user to delete events in the calendar. Estimated time: 2h.
 	
+## THEB-2: Set Savings Goals
+- Assigned to: Brandon Joubran
+- Subtasks
+	- *GUI*: Have the page set up and connecting it to the financial hub activity.
+	-*Adding a goal*: Allow's the user to enter a product that they want to save for. The user can enter the name of the product and the price of it.
+	-*Goal Progression*: Allow the user to enter income and expenditures. This adjusts the progress bar accordingly, while updating the user how close they are to their goal.
+	
 ## THEB-43: Database
 - Assigned to: Brandon Joubran, Yifei Gao
 - Subtasks
@@ -57,9 +64,4 @@ User Story Ticket Number on Jira: User Story Name
 	- *Log out using Database*: Save whether or not a user has logged out so that the user is only allowed to log in if they have logged out. Assigned to: Miko Gao.
 	- *Save Goal*: Have the user's financials goals get saved to the database. Also have the information set from the previous use load whenever the page is closed or app is closed.
 	
-## THEB-2: Set Savings Goals
-- Assigned to: Brandon Joubran
-- Subtasks
-	- *GUI*: Have the page set up and connecting it to the financial hub activity.
-	-*Adding a goal*: Allow's the user to enter a product that they want to save for. The user can enter the name of the product and the price of it.
-	-*Goal Progression*: Allow the user to enter income and expenditures. This adjusts the progress bar accordingly, while updating the user how close they are to their goal.
+

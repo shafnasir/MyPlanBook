@@ -32,6 +32,6 @@
 - Not managing tasks on JIRA until the very end of the sprint.
 - Bad code design: poor naming conventions, violation of single responsibility principle, no javadoc/comments.
 
-## Best/ Worse Experiences During Sprint 2 ##
+## Best/ Worse Experiences During Sprint 3 ##
 - Worst: dealing with complex merge conflicts hours before the demo.
 - Best: being considerably more organized and efficient compared to last sprint.

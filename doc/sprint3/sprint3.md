@@ -7,6 +7,7 @@ including fully implementing all classes with firebase dependencies and updating
 
 *User Stories to Complete for Sprint 3:*
 - THEB-12: Log Calories
+- THEB-56: Calendarize Deadlines
 
 *User Stories to Start But Not Complete for Sprint 3:*
 

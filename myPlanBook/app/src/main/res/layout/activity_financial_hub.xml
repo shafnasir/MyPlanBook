@@ -64,7 +64,6 @@
 
 
     <Button
-        android:clickable="true"
         android:id="@+id/import_transactions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,6 +71,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="103dp"
+        android:clickable="true"
         android:enabled="true"
         android:onClick="switchToImportScreen"
         android:text="@string/import_transactions"
@@ -85,15 +85,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="0dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="160dp"
-        android:enabled="false"
+        android:clickable="true"
+        android:enabled="true"
+        android:onClick="switchToGoalsScreen"
         android:text="@string/set_goals"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View android:id="@+id/rectangle_at_the_top"
         android:layout_width="match_parent"

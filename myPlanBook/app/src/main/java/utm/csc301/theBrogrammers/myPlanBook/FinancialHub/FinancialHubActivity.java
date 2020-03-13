@@ -175,6 +175,11 @@ public class FinancialHubActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+    public void switchToGoalsScreen(View v){
+        Intent intent = new Intent(getApplicationContext(), GoalProgress.class);
+        startActivity(intent);
+    }
+
 
 
 }

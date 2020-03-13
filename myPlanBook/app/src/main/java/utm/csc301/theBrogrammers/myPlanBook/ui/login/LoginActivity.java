@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordInput;
     private String sign, pass;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.PasswordInput);
         Button login = findViewById(R.id.LoginButton);
         Button signup = findViewById(R.id.SignupButton);
+
+
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,15 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FinancialHub.LoadTransactions"></activity>
+        <activity
+            android:name=".FinancialHub.GoalProgress"
+            android:label="@string/title_activity_goal_progress"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".FinancialHub.AddGoal"
+            android:label="@string/title_activity_add_goal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FinancialHub.LoadTransactions" />
         <activity
             android:name=".Feedback"
             android:label="Feedback"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LogBodyFat.LogBodyFatActivity"
             android:label="@string/title_activity_log_body_fat"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LogWorkouts.LogWorkoutsActivity"
             android:label="@string/title_activity_log_workouts"
@@ -30,7 +38,6 @@
             android:label="@string/title_activity_log_calories"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HealthFitnessMainMenu.HealthFitnessMainMenuActivity" />
-
         <activity
             android:name=".ui.login.Signup"
             android:label="@string/title_activity_signup"

@@ -13,14 +13,20 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class PlannerSelector extends AppCompatActivity {
 
+    DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planner_selector);
+
+
 
         Button back = findViewById(R.id.backToLoginButton);
 

@@ -36,6 +36,9 @@
     <string name="title_activity_log_calories">LogCaloriesActivity</string>
     <string name="title_activity_log_workouts">LogWorkoutsActivity</string>
     <string name="title_activity_log_body_fat">LogBodyFatActivity</string>
+    <string name="title_activity_goals">Goals</string>
+    <string name="title_activity_add_goal">AddGoal</string>
+    <string name="title_activity_goal_progress">GoalProgress</string>
     <string name="title_activity_wish_list">WishList</string>
     <string name="commit_debit">Debit</string>
     <string name="commit_credit">Credit</string>

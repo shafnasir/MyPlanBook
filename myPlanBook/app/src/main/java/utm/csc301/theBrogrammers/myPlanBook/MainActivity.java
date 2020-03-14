@@ -15,12 +15,15 @@ import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsActivity;
 
 public class MainActivity extends AppCompatActivity {
+    
     private ImageButton button;
     private Button cal, goals, fitness, wishlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         button = findViewById(R.id.setting);
         button.setOnClickListener(new View.OnClickListener(){
 

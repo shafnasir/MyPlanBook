@@ -5,7 +5,7 @@ including fully implementing all classes with firebase dependencies and updating
 
 *Summary:*
 
-*User Stories to Complete for Sprint 3:
+*User Stories to Complete for Sprint 3*:
 - THEB-2: Set Savings Goals
 - THEB-4: Auto-load Monthly Transactions
 - THEB-12: Log Calories

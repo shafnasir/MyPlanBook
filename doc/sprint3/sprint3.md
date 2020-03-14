@@ -71,3 +71,8 @@ User Story Ticket Number on Jira: User Story Name
 - Subtasks
 	- *Update Events*: Allow the user to update events in the calendar. Estimated time: 2h.
 	- *Delete Events*: Allow the user to delete events in the calendar. Estimated time: 2h.
+	
+## THEB-59: Wish List
+- Assigned to: Xiaoyang Wu
+- Subtasks
+	- **: 

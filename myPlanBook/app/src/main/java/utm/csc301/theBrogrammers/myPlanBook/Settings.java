@@ -79,5 +79,6 @@ public class Settings extends AppCompatActivity {
     public void clickNotificationDemo(){
         Intent intent = new Intent(this, Notification_Demo.class);
         startActivity(intent);
+
     }
 }

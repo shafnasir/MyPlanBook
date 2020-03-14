@@ -125,10 +125,11 @@ As someone who manages my finances, I want to tally my purchases and the things 
 **Priority: Low**
 
 ## Database: THEB-43
-As a user of My Plan Book, I want to have my basic log in data stored and be accessible each time I log in to My Plan Book.
+As a user of My Plan Book, I want to have my data stored and be accessible each time I log in to My Plan Book.
 
 **Criteria of Satisfaction**
-- Have user's created account saved so that they can log in again and see their account information
+- Be able to access inputted data for each planner even after logging out and logging back in
+- Have user's created account saved so that they can log in again and see their account information and planner data
 
 **Story Points Estimate: 8**
 

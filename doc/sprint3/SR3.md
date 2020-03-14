@@ -9,12 +9,6 @@
 - Yifei Gao, gaoyife2
 
 ## Unfinished Tasks ##
-- THEB-63 Upload Manager
-    - New User Story: THEB-63 (Moved to sprint 4 backlog)
-    - New Subtask: THEB-64 & THEB-65 (Same tasks moved to Sprint 3 backlog)
-- THEB-3 Settings
-    - New User Story: THEB-63 (Moved to sprint 4 backlog)
-    - New Subtask: THEB-54 & THEB-67 (Same tasks moved to Sprint
 
 ## Practices to Continue During Next Sprint ##
 - Adherence to branch naming conventions.

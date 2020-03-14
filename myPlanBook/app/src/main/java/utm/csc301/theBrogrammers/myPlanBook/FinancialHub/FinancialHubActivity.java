@@ -171,7 +171,7 @@ public class FinancialHubActivity extends AppCompatActivity {
     }
 
     public void switchToImportScreen(View v){
-        Intent myIntent = new Intent(getApplicationContext(),   LoadTransactions.class);
+        Intent myIntent = new Intent(getApplicationContext(), LoadTransactions.class);
         startActivity(myIntent);
     }
 

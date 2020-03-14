@@ -25,14 +25,24 @@
     <string name="expenditure_preview_title">Financial Hub</string>
     <string name="manage_finances">Manage Finances</string>
     <string name="import_transactions">Import Transactions</string>
+    <string name="load_transactions">Load Transactions</string>
+    <string name="load_local_file">Load Local CSV File</string>
+    <string name="manually_load">Manually Load</string>
     <string name="set_goals">"Set Goals"</string>
     <string name="title_activity_main_login">MainLoginActivity</string>
     <string name="title_activity_planner_selector">PlannerSelector</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_transaction_form">Transaction Form</string>
     <string name="title_activity_log_calories">LogCaloriesActivity</string>
     <string name="title_activity_log_workouts">LogWorkoutsActivity</string>
     <string name="title_activity_log_body_fat">LogBodyFatActivity</string>
     <string name="title_activity_goals">Goals</string>
     <string name="title_activity_add_goal">AddGoal</string>
     <string name="title_activity_goal_progress">GoalProgress</string>
+    <string name="title_activity_wish_list">WishList</string>
+    <string name="commit_debit">Debit</string>
+    <string name="commit_credit">Credit</string>
+    <string name="commit_collection">Load All</string>
+    <string name="clear_collection">Clear All</string>
+    <string name="title_activity_notification__demo">Notification_Demo</string>
 </resources>

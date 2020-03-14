@@ -4,30 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/logCaloriesActivityCoordinatorLayout"
     tools:context=".LogCalories.LogCaloriesActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#B4FC5B"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editCaloriesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:layout_marginRight="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/caloriesDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7sp"
+            android:layout_marginLeft="10sp"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewCaloriesTitle"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="70sp"
+            android:background="@drawable/square_outline_bordered"
+            android:gravity="center"
+            android:text="CALORIES"
+            android:textColor="#000000"
+            android:textSize="35sp"
+            app:fontFamily="sans-serif-thin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <include
+            android:id="@+id/includeLogCalories"
+            layout="@layout/content_log_calories"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewCaloriesTitle"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <include layout="@layout/content_log_calories" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

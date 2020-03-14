@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlack">#010203</color>
@@ -14,4 +14,6 @@
     <color name="followers">#0D5D98</color>
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
+    <color name="pinkStart">#fddb92</color>
+    <color name="pinkEnd">#d1fdff</color>
 </resources>

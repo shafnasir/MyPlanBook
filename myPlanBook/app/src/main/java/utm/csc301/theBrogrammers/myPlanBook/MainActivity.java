@@ -9,18 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialHubActivity;
 import utm.csc301.theBrogrammers.myPlanBook.HealthFitnessMainMenu.HealthFitnessMainMenuActivity;
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsActivity;
 
 public class MainActivity extends AppCompatActivity {
+    
     private ImageButton button;
-    private Button cal, goals, fitness;
-    DatabaseReference mDatabase;
+    private Button cal, goals, fitness, wishlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, HealthFitnessMainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        wishlist = findViewById(R.id.WishList);
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, WishList.class);
                 startActivity(intent);
             }
         });

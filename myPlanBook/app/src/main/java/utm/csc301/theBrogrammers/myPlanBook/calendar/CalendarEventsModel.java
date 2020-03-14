@@ -54,6 +54,8 @@ public class CalendarEventsModel extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                setResult(RESULT_CANCELED, intent);
                 finish();
             }
         });

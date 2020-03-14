@@ -3,15 +3,16 @@ package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 public class BankTransaction {
 
     private String institution;
-    private int cardNum, amount;
+    private String cardNum;
+    float amount;
     private boolean isDebit;
     private String date;
 
     // Empty constructor
     public BankTransaction(){}
 
-    public BankTransaction(String date, String institution, int amount,
-                           boolean isDebit, int cardNum){
+    public BankTransaction(String date, String institution, float amount,
+                           String cardNum, boolean isDebit){
         this.institution = institution;
         this.amount = amount;
         this.isDebit = isDebit;
@@ -23,13 +24,15 @@ public class BankTransaction {
         return institution;
     }
 
-    public int getCardNum() {
+    public String getCardNum() {
         return cardNum;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
+    
+
 
     public boolean isDebit() {
         return isDebit;
@@ -39,7 +42,7 @@ public class BankTransaction {
         this.institution = institution;
     }
 
-    public void setCardNum(int cardNum) {
+    public void setCardNum(String cardNum) {
         this.cardNum = cardNum;
     }
 

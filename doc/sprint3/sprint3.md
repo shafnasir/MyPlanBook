@@ -12,7 +12,7 @@ including fully implementing all classes with firebase dependencies and updating
 - THEB-56: Calendarize Deadlines
 - THEB-59: Wish list
 
-*User Stories to Start But Not Complete for Sprint 3:*
+*User Stories to Start But Not Complete for Sprint 3*:
 - THEB-14: Notify of Deadlines
 - THEB-43: Database
 
@@ -79,5 +79,5 @@ User Story Ticket Number on Jira: User Story Name
 - Assigned to: Xiaoyang Wu
 - Subtasks:
 	- *Record Wishes*: Allow the user to record their purchase wishes. Estimated time: 2h.
-	- *Delete Wishes*: Allow the user to delete their purchase wishes. Estiamted time: 2h.
-	- *Share Wishes*: Allow the user to share their purchase wishes. Estiamted time: 2h.
+	- *Delete Wishes*: Allow the user to delete their purchase wishes. Estimated time: 2h.
+	- *Share Wishes*: Allow the user to share their purchase wishes. Estimated time: 2h.

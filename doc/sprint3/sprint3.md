@@ -51,6 +51,11 @@ User Story Ticket Number on Jira: User Story Name
 	- *Delete Calorie Entry*:  Be able to delete a calorie entry. Estimated time 1 h.
 	- *Display Total Calories*: Display the Total Calorie amount for a given date. Estimated time 1h.
 
+## THEB-14: Notify of Deadlines
+- Assigned to: Miko Gao
+- Subtasks
+	- **: 
+	
 ## THEB-43: Database
 - Assigned to: Brandon Joubran, Yifei Gao
 - Subtasks

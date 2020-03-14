@@ -10,8 +10,10 @@ including fully implementing all classes with firebase dependencies and updating
 - THEB-4: Auto-load Monthly Transactions
 - THEB-12: Log Calories
 - THEB-56: Calendarize Deadlines
+- THEB-59: Wish list
 
 *User Stories to Start But Not Complete for Sprint 3:*
+- THEB-14: Notify of Deadlines
 - THEB-43: Database
 
 ## Participants
@@ -54,7 +56,8 @@ User Story Ticket Number on Jira: User Story Name
 ## THEB-14: Notify of Deadlines
 - Assigned to: Miko Gao
 - Subtasks
-	- **: 
+	- *Create Notification Demo*: Have the notification channel created. The demo shows that the app is able to push notifications to the user's phone, and that the user is able to enable or disable the notification setting in Android settings. Estimated time: 5h.
+	- *Send Daily Notification*: Send the user a daily notification of what's due today or what to do today. Estimated time: 3h.
 	
 ## THEB-43: Database
 - Assigned to: Brandon Joubran, Yifei Gao
@@ -64,10 +67,17 @@ User Story Ticket Number on Jira: User Story Name
 	- *Send App Feedback to Database*: Allow the user to write their opinion about the app and have these feedbacks saved in the database. Assigned to: Miko Gao.
     - *Change password using Database*: Allow the user to change their account password. The program will verify their old password in the database and update to the new one so that they can only sign in with their new password next time they sign in to the application. Assigned to: Miko Gao.
 	- *Log out using Database*: Save whether or not a user has logged out so that the user is only allowed to log in if they have logged out. Assigned to: Miko Gao.
-	- *Save Goal*: Have the user's financials goals get saved to the database. Also have the information set from the previous use load whenever the page is closed or app is closed.
+	- *Save Goal*: Have the user's financials goals get saved to the database. Also have the information set from the previous use load whenever the page is closed or app is closed. Assigned to: Brandon Joubran.
 
 ## THEB-56: Calendarize Deadlines
 - Assigned to: Shaf Nasir
 - Subtasks
 	- *Update Events*: Allow the user to update events in the calendar. Estimated time: 2h.
 	- *Delete Events*: Allow the user to delete events in the calendar. Estimated time: 2h.
+	
+## THEB-59: Wish list
+- Assigned to: William Wu
+- Subtasks:
+	- *Record Wishes*: Allow the user to record their purchase wishes. Estimated time: 2h.
+	- *Delete Wishes*: Allow the user to delete their purchase wishes. Estiamted time: 2h.
+	- *Share Wishes*: Allow the user to share their purchase wishes. Estiamted time: 2h.

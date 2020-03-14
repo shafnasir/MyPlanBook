@@ -18,7 +18,7 @@ As a frequent debit card and credit card user, I want to quickly load monthly or
 
 **Story Points Estimate: 5**
 
-**Priority: Medium**
+**Priority: High**
 
 ## Notify of Deadlines: THEB-14
 As someone who is very busy and sometimes forgetful, I want to be notified of my deadlines for the current day so that I can be reminded of my scheduled commitments and deadlines.
@@ -87,7 +87,7 @@ As someone who cares about my health, fitness, and nutrition, I want to record t
 
 **Story Points Estimate: 3**
 
-**Priority: Medium**
+**Priority: Highest**
 
 ## Graph Transactions: THEB-8
 As a visual learner, I want to see a visual representation of my categorized transactions in a monthly pie chart and my yearly spending trends in a scatter plot graph so that I can visualize my spending habits.
@@ -113,17 +113,6 @@ As someone who finds it difficult to manage my deadlines, I want to input and se
 
 **Priority: Highest**
 
-## Tally Purchases and Wish List: THEB-13
-As someone who manages my finances, I want to tally my purchases and the things I want or need to buy in a wish list so that I can keep track of my expenditures and know what I need or want to buy next.
-
-**Criteria of Satisfaction**
-- Input expenditures.
-- Input items to wish list of things to purchase.
-
-**Story Points Estimate: 3**
-
-**Priority: Low**
-
 ## Database: THEB-43
 As a user of My Plan Book, I want to have my data stored and be accessible each time I log in to My Plan Book.
 
@@ -134,3 +123,15 @@ As a user of My Plan Book, I want to have my data stored and be accessible each 
 **Story Points Estimate: 8**
 
 **Priority: High**
+
+## Wish list: THEB-59
+As someone who manages my finances, I want to record the things I want or need to buy in a wish list, delete those items, and share them.
+
+**Criteria of Satisfaction**
+- Input items to wish list of things to purchase.
+- Delete wish items
+- Share your wishes with other people.
+
+**Story Points Estimate: 3**
+
+**Priority: Medium**

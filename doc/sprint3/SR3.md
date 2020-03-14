@@ -9,6 +9,9 @@
 - Yifei Gao, gaoyife2
 
 ## Unfinished Tasks ##
+- THEB-71 Send Daily Notification
+    - New User Story: THEB-72 Notify of Deadlines
+    - New Subtask: THEB-73 Send Daily Notification (Same task moved to Sprint 4 backlog)
 
 ## Practices to Continue During Next Sprint ##
 - Adherence to branch naming conventions.

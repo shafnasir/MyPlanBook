@@ -76,7 +76,7 @@
             android:hint="Event details"
             android:background="@null"/>
         <View
-            android:background="fff"
+
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 

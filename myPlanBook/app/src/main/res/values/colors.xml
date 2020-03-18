@@ -16,4 +16,9 @@
     <color name="followingBg">#49BEFF</color>
     <color name="pinkStart">#fddb92</color>
     <color name="pinkEnd">#d1fdff</color>
+
+
+    <color name="babyBlue">#2196F3</color>
+    <color name="gray">#DDDDDD</color>
+    <color name="white">#fff</color>
 </resources>

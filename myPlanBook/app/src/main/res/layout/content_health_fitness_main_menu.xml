@@ -9,64 +9,62 @@
     <LinearLayout
         android:id="@+id/healthFitnessMainMenuContentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="350sp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
 
         <Button
-            android:id="@+id/logBodyWeightLinkButton"
-            android:layout_width="match_parent"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round_outline_bordered"
-            android:padding="15sp"
-            android:text="BODY WEIGHTS"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif-thin" />
+            android:id="@+id/logBodyWeightLinkButton"
+            android:layout_gravity="center"
+            android:background="#2196F3"
+            android:layout_marginTop="20dp"
+            android:text="Body Weight"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
 
         <Button
             android:id="@+id/logCaloriesLinkButton"
-            android:layout_width="match_parent"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round_outline_bordered"
-            android:padding="15sp"
-            android:text="CALORIES"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif-thin" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#2196F3"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Calories"
+            android:textColor="@color/colorWhite" />
+
 
         <Button
             android:id="@+id/logWorkoutsLinkButton"
-            android:layout_width="match_parent"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round_outline_bordered"
-            android:padding="15sp"
-            android:text="WORKOUTS"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif-thin" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="#2196F3"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Workouts"
+            android:textColor="@color/colorWhite" />
+
 
         <Button
-            android:id="@+id/logBodyFatLinkButton"
-            android:layout_width="match_parent"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round_outline_bordered"
-            android:padding="15sp"
-            android:text="BODY FAT"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif-thin" />
+            android:id="@+id/logBodyFatLinkButton"
+            android:layout_gravity="center"
+            android:background="#2196F3"
+            android:layout_marginTop="20dp"
+            android:text="Body Fat"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
 
     </LinearLayout>
 

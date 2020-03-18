@@ -23,6 +23,7 @@ public class HealthFitnessMainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_fitness_main_menu);
 

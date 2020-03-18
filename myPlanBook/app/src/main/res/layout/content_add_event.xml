@@ -14,6 +14,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/gray"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -21,7 +22,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="?attr/colorPrimaryDark"
+            android:background="@color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <LinearLayout
@@ -35,13 +36,15 @@
                 style="@style/createEventToolbarItems"
                 android:clickable="true"
                 android:id="@+id/tv_cancel"
-                android:text="cancel" />
+                android:text="cancel"
+                android:textColor="@color/colorBlack"/>
 
             <TextView
                 style="@style/createEventToolbarItems"
                 android:clickable="true"
                 android:id="@+id/tv_save"
-                android:text="save" />
+                android:text="save"
+                android:textColor="@color/colorBlack"/>
 
         </LinearLayout>
 
@@ -73,7 +76,7 @@
             android:hint="Event details"
             android:background="@null"/>
         <View
-            android:background="@color/colorAccent"
+            android:background="fff"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 

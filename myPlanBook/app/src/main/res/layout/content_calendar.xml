@@ -8,19 +8,43 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".calendar.CalendarEventsActivity"
     tools:showIn="@layout/activity_calendar">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp" >
 
-    <TextView
-        android:id="@+id/myCalendarMonth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="48dp"
-        android:text="Month"
-        android:textColor="@color/colorBlack"
-        android:textAlignment="center"
-        android:textSize="28sp">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:background="#DDDDDD"
+            android:gravity="center_vertical"
+            />
 
-    </TextView>
+        <TextView
+            android:id="@+id/myCalendarMonth"
+            android:layout_width="292dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:background="#DDDDDD"
+            android:gravity="center_vertical"
+            android:text="Month"
+            android:textColor="#2196F3"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:background="#DDDDDD"
+            android:gravity="center_vertical"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:background="#ffffff"
@@ -30,22 +54,19 @@
         android:layout_height="wrap_content">
 
         <com.github.sundeepk.compactcalendarview.CompactCalendarView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+
             android:id="@+id/compactcalendar_view"
             android:layout_width="wrap_content"
             android:layout_height="250dp"
 
             app:compactCalendarDisplayOtherMonthDays="true"
-            app:compactCalendarOtherMonthDaysTextColor="@color/colorAccent"
+            app:compactCalendarOtherMonthDaysTextColor="#2196F3"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="12sp"
-            app:compactCalendarBackgroundColor="@color/colorPrimaryDark"
-            app:compactCalendarTextColor="#fff"
-            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/colorAccent"
-            app:compactCalendarMultiEventIndicatorColor="#fff">
-
-        </com.github.sundeepk.compactcalendarview.CompactCalendarView>
+            app:compactCalendarBackgroundColor="#fff"
+            app:compactCalendarTextColor="#010203"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="#DDDDDD"
+            app:compactCalendarMultiEventIndicatorColor="#fff" />
 
     </LinearLayout>
 
@@ -54,12 +75,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/addEvent"
         android:layout_gravity="center"
-        android:background="@color/colorAccent"
-        android:layout_marginTop="10dp"
+        android:background="#2196F3"
+        android:layout_marginTop="50dp"
         android:text="Add Event"
         android:textColor="@color/colorWhite"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"/>
+
 
     <TableLayout
         android:layout_gravity="right"

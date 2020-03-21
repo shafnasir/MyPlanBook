@@ -1,8 +1,8 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
-import android.util.Log;
-
 import java.util.ArrayList;
+
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.BankTransaction;
 
 public class TransactionCollection {
 

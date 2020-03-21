@@ -1,27 +1,29 @@
-package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
+package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
+
+import java.util.HashMap;
 
 public class BankTransaction {
 
-    private String institution;
+    private String category;
     private String cardNum;
-    float amount;
+    private float amount;
     private boolean isDebit;
     private String date;
 
     // Empty constructor
     public BankTransaction(){}
 
-    public BankTransaction(String date, String institution, float amount,
+    public BankTransaction(String date, String category, float amount,
                            String cardNum, boolean isDebit){
-        this.institution = institution;
+        this.category = category;
         this.amount = amount;
         this.isDebit = isDebit;
         this.cardNum = cardNum;
         this.date = date;
     }
 
-    public String getInstitution() {
-        return institution;
+    public String getCategory() {
+        return category;
     }
 
     public String getCardNum() {
@@ -38,8 +40,8 @@ public class BankTransaction {
         return isDebit;
     }
 
-    public void setInstitution(String institution) {
-        this.institution = institution;
+    public void setCategory(String institution) {
+        this.category = category;
     }
 
     public void setCardNum(String cardNum) {
@@ -53,4 +55,18 @@ public class BankTransaction {
     public void setDebit(boolean debit) {
         isDebit = debit;
     }
+
+    public HashMap<String, Object> toMap(){
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("Catgeory", this.category);
+        hm.put("isDebit", this.isDebit);
+        hm.put("Date", this.date);
+        hm.put("cardNumber", this.cardNum);
+        hm.put("Amount", this.amount);
+        return hm;
+    }
+
+
+
+
 }

@@ -108,6 +108,8 @@
             android:layout_weight="1"
             android:text="@string/commit_debit"
             android:onClick="commitDebit"
+            android:textColor="@color/white"
+            android:background="@color/babyBlue"
             />
 
         <Button
@@ -116,7 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/commit_credit"
-            android:onClick="commitCredit"/>
+            android:textColor="@color/white"
+            android:onClick="commitCredit"
+            android:background="@color/babyBlue"/>
 
         <Button
             android:id="@+id/commit_transaction"
@@ -124,7 +128,9 @@
             android:layout_height="wrap_content"
             android:text="@string/commit_collection"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:onClick="commitCollection"
+            android:background="@color/babyBlue"
             />
 
         <Button
@@ -133,7 +139,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:onClick="clearCollection"
+            android:background="@color/babyBlue"
              />
     </LinearLayout>
 
@@ -146,7 +154,7 @@
         android:layout_height="10dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="390dp"
-        android:background="@color/babyBlue"
+        android:background="@color/gray"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
         />

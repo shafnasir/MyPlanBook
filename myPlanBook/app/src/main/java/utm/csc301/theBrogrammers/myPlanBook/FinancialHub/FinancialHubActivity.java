@@ -24,6 +24,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.google.firebase.FirebaseApiNotAvailableException;
 
 
 import java.util.ArrayList;
@@ -43,13 +44,6 @@ public class FinancialHubActivity extends AppCompatActivity {
              "Aug", "Sep", "Oct", "Nov", "Dec"};
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
-     private FinanceModel fm;
-
-     private Button setGoalsBtn, impTrsBtn, mngFinBtn;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +55,9 @@ public class FinancialHubActivity extends AppCompatActivity {
         styleGraph();
         setExpenditureData();
         if (doProjDemo) setProjectionData();
+
+        // take out
+        FinanceModel.deleteMonth(monthStrings[1]);
     }
 
     /**
@@ -182,6 +179,8 @@ public class FinancialHubActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
+    public void switchToManageFinancesScreen(View v){
+        Intent intent = new Intent(getApplicationContext(), ManageFinances.class);
+        startActivity(intent);
+    }
 }

@@ -10,7 +10,7 @@ public class MonthlyTransactions {
     ArrayList<BankTransaction> monthCollection = new ArrayList<BankTransaction>();
 
     public MonthlyTransactions(String month){
-        this.month = "month";
+        this.month = month;
     }
 
     public void addTransaction(BankTransaction t){
@@ -22,4 +22,9 @@ public class MonthlyTransactions {
         this.monthCollection.remove(t);
         this.length--;
     }
+
+    public ArrayList<BankTransaction> getCollection(){
+        return this.monthCollection;
+    }
+
 }

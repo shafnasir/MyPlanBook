@@ -24,7 +24,7 @@ public class ReadCSV {
 
             data = parseData(data);
 
-            collection.importSingleTransaction(data);
+            collection.importSingleFileTransaction(data);
         }
 
         reader.close();

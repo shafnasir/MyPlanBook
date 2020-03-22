@@ -29,6 +29,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.Random;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.FinanceModel;
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
@@ -42,6 +43,7 @@ public class FinancialHubActivity extends AppCompatActivity {
              "Aug", "Sep", "Oct", "Nov", "Dec"};
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
+     private FinanceModel fm;
 
      private Button setGoalsBtn, impTrsBtn, mngFinBtn;
 
@@ -54,7 +56,7 @@ public class FinancialHubActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_hub);
-        //setButtonListeners(savedInstanceState);
+
         graph = findViewById(previewExpChart);
         styleGraph();
         setExpenditureData();

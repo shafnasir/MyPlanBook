@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.FinanceModel;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LoadTransactions extends AppCompatActivity {
@@ -59,16 +60,13 @@ public class LoadTransactions extends AppCompatActivity {
     private void readFile(Uri uri)  {
 
         try {
-
-            String mimeType = getContentResolver().getType(uri);
-
-
-
+            FinanceModel financeModel = new FinanceModel();
             InputStream inputStream =
                      getContentResolver().openInputStream(uri);
             BufferedReader reader = new BufferedReader(
                      new InputStreamReader(Objects.requireNonNull(inputStream)));
             TransactionCollection tc = ReadCSV.parse(reader);
+            (new FinanceModel()).loadMonthlyCollection(tc.toMonthlyCollection());
             Toast.makeText(LoadTransactions.this,
                     "Imported " + tc.length() + " transactions from . Check \"Manage Transactions" +
                            "\" page to view them.",

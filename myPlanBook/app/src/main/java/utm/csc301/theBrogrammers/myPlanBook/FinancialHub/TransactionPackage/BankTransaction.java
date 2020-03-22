@@ -1,14 +1,20 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BankTransaction {
 
+    private String id; // Random unique identifier
     private String category;
     private String cardNum;
     private float amount;
     private boolean isDebit;
     private String date;
+    static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
     // Empty constructor
     public BankTransaction(){}
@@ -33,6 +39,8 @@ public class BankTransaction {
     public float getAmount() {
         return amount;
     }
+
+    public String getDate() { return date; }
     
 
 
@@ -56,13 +64,22 @@ public class BankTransaction {
         isDebit = debit;
     }
 
-    public HashMap<String, Object> toMap(){
+    public int getMonth() {
+        String[] params = this.date.split("-");
+        return Integer.parseInt(params[1]);
+    }
+
+    public String getMonthStr(){
+        return months.get(this.getMonth()-1);
+    }
+
+    public Map<String, Object> toMap(){
         HashMap<String, Object> hm = new HashMap<>();
-        hm.put("Catgeory", this.category);
+        hm.put("catgeory", this.category);
         hm.put("isDebit", this.isDebit);
-        hm.put("Date", this.date);
+        hm.put("date", this.date);
         hm.put("cardNumber", this.cardNum);
-        hm.put("Amount", this.amount);
+        hm.put("amount", this.amount);
         return hm;
     }
 

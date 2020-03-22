@@ -18,8 +18,6 @@ public class ReadCSV {
         TransactionCollection collection = new TransactionCollection(indexMap);
         while ((line = reader.readLine()) != null) {
             String[] data = line.split(delim);
-            print(data);
-
             // if debit column is null
 
             data = parseData(data);

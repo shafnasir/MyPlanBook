@@ -66,7 +66,7 @@ public class LoadTransactions extends AppCompatActivity {
             BufferedReader reader = new BufferedReader(
                      new InputStreamReader(Objects.requireNonNull(inputStream)));
             TransactionCollection tc = ReadCSV.parse(reader);
-            (new FinanceModel()).loadMonthlyCollection(tc.toMonthlyCollection());
+            FinanceModel.loadMonthlyCollection(tc.toMonthlyCollection());
             Toast.makeText(LoadTransactions.this,
                     "Imported " + tc.length() + " transactions from . Check \"Manage Transactions" +
                            "\" page to view them.",

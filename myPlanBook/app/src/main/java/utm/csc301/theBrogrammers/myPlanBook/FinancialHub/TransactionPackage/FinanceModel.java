@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,62 +37,84 @@ public class FinanceModel {
     static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-    YearlyTransactions yearlyTransactions;
-    FirebaseFirestore db;
-    CollectionReference financeCol;
-    FirebaseUser user;
-    String userName;
 
-
-    public FinanceModel() {
-        this.yearlyTransactions = new YearlyTransactions();
-        this.user = FirebaseAuth.getInstance().getCurrentUser();
-        this.userName = user.getUid();
-        this.db = FirebaseFirestore.getInstance();
-
+    public static void loadMonthlyCollection(HashMap<String, MonthlyTransactions> map){
+        for(MonthlyTransactions m: map.values()){
+            loadMonthCollection(m);
+        }
     }
 
+    public static void loadMonthCollection(MonthlyTransactions monthlyTransactions){
+        // Db details
+        YearlyTransactions yearlyTransactions = new YearlyTransactions();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userName = user.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-    public void loadMonthCollection(MonthlyTransactions monthlyTransactions){
         ArrayList<BankTransaction> monthCol = monthlyTransactions.getCollection();
         HashSet<String> uidSet = new HashSet<>();
         for (BankTransaction bt: monthCol){
             Map<String, Object> map = bt.toMap();
 
+            // LOAD INTO THE FIRESTORE DB FOR THIS USER
             String uniqueID = UUID.randomUUID().toString();
             db.collection(ROOT).document(userName).collection(monthlyTransactions.month)
                     .document(uniqueID).set(map);
         }
     }
 
-    public void loadMonthlyCollection(HashMap<String, MonthlyTransactions> map){
-        for(MonthlyTransactions m: map.values()){
-            loadMonthCollection(m);
-        }
+    public static YearlyTransactions collectMonthlyCollection() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userName = user.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        YearlyTransactions yt = new YearlyTransactions();
+        for (String month : months) {
+            CollectionReference collection = db.collection(ROOT).document(userName).collection(month);
+            yt.addTransaction(processMonth(month, collection.get()));
+        } return yt;
+    }
+
+    public static MonthlyTransactions processMonth(String month, Task<QuerySnapshot> task){
+        MonthlyTransactions mt = new MonthlyTransactions(month);
+        task.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        BankTransaction bt = new BankTransaction(document.getData());
+                        mt.addTransaction(bt);
+                        Log.i("ProcessMonth", document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
+                }
+            }
+        });
+        return mt;
+    }
+
+    public static void deleteMonth(String month){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userName = user.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        CollectionReference collection = db.collection(ROOT).document(userName).collection(month);
+        collection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        collection.document(document.getId()).delete();
+                        Log.i("Delete "+month, document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.d("ProcessMonth", "Error deleting documents.", task.getException());
+                }
+            }
+        });
+
     }
 
 
-//    public void collectMonths() {
-//
-//        for (String month : months) {
-//            CollectionReference collection = db.collection(ROOT).document(userName).collection(month);
-//            processMonth(month, collection.get());
-//        }
-//    }
-//
-//    public void processMonth(String month, Task<QuerySnapshot> task){
-//        task.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Log.i("ProcessMonth", document.getId() + " => " + document.getData());
-//                    }
-//                } else {
-//                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
-//                }
-//            }
-//        });
-//    }
 }

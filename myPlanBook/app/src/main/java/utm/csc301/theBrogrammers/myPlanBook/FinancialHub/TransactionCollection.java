@@ -1,5 +1,7 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -34,6 +36,8 @@ public class TransactionCollection {
         String institution = rowParameters[mi[1]];
         float amount = Float.parseFloat(rowParameters[mi[2]]);;
         String cardNum = rowParameters[mi[3]];
+        Log.i("[Bank Transaction]",  "isDebit = " + isDebit + "date = " + date
+        + "\n category  = " + institution + "\n amount = "+ amount + " cardNum "+cardNum);
 
         addTransaction(new BankTransaction(date, institution, amount, cardNum, isDebit));
     }

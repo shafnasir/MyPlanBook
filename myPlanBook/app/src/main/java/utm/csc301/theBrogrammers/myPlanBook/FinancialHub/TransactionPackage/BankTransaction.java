@@ -16,8 +16,14 @@ public class BankTransaction {
     static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-    // Empty constructor
-    public BankTransaction(){}
+
+    public BankTransaction(Map<String, Object> hashMap){
+        this.date = (String) hashMap.get("date");
+        this.category = (String) hashMap.get("category");
+        this.cardNum = (String) hashMap.get("cardNumber");
+        this.amount = (float) hashMap.get("amount");
+        this.isDebit = (boolean) hashMap.get("isDebit");
+    }
 
     public BankTransaction(String date, String category, float amount,
                            String cardNum, boolean isDebit){

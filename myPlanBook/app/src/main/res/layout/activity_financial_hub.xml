@@ -5,7 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FinancialHub.FinancialHubActivity">
+    tools:context=".FinancialHub.FinancialHubActivity"
+    >
 
     <!--   Graph API-->
 
@@ -24,7 +25,8 @@
             android:background="#DDDDDD"
             android:gravity="center_vertical"
 
-            app:srcCompat="@drawable/chart_icon_foreground" />
+            app:srcCompat="@drawable/chart_icon_foreground"
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:layout_width="292dp"
@@ -76,7 +78,7 @@
         android:background="@color/gray"
         android:clickable="true"
         android:enabled="true"
-        android:onClick="switchToImportScreen"
+        android:onClick="switchToManageFinancesScreen"
         android:text="@string/manage_finances"
         android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"

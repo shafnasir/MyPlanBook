@@ -24,11 +24,13 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.google.firebase.FirebaseApiNotAvailableException;
 
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.FinanceModel;
 import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.LogBodyWeightActivity;
 import utm.csc301.theBrogrammers.myPlanBook.MainActivity;
 import utm.csc301.theBrogrammers.myPlanBook.R;
@@ -43,22 +45,19 @@ public class FinancialHubActivity extends AppCompatActivity {
      int lastly; // the last month's expenditure - for demo purposes
      boolean doProjDemo = false;
 
-     private Button setGoalsBtn, impTrsBtn, mngFinBtn;
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_hub);
-        //setButtonListeners(savedInstanceState);
+
         graph = findViewById(previewExpChart);
         styleGraph();
         setExpenditureData();
         if (doProjDemo) setProjectionData();
+
+        // take out
+        FinanceModel.deleteMonth(monthStrings[1]);
     }
 
     /**
@@ -180,6 +179,8 @@ public class FinancialHubActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
+    public void switchToManageFinancesScreen(View v){
+        Intent intent = new Intent(getApplicationContext(), ManageFinances.class);
+        startActivity(intent);
+    }
 }

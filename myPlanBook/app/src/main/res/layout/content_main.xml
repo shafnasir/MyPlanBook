@@ -17,13 +17,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageButton
         android:id="@+id/setting"
         style="@android:style/Widget.Holo.Light.ImageButton"
         android:layout_width="78dp"
         android:layout_height="72dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
@@ -32,119 +31,97 @@
         android:scaleType="fitCenter"
         android:src="@drawable/setting"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.905"/>
+        app:layout_constraintVertical_bias="0.929" />
 
     <Button
         android:id="@+id/calendar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="260dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/babyBlue"
         android:text="Calender"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_marginTop="530dp"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_marginTop="670dp"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/image_calender"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/goals"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="331dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
         android:text="Goals"
+        android:textColor="@color/colorWhite"
+        android:background="@color/babyBlue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/calendar" />
 
-    <View
-        android:layout_marginTop="812dp"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/fitness"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="402dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
         android:text="HEALTH AND FITNESS"
+        android:textColor="@color/colorWhite"
+        android:background="@color/babyBlue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/goals" />
 
-    <View
-        android:layout_marginTop="955dp"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/WishList"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="473dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
         android:text="WISH LIST"
+        android:background="@color/babyBlue"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/fitness" />
 
-    <View
-        android:layout_marginTop="1100dp"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
+        android:id="@+id/image_calender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="220dp"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/planner"/>
+        android:src="@drawable/calendar"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

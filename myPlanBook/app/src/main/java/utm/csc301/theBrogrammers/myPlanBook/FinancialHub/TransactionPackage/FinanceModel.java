@@ -71,7 +71,7 @@ public class FinanceModel {
         YearlyTransactions yt = new YearlyTransactions();
         for (String month : months) {
             CollectionReference collection = db.collection(ROOT).document(userName).collection(month);
-            yt.addTransaction(processMonth(month, collection.get()));
+            yt.addMonthCollection(processMonth(month, collection.get()));
         } return yt;
     }
 
@@ -85,12 +85,14 @@ public class FinanceModel {
                         BankTransaction bt = new BankTransaction(document.getData());
                         mt.addTransaction(bt);
                         Log.i("ProcessMonth", document.getId() + " => " + document.getData());
+//                        Log.i("ProcessMonth", document.getId() + " => " + document.getData());
                     }
                 } else {
-                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
+//                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
                 }
             }
         });
+        Log.i("[Monthly Size]", "SIZE : "+ mt.length);
         return mt;
     }
 

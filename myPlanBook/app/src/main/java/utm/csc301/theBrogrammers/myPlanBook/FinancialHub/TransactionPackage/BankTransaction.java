@@ -1,5 +1,7 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
 
+import android.util.Log;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +12,7 @@ public class BankTransaction {
     private String id; // Random unique identifier
     private String category;
     private String cardNum;
-    private float amount;
+    private double amount;
     private boolean isDebit;
     private String date;
     static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -21,11 +23,12 @@ public class BankTransaction {
         this.date = (String) hashMap.get("date");
         this.category = (String) hashMap.get("category");
         this.cardNum = (String) hashMap.get("cardNumber");
-        this.amount = (float) hashMap.get("amount");
+        this.amount = (double) hashMap.get("amount");
         this.isDebit = (boolean) hashMap.get("isDebit");
+
     }
 
-    public BankTransaction(String date, String category, float amount,
+    public BankTransaction(String date, String category, double amount,
                            String cardNum, boolean isDebit){
         this.category = category;
         this.amount = amount;
@@ -42,7 +45,7 @@ public class BankTransaction {
         return cardNum;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -81,7 +84,7 @@ public class BankTransaction {
 
     public Map<String, Object> toMap(){
         HashMap<String, Object> hm = new HashMap<>();
-        hm.put("catgeory", this.category);
+        hm.put("category", this.category);
         hm.put("isDebit", this.isDebit);
         hm.put("date", this.date);
         hm.put("cardNumber", this.cardNum);

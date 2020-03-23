@@ -7,6 +7,7 @@
     tools:context=".Settings">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -16,28 +17,29 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <Button
                 android:id="@+id/backSettings"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:fontFamily="sans-serif-black"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
-                android:text="back"/>
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="back"
+                android:textSize="10sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Settings"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@color/babyBlue"
-                android:gravity="center"
-                android:textSize="30sp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="50dp"/>
+                android:layout_marginRight="50dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Settings"
+                android:textColor="@color/babyBlue"
+                android:textSize="25sp" />
 
         </androidx.appcompat.widget.Toolbar>
 

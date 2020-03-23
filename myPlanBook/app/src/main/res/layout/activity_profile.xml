@@ -20,12 +20,24 @@
 
             <Button
                 android:id="@+id/backProfile"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:layout_width="40dp"
                 android:fontFamily="sans-serif-black"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:text="back"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="50dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Profile"
+                android:textColor="@color/babyBlue"
+                android:textSize="25sp" />
 
         </androidx.appcompat.widget.Toolbar>
 

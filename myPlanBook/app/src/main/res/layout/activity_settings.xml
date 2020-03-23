@@ -16,7 +16,30 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+            <Button
+                android:id="@+id/backSettings"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:text="back"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/babyBlue"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="50dp"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

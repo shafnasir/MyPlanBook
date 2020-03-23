@@ -26,6 +26,7 @@ public class WishList extends AppCompatActivity {
     private Button Add;
     private Button Delete;
     private Button Share;
+    private Button BackWish;
     SharedPreferences sharedPreferences;
     private String WishKey = "Wishes";
     private String out_wish = "";
@@ -39,6 +40,7 @@ public class WishList extends AppCompatActivity {
         Add = findViewById(R.id.Add);
         Delete = findViewById(R.id.Delete);
         Share = findViewById(R.id.Share);
+        BackWish = findViewById(R.id.backWish);
 
         sharedPreferences = getSharedPreferences("WISH", 0);
         String n = sharedPreferences.getString(WishKey , "");
@@ -69,6 +71,12 @@ public class WishList extends AppCompatActivity {
         Add.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 SaveWish(v);
+            }
+        });
+
+        BackWish.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                backWish(v);
             }
         });
 
@@ -110,6 +118,11 @@ public class WishList extends AppCompatActivity {
         editor.commit();
         Toast.makeText(WishList.this,"All Wishes Deleted :(", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, WishList.class);
+        startActivity(intent);
+    }
+
+    private void backWish(View v){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

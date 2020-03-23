@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wish"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".WishList"
     tools:showIn="@layout/activity_wish_list">
@@ -30,7 +29,11 @@
                 android:id="@+id/Add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:text="Add to List"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/colorWhite"
+                android:background="@color/babyBlue"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/WishText" />
@@ -62,8 +65,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:background="@color/babyBlue"
                 android:layout_toRightOf="@+id/YourWishes"
                 android:layout_marginLeft="20dp"/>
 
@@ -72,6 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Share"
+                android:textSize="15sp"
+                android:background="@color/babyBlue"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
                 android:layout_toRightOf="@+id/Delete"
@@ -83,10 +90,11 @@
             android:id="@+id/wishes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:inputType="textMultiLine"
-            android:fontFamily="sans-serif-white"
+            android:fontFamily="sans-serif-black"
             android:textSize="20sp"
+            android:background="@drawable/wish"
             android:scrollbars="vertical"
             android:text="you don't have any wishes yet :("/>
 

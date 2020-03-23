@@ -18,6 +18,7 @@ public class Profile extends AppCompatActivity {
     private static final int RESULT_LOAD_IMAGE = 1;
 
     private Button ChangeInformation;
+    private Button BackProfile;
     private ImageView User;
     private TextView out_Name;
     private TextView out_Account;
@@ -55,6 +56,7 @@ public class Profile extends AppCompatActivity {
         out_Email = findViewById(R.id.Email);
         out_Phone = findViewById(R.id.Phone);
         out_City = findViewById(R.id.City);
+        BackProfile = findViewById(R.id.backProfile);
 
         //AccountText=getIntent().getStringExtra("Account");
         sharedPreferences = getSharedPreferences("ID", 0);
@@ -79,6 +81,13 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        BackProfile.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                backProfile(v);
+            }
+        });
+
     }
 
     @Override
@@ -93,6 +102,11 @@ public class Profile extends AppCompatActivity {
 
     public void clickInformation() {
         Intent intent = new Intent(this, ProfileSetting.class);
+        startActivity(intent);
+    }
+
+    private void backProfile(View v){
+        Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
 

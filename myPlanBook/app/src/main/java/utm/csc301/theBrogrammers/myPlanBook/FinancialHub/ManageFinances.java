@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.MonthlyPieChart;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.TransactionPieChart;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.BankTransaction;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.FinanceModel;
@@ -45,6 +46,7 @@ public class ManageFinances extends AppCompatActivity {
 
     // Graphics
     TransactionPieChart pieChart;
+    MonthlyPieChart monthlyPieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,20 +63,18 @@ public class ManageFinances extends AppCompatActivity {
 
     private void initializeData(){
         this.yearlyTransactions = new YearlyTransactions();
-//        for (String month: months){
-//            MonthlyTransactions monthCol = new MonthlyTransactions(month);
-//            this.yearlyTransactions.addMonthCollection(monthCol);
-//        }
     }
 
     private void initializeGraphics(){
         pieChart = new TransactionPieChart(findViewById(R.id.categoryPieChart));
+        monthlyPieChart = new MonthlyPieChart(findViewById(R.id.monthlyPieChart));
 
     }
 
     // Event driven basis
     private void refreshGraphics(){
         this.pieChart.refresh(this.yearlyTransactions);
+        this.monthlyPieChart.refresh(this.yearlyTransactions);
 
     }
 
@@ -87,7 +87,6 @@ public class ManageFinances extends AppCompatActivity {
             CollectionReference collectionReference = db.collection(ROOT).
                     document(userName).collection(month);
             if (index == 11){
-                Log.i("Broke", "###################");
                 refreshMonthlyTransactions(month, collectionReference.get(), true);
             } else refreshMonthlyTransactions(month, collectionReference.get(), false);
             index++;
@@ -111,7 +110,6 @@ public class ManageFinances extends AppCompatActivity {
 
                     }
                     yearlyTransactions.replaceMonth(mt);
-                    Log.i("[YEARLY]", "[MONTH] = " + mt.month + " size: "+mt.size());
                     if (breaker) {refreshGraphics();}
 
                 } else {

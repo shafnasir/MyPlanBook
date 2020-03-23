@@ -8,98 +8,81 @@
     tools:context=".Settings"
     tools:showIn="@layout/activity_settings">
 
-    <ImageButton
-        android:id="@+id/Profile"
-        android:layout_width="129dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="187dp"
-        android:layout_marginRight="176dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/user"
-        app:layout_constraintBottom_toTopOf="@+id/Change_Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
-
-    <ImageButton
-        android:id="@+id/Log_out"
-        android:layout_width="397dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="80dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/poweroff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/Change_Password"
+    <ScrollView
+        android:id="@+id/scrollview_settings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/babyBlue"
-        android:text="Change Password"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/Profile"
-        app:layout_constraintBottom_toTopOf="@+id/feedback"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="320dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/feedback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Provide Feedback"
-        android:background="@color/babyBlue"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/Change_Password"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="411dp"
-        tools:layout_editor_absoluteY="316dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Notification Demo"
-        android:background="@color/babyBlue"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/feedback"
-        app:layout_constraintBottom_toTopOf="@+id/Log_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="311dp" />
+            <ImageButton
+                android:id="@+id/Profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user" />
 
+            <Button
+                android:id="@+id/Change_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/babyBlue"
+                android:text="Change Password"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:layout_margin="15dp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:typeface="sans"/>
 
+            <Button
+                android:id="@+id/feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Provide Feedback"
+                android:background="@color/babyBlue"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:layout_margin="15dp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification Demo"
+                android:background="@color/babyBlue"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:layout_margin="15dp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:typeface="sans"/>
+
+            <ImageButton
+                android:id="@+id/Log_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/poweroff" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 
@@ -20,6 +21,8 @@ public class Settings extends AppCompatActivity {
 
     private Button changepass, feedback, notificationdemo, BackSettings;
     private ImageButton ProfileButton;
+    private ImageButton sign_out;
+    private FirebaseAuth FireLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,15 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        FireLogout = FirebaseAuth.getInstance();
+
+        sign_out = findViewById(R.id.Log_out);
+        sign_out.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                clickLogout();
+            }
+        });
     }
 
     public void clickchangepass() {
@@ -92,6 +104,14 @@ public class Settings extends AppCompatActivity {
 
     private void backSettings(View v){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickLogout() {
+        Toast.makeText(Settings.this,"Log Out Successfully", Toast.LENGTH_SHORT).show();
+        FireLogout.signOut();
+        finish();
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

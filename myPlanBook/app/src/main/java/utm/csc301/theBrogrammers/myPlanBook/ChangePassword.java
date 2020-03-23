@@ -1,5 +1,6 @@
 package utm.csc301.theBrogrammers.myPlanBook;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,7 @@ import android.widget.Toast;
 
 public class ChangePassword extends AppCompatActivity {
     EditText oldpass, newpass, confirmpass;
-    Button button;
+    Button button, BackPassword;
     String oldpassword, newpassword, confirmpassword;
 
     @Override
@@ -65,6 +66,19 @@ public class ChangePassword extends AppCompatActivity {
             }
         });
 
+        BackPassword = findViewById(R.id.backPassword);
+        BackPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backPassword(v);
+            }
+        });
+
+    }
+
+    private void backPassword(View v){
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
     private TextWatcher passwordTextWatcher = new TextWatcher() {

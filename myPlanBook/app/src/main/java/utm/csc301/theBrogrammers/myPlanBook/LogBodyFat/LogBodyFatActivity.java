@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
@@ -44,6 +46,8 @@ public class LogBodyFatActivity extends AppCompatActivity {
 
     private Button enterBodyFatEntryButton;
 
+    private CalendarView calendarView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         this.createBodyFatEntryTextView();
         this.setBodyFatEntryTextView();
         this.setEnterButtonListener();
+        this.setCalendarViewListener();
     }
 
     private void assignParams(){
@@ -134,9 +139,31 @@ public class LogBodyFatActivity extends AppCompatActivity {
         enterBodyFatEntryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                bodyFatModel.addBodyFatEntry(currentDate, bodyFatInputTextField.getText().toString() + "%");
+                String bodyFat = bodyFatInputTextField.getText().toString() + "%";
+                if (bodyFat.length() > 10) {
+                    return;
+                }
+                bodyFatModel.addBodyFatEntry(currentDate, bodyFat);
                 setBodyFatEntryTextView();
             }
         });
     }
+
+    private void setCalendarViewListener(){
+        calendarView = (CalendarView) findViewById(R.id.calendar_view_log_body_fat);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                /*if (editMode == true) {
+                    setEditModeFeatures();
+                }*/
+                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                calendarDate.setText(date);
+                currentDate = date;
+                currentMonth = (currentMonth != month + 1)? month + 1: currentMonth;
+                setBodyFatEntryTextView();
+            }
+        });
+    }
+
 }

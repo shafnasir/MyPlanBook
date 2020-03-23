@@ -25,6 +25,7 @@
             android:orientation="vertical" >
 
             <CalendarView
+                android:id="@+id/calendar_view_log_body_fat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

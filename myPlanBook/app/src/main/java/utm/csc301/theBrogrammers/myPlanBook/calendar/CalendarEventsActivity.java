@@ -23,13 +23,22 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.UUID;
 
+import static utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsModel.putEvent;
+import static utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsModel.getEvents;
+import static utm.csc301.theBrogrammers.myPlanBook.calendar.CalendarEventsModel.deleteEvent;
 
 public class CalendarEventsActivity extends AppCompatActivity {
 
@@ -59,6 +68,13 @@ public class CalendarEventsActivity extends AppCompatActivity {
         myCalendarMonth.setText(dateFormatForMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
 
         dateClickedOn = new Date();
+
+        getEvents(new CalendarEventsModel.MyCallback() {
+            @Override
+            public void onCallback(List<Event> eventList) {
+                compactCalendarView.addEvents(eventList);
+            }
+        });
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -104,6 +120,7 @@ public class CalendarEventsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     openAddEvent();
                     if(checkCancel){
+                        deleteEvent(event);
                         compactCalendarView.removeEvent(event);
                     }
                 }
@@ -112,6 +129,7 @@ public class CalendarEventsActivity extends AppCompatActivity {
             deleteEvent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    deleteEvent(event);
                     compactCalendarView.removeEvent(event);
 
                 }
@@ -167,6 +185,7 @@ public class CalendarEventsActivity extends AppCompatActivity {
                         data.getStringExtra("eventDetails"));
 
                 compactCalendarView.addEvent(new_event);
+                putEvent(new_event);
                 checkCancel = true;
             }
             else{

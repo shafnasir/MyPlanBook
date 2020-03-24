@@ -22,4 +22,8 @@ public class BodyFatModel {
         this.bodyFatEntriesByDate.put(date, bodyFat);
     }
 
+    public void deleteBodyFatEntry(String date) {
+        this.bodyFatEntriesByDate.remove(date);
+    }
+
 }

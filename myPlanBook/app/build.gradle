@@ -52,5 +52,6 @@ dependencies {
 //  New external jar libraries below
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // Graph API added by Michael
     implementation 'com.github.sundeepk:compact-calendar-view:3.0.0' // Calendar API added by Shaf
-    implementation 'com.divyanshu.colorseekbar:colorseekbar:1.0.2' // Color Picker added by Shaf
+    implementation 'com.divyanshu.colorseekbar:colorseekbar:1.0.2'
+    implementation 'com.android.support:design:26.1.0'// Color Picker added by Shaf
 }

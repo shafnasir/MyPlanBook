@@ -84,13 +84,44 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="Monthly Transactions"
+                android:text="Debit History"
                 android:gravity="center"
                 android:textSize="27sp"
                 android:textStyle="bold"
                 android:typeface="sans"
                 app:fontFamily="sans-serif-condensed-medium"
                 />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/debitChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Credit History"
+                android:gravity="center"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                app:fontFamily="sans-serif-condensed-medium"
+                />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/creditChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+
 
         </LinearLayout>
 

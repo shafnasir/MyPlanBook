@@ -6,12 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,16 +15,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.time.Month;
-import java.time.Year;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.CreditLineGraph;
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.DebitLineGraph;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.MonthlyPieChart;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.TransactionPieChart;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.BankTransaction;
-import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.FinanceModel;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.MonthlyTransactions;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.YearlyTransactions;
 import utm.csc301.theBrogrammers.myPlanBook.R;
@@ -47,6 +39,8 @@ public class ManageFinances extends AppCompatActivity {
     // Graphics
     TransactionPieChart pieChart;
     MonthlyPieChart monthlyPieChart;
+    DebitLineGraph debitLineGraph;
+    CreditLineGraph creditLineGraph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +62,8 @@ public class ManageFinances extends AppCompatActivity {
     private void initializeGraphics(){
         pieChart = new TransactionPieChart(findViewById(R.id.categoryPieChart));
         monthlyPieChart = new MonthlyPieChart(findViewById(R.id.monthlyPieChart));
+        debitLineGraph = new DebitLineGraph(findViewById(R.id.debitChart), this);
+        creditLineGraph = new CreditLineGraph(findViewById(R.id.creditChart), this);
 
     }
 
@@ -75,6 +71,8 @@ public class ManageFinances extends AppCompatActivity {
     private void refreshGraphics(){
         this.pieChart.refresh(this.yearlyTransactions);
         this.monthlyPieChart.refresh(this.yearlyTransactions);
+        this.debitLineGraph.refresh(this.yearlyTransactions);
+        this.creditLineGraph.refresh(this.yearlyTransactions);
 
     }
 

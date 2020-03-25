@@ -64,7 +64,7 @@ public class ManuallyLoadTransactions extends AppCompatActivity {
             return;
         }
 
-        this.transactions.add("Debit: "+Float.toString(t.getAmount()));
+        this.transactions.add("Debit: "+Double.toString(t.getAmount()));
         this.adapter.notifyDataSetChanged();
 
         Toast.makeText(ManuallyLoadTransactions.this,
@@ -85,7 +85,7 @@ public class ManuallyLoadTransactions extends AppCompatActivity {
             return;
         }
 
-        this.transactions.add("Credit: "+Float.toString(t.getAmount()));
+        this.transactions.add("Credit: "+Double.toString(t.getAmount()));
         this.adapter.notifyDataSetChanged();
 
         Toast.makeText(ManuallyLoadTransactions.this,

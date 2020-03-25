@@ -2,12 +2,14 @@ package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MonthlyTransactions {
 
-    String month;
-    int length;
+    public String month;
+    int length = 0;
     ArrayList<BankTransaction> monthCollection = new ArrayList<BankTransaction>();
+    HashMap<String, Integer> categoryAmts = new HashMap<>();
 
     public MonthlyTransactions(String month){
         this.month = month;
@@ -26,5 +28,10 @@ public class MonthlyTransactions {
     public ArrayList<BankTransaction> getCollection(){
         return this.monthCollection;
     }
+
+    public int size(){
+        return this.monthCollection.size();
+    }
+
 
 }

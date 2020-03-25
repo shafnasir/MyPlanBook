@@ -33,6 +33,7 @@ public class YearlySavings extends AppCompatActivity {
     private String userName, amount, spend, gain;
     FirebaseFirestore db;
     private EditText amountText, spendText, gainText;
+    int spendInt, gainInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class YearlySavings extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         enter = findViewById(R.id.enterYearlyButton);
+        change = findViewById(R.id.changeYearlyButton);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         userName = user.getUid();
         db = FirebaseFirestore.getInstance();
@@ -49,7 +51,7 @@ public class YearlySavings extends AppCompatActivity {
         amountText = findViewById(R.id.amountText);
         gainText = findViewById(R.id.gainedYearlyText);
         spendText = findViewById(R.id.spendYearlyText);
-        
+
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,12 +64,63 @@ public class YearlySavings extends AppCompatActivity {
             }
         });
 
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkInputs();
+            }
+        });
+
+
+
 
 
     }
 
     public void updateDBGoal(String amount){
         //Update databse
+        if(Integer.parseInt(amount) < 0){
+            Toast.makeText(YearlySavings.this, "Please input a positive number.", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
+
+    public void checkInputs(){
+
+        spend = spendText.getText().toString().trim();
+        try{
+            if(spend.equals("") || spend == null){
+                spendInt = 0;
+            }else {
+                spendInt = Integer.parseInt(spend);
+            }
+        }catch (Exception e) {
+            Toast.makeText(YearlySavings.this, "Please input a number for the spending.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(spendInt < 0){
+            Toast.makeText(YearlySavings.this, "Please input a positive number for the spending.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        gain = gainText.getText().toString().trim();
+        try{
+            if(gain.equals("") || gain == null){
+                gainInt = 0;
+            }else{
+                gainInt = Integer.parseInt(gain);
+            }
+
+        }catch (Exception e) {
+            Toast.makeText(YearlySavings.this, "Please input a number for the gained.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(gainInt < 0){
+            Toast.makeText(YearlySavings.this, "Please input a positive number for the gained.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+    }
+
+
 
 }

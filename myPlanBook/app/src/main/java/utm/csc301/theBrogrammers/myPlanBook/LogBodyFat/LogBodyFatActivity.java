@@ -16,9 +16,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
@@ -47,6 +58,12 @@ public class LogBodyFatActivity extends AppCompatActivity {
     private FloatingActionButton editButton;
     private FloatingActionButton deleteButton;
     private Boolean editMode = false;
+    private Map<String,String> monthNames;
+    private LineChart bodyFatMonthlyGraph;
+    private TextView graphMonth;
+    private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +71,8 @@ public class LogBodyFatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_body_fat);
         this.PADDING_SIZE = getResources().getDimensionPixelSize(R.dimen.padding_size);
         this.assignParams();
-        this.assignScrollViewLayout();
-        this.assignBodyFatInputTextField();
+        scrollViewLayoutLogBodyFat = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_fat);
+        bodyFatInputTextField = (EditText) findViewById(R.id.edit_text_input_body_fat);
         this.setCurrentDate();
         bodyFatModel = new BodyFatModel();
         this.createBodyFatEntryLayout();
@@ -66,6 +83,12 @@ public class LogBodyFatActivity extends AppCompatActivity {
         this.setCalendarViewListener();
         this.setEditFloatingButtonListener();
         this.setDeleteFloatingButtonListener();
+        this.setMonthNames();
+        this.bodyFatMonthlyGraph = (LineChart) findViewById(R.id.body_fat_graph);
+        this.graphMonth = (TextView) findViewById(R.id.graph_month_tv_body_fat);
+        this.setMonth(String.valueOf(currentMonth));
+        this.styleGraph();
+        this.setBodyFatGraphData();
     }
 
     private void assignParams(){
@@ -82,14 +105,6 @@ public class LogBodyFatActivity extends AppCompatActivity {
                 EDIT_MODE_TV_WIDTH,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         params3.setMargins(MARGIN_SIZE,0,MARGIN_SIZE,MARGIN_SIZE);
-    }
-
-    private void assignScrollViewLayout() {
-        scrollViewLayoutLogBodyFat = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_fat);
-    }
-
-    private void assignBodyFatInputTextField(){
-        bodyFatInputTextField = (EditText) findViewById(R.id.edit_text_input_body_fat);
     }
 
     private void setCurrentDate(){
@@ -156,6 +171,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addBodyFatEntry();
+                setBodyFatGraphData();
             }
         });
     }
@@ -165,7 +181,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         if (bodyFat.length() > 10 || bodyFat.isEmpty()) {
             return;
         }
-        bodyFatModel.addBodyFatEntry(currentDate, bodyFat + "%");
+        bodyFatModel.addBodyFatEntry(currentDate, bodyFat);
         setBodyFatEntryTextView();
     }
 
@@ -181,7 +197,9 @@ public class LogBodyFatActivity extends AppCompatActivity {
                 calendarDate.setText(date);
                 currentDate = date;
                 currentMonth = (currentMonth != month + 1)? month + 1: currentMonth;
+                setMonth(String.valueOf(currentMonth));
                 setBodyFatEntryTextView();
+                setBodyFatGraphData();
             }
         });
     }
@@ -247,6 +265,82 @@ public class LogBodyFatActivity extends AppCompatActivity {
         bodyFatModel.deleteBodyFatEntry(currentDate);
         setEditModeFeatures();
         setBodyFatEntryTextView();
+        setBodyFatGraphData();
+    }
+
+    private void setMonthNames() {
+        monthNames = new HashMap<String,String>();
+        monthNames.put("1", "JANUARY");
+        monthNames.put("2", "FEBRUARY");
+        monthNames.put("3", "MARCH");
+        monthNames.put("4", "APRIL");
+        monthNames.put("5", "MAY");
+        monthNames.put("6", "JUNE");
+        monthNames.put("7", "JULY");
+        monthNames.put("8", "AUGUST");
+        monthNames.put("9", "SEPTEMBER");
+        monthNames.put("10", "OCTOBER");
+        monthNames.put("11", "NOVEMBER");
+        monthNames.put("12", "DECEMBER");
+    }
+
+    private void setMonth(String month){
+        graphMonth.setText(monthNames.get(month));
+    }
+
+    private void styleGraph() {
+        XAxis xAxis = bodyFatMonthlyGraph.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+
+        YAxis leftAxis = bodyFatMonthlyGraph.getAxisLeft();
+        leftAxis.setEnabled(true);
+        leftAxis.removeAllLimitLines();
+        leftAxis.setDrawAxisLine(false);
+        leftAxis.setDrawGridLines(false);
+
+        bodyFatMonthlyGraph.getDescription().setEnabled(false);
+        bodyFatMonthlyGraph.getAxisRight().setEnabled(false);
+    }
+
+    private void setBodyFatGraphData() {
+        ArrayList<Entry> dataEntries = getGraphData();
+        LineDataSet dSetBF = new LineDataSet(dataEntries, "BODY FAT %");
+        setDataSetStyling(dSetBF);
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dSetBF);
+        bodyFatMonthlyGraph.setData(new LineData(dataSets));
+        bodyFatMonthlyGraph.notifyDataSetChanged();
+        bodyFatMonthlyGraph.invalidate();
+    }
+
+    private ArrayList<Entry> getGraphData (){
+        Map<String, String> bodyFatEntriesForMonth = bodyFatModel.getBodyFatEntriesForMonth(currentDate);
+        String[] splitDate = this.currentDate.split("/");
+        return getDataSets(splitDate[1], splitDate[2], bodyFatEntriesForMonth);
+    }
+
+    private ArrayList<Entry> getDataSets(String month, String year, Map<String, String> bodyFatEntriesForMonth){
+        ArrayList<Entry> bodyFatEntries = new ArrayList<Entry>();
+        for (int i = 1; i < 32; i++) {
+            String testDate = String.valueOf(i) + "/" + month + "/" + year;
+            if (bodyFatEntriesForMonth.containsKey(testDate)){
+                bodyFatEntries.add(new Entry (i, Float.valueOf(bodyFatEntriesForMonth.get(testDate))));
+            }
+        }
+        return bodyFatEntries;
+    }
+
+    private void setDataSetStyling(LineDataSet dSet){
+        int colour = Color.BLUE;
+        float lineWidth = 3f;
+        dSet.setDrawCircleHole(false);
+        dSet.setDrawValues(false);
+        dSet.setLineWidth(lineWidth);
+        dSet.setCircleRadius(lineWidth);
+        dSet.setColor(colour);
+        dSet.setCircleColor(colour);
     }
 
 }

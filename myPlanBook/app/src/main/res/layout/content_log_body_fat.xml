@@ -98,6 +98,29 @@
                 android:textStyle="bold"
                 android:typeface="sans" />
 
+            <TextView
+                android:id="@+id/graph_month_tv_body_fat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/box_outline_bordered"
+                android:padding="10dp"
+                android:gravity="center"
+                android:text=""
+                android:textSize="25dp"
+                android:typeface="sans" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/body_fat_graph"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/box_outline_bordered" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,7 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class GoalProgress extends AppCompatActivity {
 
-    private Button enter, change;
+    private Button enter, change, switchToYearly;
     private EditText goalText, priceText, gainText, spendText;
     private TextView progressText;
     private String goal_name, price, gain, spend, user_email;
@@ -72,6 +72,15 @@ public class GoalProgress extends AppCompatActivity {
         //Get User ID, add child to "Goals" to distinguish between users
         user = FirebaseAuth.getInstance().getCurrentUser();
         user_email = user.getUid();
+
+        switchToYearly = findViewById(R.id.switchToYearly);
+        switchToYearly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GoalProgress.this, YearlySavings.class);
+                startActivity(intent);
+            }
+        });
 
         db = FirebaseDatabase.getInstance().getReference().child("Goals").child(user_email);
 

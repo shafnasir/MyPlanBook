@@ -44,7 +44,12 @@ public class LogBodyFatActivity extends AppCompatActivity {
     private TextView calendarDate;
     private int currentMonth;
     private String currentDate;
-    private EditText bodyFatInputTextField;
+    private EditText ageInputTextField;
+    private EditText chestInputTextField;
+    private EditText absInputTextField;
+    private EditText thighInputTextField;
+    private EditText heightInputTextField;
+    private EditText waistInputTextField;
     private BodyFatModel bodyFatModel;
     private int bodyFatEntryLayoutId;
     private LinearLayout bodyFatEntryLayout;
@@ -72,7 +77,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         this.PADDING_SIZE = getResources().getDimensionPixelSize(R.dimen.padding_size);
         this.assignParams();
         scrollViewLayoutLogBodyFat = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_fat);
-        bodyFatInputTextField = (EditText) findViewById(R.id.edit_text_input_body_fat);
+        this.assignInputTextFields();
         this.setCurrentDate();
         bodyFatModel = new BodyFatModel();
         this.createBodyFatEntryLayout();
@@ -107,6 +112,15 @@ public class LogBodyFatActivity extends AppCompatActivity {
         params3.setMargins(MARGIN_SIZE,0,MARGIN_SIZE,MARGIN_SIZE);
     }
 
+    private void assignInputTextFields(){
+        ageInputTextField = (EditText) findViewById(R.id.edit_text_input_age);
+        chestInputTextField = (EditText) findViewById(R.id.edit_text_input_chest);
+        absInputTextField = (EditText) findViewById(R.id.edit_text_input_abs);
+        thighInputTextField = (EditText) findViewById(R.id.edit_text_input_thigh);
+        heightInputTextField = (EditText) findViewById(R.id.edit_text_input_height);
+        waistInputTextField = (EditText) findViewById(R.id.edit_text_input_waist);
+    }
+
     private void setCurrentDate(){
         calendarDate = (TextView) findViewById(R.id.date_log_body_fat);
         Calendar newCalendar = Calendar.getInstance();
@@ -126,7 +140,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         this.bodyFatEntryLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
-        scrollViewLayoutLogBodyFat.addView(this.bodyFatEntryLayout, 6);
+        scrollViewLayoutLogBodyFat.addView(this.bodyFatEntryLayout, 22);
     }
 
     private void createBodyFatEntryCheckBox() {
@@ -159,7 +173,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
     private void setBodyFatEntryTextView(){
         String bodyFatEntryForDate = bodyFatModel.getBodyFatEntry(currentDate);
         bodyFatEntryForDate = bodyFatEntryForDate == null? "": bodyFatEntryForDate;
-        this.bodyFatEntryTV.setText(bodyFatEntryForDate);
+        this.bodyFatEntryTV.setText(bodyFatEntryForDate + "%");
         int visibility = bodyFatEntryForDate.isEmpty()? View.GONE: View.VISIBLE;
         this.bodyFatEntryTV.setVisibility(visibility);
         this.bodyFatEntryLayout.setVisibility(visibility);
@@ -177,12 +191,32 @@ public class LogBodyFatActivity extends AppCompatActivity {
     }
 
     private void addBodyFatEntry(){
-        String bodyFat = bodyFatInputTextField.getText().toString();
-        if (bodyFat.length() > 10 || bodyFat.isEmpty()) {
+        String age = ageInputTextField.getText().toString();
+        String chestSFmm = chestInputTextField.getText().toString();
+        String absSFmm = absInputTextField.getText().toString();
+        String thighSFmm = thighInputTextField.getText().toString();
+        String height = heightInputTextField.getText().toString();
+        String waist = waistInputTextField.getText().toString();
+        if (age.length() > 10 || age.isEmpty() || chestSFmm.length() > 10 || chestSFmm.isEmpty()
+            || absSFmm.length() > 10 || absSFmm.isEmpty() || thighSFmm.length() > 10 || thighSFmm.isEmpty()
+                || height.length() > 10 || height.isEmpty() || waist.length() > 10 || waist.isEmpty()) {
             return;
         }
-        bodyFatModel.addBodyFatEntry(currentDate, bodyFat);
+        bodyFatModel.addBodyFatEntry(currentDate, calculateBFAvg(age, chestSFmm, absSFmm, thighSFmm, height, waist));
         setBodyFatEntryTextView();
+    }
+
+    private String calculateBFAvg(String age, String chestSFmm, String absSFmm, String thighSFmm, String height, String waist) {
+        double sum = Double.valueOf(chestSFmm) + Double.valueOf(absSFmm) + Double.valueOf(thighSFmm);
+        int ageValue = Integer.valueOf(age);
+        double boneDensity = 1.10938 - 0.0008267 * sum + 0.16 * Math.pow(10, -5) * Math.pow(sum, 2) - 25.74 * Math.pow(10, -5) * (double) ageValue;
+        double skinFoldCaliperBodyFat1 = (4.95/ boneDensity - 4.5) * 100;
+        double skinFoldCaliperBodyFat2 = (4.57/ boneDensity - 4.142) * 100;
+        double waistHeightRatioPercent = (Double.valueOf(waist)/ Double.valueOf(height)) * 100;
+        double waistBodyFat = (waistHeightRatioPercent / 0.05 - 775) / 10;
+        double bodyFatAvg = (skinFoldCaliperBodyFat1 + skinFoldCaliperBodyFat2 + waistBodyFat) / 3;
+        String bodyFat = String.format("%.1f", bodyFatAvg);
+        return bodyFat;
     }
 
     private void setCalendarViewListener(){
@@ -306,7 +340,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
 
     private void setBodyFatGraphData() {
         ArrayList<Entry> dataEntries = getGraphData();
-        LineDataSet dSetBF = new LineDataSet(dataEntries, "BODY FAT %");
+        LineDataSet dSetBF = new LineDataSet(dataEntries, "Body Fat %");
         setDataSetStyling(dSetBF);
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dSetBF);

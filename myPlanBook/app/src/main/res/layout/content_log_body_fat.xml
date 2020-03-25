@@ -57,19 +57,189 @@
                 android:layout_marginRight="15dp"
                 android:textSize="20dp"
                 android:typeface="sans"
-                android:text="Body Fat"/>
+                android:text="Age (years)"/>
 
             <EditText
-                android:id="@+id/edit_text_input_body_fat"
+                android:id="@+id/edit_text_input_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="@null"
                 android:ems="10"
-                android:hint="Body Fat"
+                android:hint="Age (years)"
+                android:inputType="number"
+                android:textColor="#858585"
+                android:textColorHint="#DDDDDD"
+                android:textSize="25sp"
+                android:typeface="sans" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#2196F3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Height"/>
+
+            <EditText
+                android:id="@+id/edit_text_input_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Height (any unit)"
+                android:inputType="number"
+                android:textColor="#858585"
+                android:textColorHint="#DDDDDD"
+                android:textSize="25sp"
+                android:typeface="sans" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#2196F3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Waist Around Belly Button"/>
+
+            <EditText
+                android:id="@+id/edit_text_input_waist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Waist (same as height unit)"
+                android:inputType="number"
+                android:textColor="#858585"
+                android:textColorHint="#DDDDDD"
+                android:textSize="25sp"
+                android:typeface="sans" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#2196F3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Chest Skinfold (mm)"/>
+
+            <EditText
+                android:id="@+id/edit_text_input_chest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Chest Skinfold (mm)"
                 android:inputType="numberDecimal"
-                android:textColor="#000000"
+                android:textColor="#858585"
+                android:textColorHint="#DDDDDD"
+                android:textSize="25sp"
+                android:typeface="sans" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#2196F3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Abdominal Skinfold (mm)"/>
+
+            <EditText
+                android:id="@+id/edit_text_input_abs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Abdominal Skinfold (mm)"
+                android:inputType="numberDecimal"
+                android:textColor="#858585"
+                android:textColorHint="#DDDDDD"
+                android:textSize="25sp"
+                android:typeface="sans" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#2196F3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Thigh Skinfold (mm)"/>
+
+            <EditText
+                android:id="@+id/edit_text_input_thigh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:ems="10"
+                android:hint="Thigh Skinfold (mm)"
+                android:inputType="numberDecimal"
+                android:textColor="#858585"
                 android:textColorHint="#DDDDDD"
                 android:textSize="25sp"
                 android:typeface="sans" />
@@ -97,6 +267,17 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:typeface="sans" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:text="Body Fat %"/>
 
             <TextView
                 android:id="@+id/graph_month_tv_body_fat"

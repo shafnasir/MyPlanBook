@@ -33,6 +33,8 @@ public class ManageFinances extends AppCompatActivity {
     static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
+    public int got=0;
+
     // Data
     YearlyTransactions yearlyTransactions;
 
@@ -106,9 +108,11 @@ public class ManageFinances extends AppCompatActivity {
                         BankTransaction bt = new BankTransaction(document.getData());
                         mt.addTransaction(bt);
 
+                        got++;
+
                     }
                     yearlyTransactions.replaceMonth(mt);
-                    if (breaker) {refreshGraphics();}
+                    refreshGraphics(); Log.i("Recieved", "NUMBER: "+got);
 
                 } else {
                     Log.i("[RefreshData]", "Error loading documents.");

@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FinancialHub.ManageFinances"></activity>
+        <activity
+            android:name=".FinancialHub.YearlySavings"
+            android:label="@string/title_activity_yearly_savings"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".FinancialHub.ManageFinances" />
         <activity
             android:name=".FinancialHub.GoalProgress"
             android:label="@string/title_activity_goal_progress"

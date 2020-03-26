@@ -3,6 +3,7 @@ package utm.csc301.theBrogrammers.myPlanBook.LogBodyFat;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -35,37 +36,20 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LogBodyFatActivity extends AppCompatActivity {
 
-    private LinearLayout.LayoutParams params1;
-    private LinearLayout.LayoutParams params2;
-    private LinearLayout.LayoutParams params3;
-    private int MARGIN_SIZE;
-    private int EDIT_MODE_TV_WIDTH = 875;
-    private LinearLayout scrollViewLayoutLogBodyFat;
-    private TextView calendarDate;
-    private int currentMonth;
-    private String currentDate;
-    private EditText ageInputTextField;
-    private EditText chestInputTextField;
-    private EditText absInputTextField;
-    private EditText thighInputTextField;
-    private EditText heightInputTextField;
-    private EditText waistInputTextField;
+    private BodyFatViewUpdater bodyFatViewUpdater;
     private BodyFatModel bodyFatModel;
-    private int bodyFatEntryLayoutId;
-    private LinearLayout bodyFatEntryLayout;
-    private int bodyFatEntryTVId;
-    private TextView bodyFatEntryTV;
-    private int PADDING_SIZE;
+    private EditText ageInputTextField, chestInputTextField, absInputTextField, thighInputTextField, heightInputTextField, waistInputTextField;
+    private LinearLayout bodyFatEntryLayout, scrollViewLayoutLogBodyFat;
+    private TextView bodyFatEntryTV, calendarDate, graphMonth;
+    private LinearLayout.LayoutParams params1, params2, params3;
     private Button enterBodyFatEntryButton;
     private CalendarView calendarView;
-    private int bodyFatEntryCheckBoxId;
     private CheckBox bodyFatEntryCheckBox;
-    private FloatingActionButton editButton;
-    private FloatingActionButton deleteButton;
-    private Boolean editMode = false;
-    private Map<String,String> monthNames;
+    private FloatingActionButton editButton, deleteButton;
     private LineChart bodyFatMonthlyGraph;
-    private TextView graphMonth;
+    private Map<String,String> monthNames;
+    private boolean editMode = false;
+    private int MARGIN_SIZE, EDIT_MODE_TV_WIDTH, PADDING_SIZE;
     private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
@@ -74,30 +58,37 @@ public class LogBodyFatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_body_fat);
-        this.PADDING_SIZE = getResources().getDimensionPixelSize(R.dimen.padding_size);
+        this.bodyFatViewUpdater = new BodyFatViewUpdater();
+        this.bodyFatModel = new BodyFatModel();
+        this.bodyFatModel.attach(this.bodyFatViewUpdater);
+        this.assignParamValues();
         this.assignParams();
-        scrollViewLayoutLogBodyFat = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_fat);
         this.assignInputTextFields();
-        this.setCurrentDate();
-        bodyFatModel = new BodyFatModel();
+        this.assignTextViews();
+        this.assignGraph();
+        this.styleGraph();
+        this.setMonthNames();
+        this.scrollViewLayoutLogBodyFat = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_fat);
+        this.bodyFatViewUpdater.setCurrentDate();
         this.createBodyFatEntryLayout();
         this.createBodyFatEntryCheckBox();
         this.createBodyFatEntryTextView();
-        this.setBodyFatEntryTextView();
+        this.bodyFatModel.notifyObserversEntryChange(this.calendarDate.getText().toString());
         this.setEnterButtonListener();
         this.setCalendarViewListener();
         this.setEditFloatingButtonListener();
         this.setDeleteFloatingButtonListener();
-        this.setMonthNames();
-        this.bodyFatMonthlyGraph = (LineChart) findViewById(R.id.body_fat_graph);
-        this.graphMonth = (TextView) findViewById(R.id.graph_month_tv_body_fat);
-        this.setMonth(String.valueOf(currentMonth));
-        this.styleGraph();
-        this.setBodyFatGraphData();
+        this.bodyFatViewUpdater.setGraphMonth();
+        this.bodyFatModel.notifyObserversGraphChange(this.getMonth(), this.getYear());
+    }
+
+    private void assignParamValues(){
+        this.PADDING_SIZE = getResources().getDimensionPixelSize(R.dimen.padding_size);
+        this.EDIT_MODE_TV_WIDTH = 875;
+        this.MARGIN_SIZE = getResources().getDimensionPixelSize(R.dimen.margin_size);
     }
 
     private void assignParams(){
-        this.MARGIN_SIZE = getResources().getDimensionPixelSize(R.dimen.margin_size);
         params1 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -110,6 +101,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
                 EDIT_MODE_TV_WIDTH,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         params3.setMargins(MARGIN_SIZE,0,MARGIN_SIZE,MARGIN_SIZE);
+        bodyFatViewUpdater.setParams(params1, params2, params3);
     }
 
     private void assignInputTextFields(){
@@ -121,32 +113,33 @@ public class LogBodyFatActivity extends AppCompatActivity {
         waistInputTextField = (EditText) findViewById(R.id.edit_text_input_waist);
     }
 
-    private void setCurrentDate(){
+    private void assignTextViews(){
         calendarDate = (TextView) findViewById(R.id.date_log_body_fat);
-        Calendar newCalendar = Calendar.getInstance();
-        int currentYear = newCalendar.get(Calendar.YEAR);
-        currentMonth = newCalendar.get(Calendar.MONTH) + 1;
-        int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
-        currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
-        calendarDate.setText(currentDate);
+        graphMonth = (TextView) findViewById(R.id.graph_month_tv_body_fat);
+        bodyFatViewUpdater.setCalendarDateTV(calendarDate);
+        bodyFatViewUpdater.setGraphMonthTV(graphMonth);
+    }
+
+    private void assignGraph(){
+        bodyFatMonthlyGraph = (LineChart) findViewById(R.id.body_fat_graph);
+        bodyFatViewUpdater.setBodyFatMonthlyGraph(this.bodyFatMonthlyGraph);
     }
 
     private void createBodyFatEntryLayout() {
         this.bodyFatEntryLayout = new LinearLayout(this);
         this.bodyFatEntryLayout.setId(ViewCompat.generateViewId());
-        this.bodyFatEntryLayoutId = bodyFatEntryLayout.getId();
         this.bodyFatEntryLayout.setOrientation(LinearLayout.HORIZONTAL);
         this.bodyFatEntryLayout.setVisibility(View.GONE);
         this.bodyFatEntryLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         scrollViewLayoutLogBodyFat.addView(this.bodyFatEntryLayout, 22);
+        bodyFatViewUpdater.setBodyFatEntryLayout(this.bodyFatEntryLayout);
     }
 
     private void createBodyFatEntryCheckBox() {
         this.bodyFatEntryCheckBox = new CheckBox(this);
         this.bodyFatEntryCheckBox.setId(ViewCompat.generateViewId());
-        this.bodyFatEntryCheckBoxId = this.bodyFatEntryCheckBox.getId();
         this.bodyFatEntryCheckBox.setVisibility(View.GONE);
         LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -154,6 +147,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         checkBoxParams.setMargins(MARGIN_SIZE, 0, 0, 0);
         this.bodyFatEntryCheckBox.setLayoutParams(checkBoxParams);
         this.bodyFatEntryLayout.addView(this.bodyFatEntryCheckBox, 0);
+        bodyFatViewUpdater.setBodyFatEntryCheckBox(this.bodyFatEntryCheckBox);
     }
 
     private void createBodyFatEntryTextView(){
@@ -165,18 +159,9 @@ public class LogBodyFatActivity extends AppCompatActivity {
         this.bodyFatEntryTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size));
         this.bodyFatEntryTV.setTypeface(Typeface.SANS_SERIF);
         this.bodyFatEntryTV.setId(ViewCompat.generateViewId());
-        this.bodyFatEntryTVId = bodyFatEntryTV.getId();
         this.bodyFatEntryTV.setVisibility(View.GONE);
         this.bodyFatEntryLayout.addView(this.bodyFatEntryTV, 1);
-    }
-
-    private void setBodyFatEntryTextView(){
-        String bodyFatEntryForDate = bodyFatModel.getBodyFatEntry(currentDate);
-        bodyFatEntryForDate = bodyFatEntryForDate == null? "": bodyFatEntryForDate;
-        this.bodyFatEntryTV.setText(bodyFatEntryForDate + "%");
-        int visibility = bodyFatEntryForDate.isEmpty()? View.GONE: View.VISIBLE;
-        this.bodyFatEntryTV.setVisibility(visibility);
-        this.bodyFatEntryLayout.setVisibility(visibility);
+        bodyFatViewUpdater.setBodyFatEntryTextView(this.bodyFatEntryTV);
     }
 
     private void setEnterButtonListener(){
@@ -184,8 +169,9 @@ public class LogBodyFatActivity extends AppCompatActivity {
         enterBodyFatEntryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                addBodyFatEntry();
-                setBodyFatGraphData();
+                if (bodyFatEntryTV.getText().toString().length() < 2) {
+                    addBodyFatEntry();
+                }
             }
         });
     }
@@ -198,18 +184,19 @@ public class LogBodyFatActivity extends AppCompatActivity {
         String height = heightInputTextField.getText().toString();
         String waist = waistInputTextField.getText().toString();
         if (age.length() > 10 || age.isEmpty() || chestSFmm.length() > 10 || chestSFmm.isEmpty()
-            || absSFmm.length() > 10 || absSFmm.isEmpty() || thighSFmm.length() > 10 || thighSFmm.isEmpty()
+                || absSFmm.length() > 10 || absSFmm.isEmpty() || thighSFmm.length() > 10 || thighSFmm.isEmpty()
                 || height.length() > 10 || height.isEmpty() || waist.length() > 10 || waist.isEmpty()) {
             return;
         }
-        bodyFatModel.addBodyFatEntry(currentDate, calculateBFAvg(age, chestSFmm, absSFmm, thighSFmm, height, waist));
-        setBodyFatEntryTextView();
+        this.bodyFatModel.addBodyFatEntry(calendarDate.getText().toString(),
+                calculateBFAvg(age, chestSFmm, absSFmm, thighSFmm, height, waist));
     }
 
     private String calculateBFAvg(String age, String chestSFmm, String absSFmm, String thighSFmm, String height, String waist) {
         double sum = Double.valueOf(chestSFmm) + Double.valueOf(absSFmm) + Double.valueOf(thighSFmm);
         int ageValue = Integer.valueOf(age);
-        double boneDensity = 1.10938 - 0.0008267 * sum + 0.16 * Math.pow(10, -5) * Math.pow(sum, 2) - 25.74 * Math.pow(10, -5) * (double) ageValue;
+        double boneDensity = 1.10938 - 0.0008267 * sum + 0.16 * Math.pow(10, -5) * Math.pow(sum, 2) - 25.74 * Math.pow(10, -5)
+                * (double) ageValue;
         double skinFoldCaliperBodyFat1 = (4.95/ boneDensity - 4.5) * 100;
         double skinFoldCaliperBodyFat2 = (4.57/ boneDensity - 4.142) * 100;
         double waistHeightRatioPercent = (Double.valueOf(waist)/ Double.valueOf(height)) * 100;
@@ -224,28 +211,25 @@ public class LogBodyFatActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                if (editMode == true) {
-                    setEditModeFeatures();
-                }
+                if (editMode == true) { editMode = bodyFatViewUpdater.setEditModeFeatures(); }
                 String date = dayOfMonth + "/" + (month + 1) + "/" + year;
-                calendarDate.setText(date);
-                currentDate = date;
-                currentMonth = (currentMonth != month + 1)? month + 1: currentMonth;
-                setMonth(String.valueOf(currentMonth));
-                setBodyFatEntryTextView();
-                setBodyFatGraphData();
+                bodyFatViewUpdater.setDate(date, month + 1);
+                bodyFatViewUpdater.setGraphMonth();
+                bodyFatModel.notifyObserversEntryChange(date);
+                bodyFatModel.notifyObserversGraphChange(String.valueOf(month + 1), String.valueOf(year));
             }
         });
     }
 
     private void setEditFloatingButtonListener(){
         editButton = (FloatingActionButton) findViewById(R.id.edit_button_log_body_fat);
+        this.bodyFatViewUpdater.setEditButton(editButton);
         editButton.setImageResource(R.drawable.edit_pencil);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!bodyFatEntryTV.getText().toString().isEmpty()) {
-                    setEditModeFeatures();
+                if (bodyFatEntryTV.getText().toString().length() > 1) {
+                    editMode = bodyFatViewUpdater.setEditModeFeatures();
                 }
             }
         });
@@ -253,6 +237,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
 
     private void setDeleteFloatingButtonListener(){
         deleteButton = (FloatingActionButton) findViewById(R.id.delete_button_log_body_fat);
+        this.bodyFatViewUpdater.setDeleteButton(deleteButton);
         deleteButton.setImageResource(R.drawable.garbage_can);
         deleteButton.hide();
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -263,43 +248,12 @@ public class LogBodyFatActivity extends AppCompatActivity {
         });
     }
 
-    private void setEditModeFeatures(){
-        if (editMode == true){
-            deleteButton.hide();
-        }
-        else {
-            deleteButton.show();
-        }
-        int editDrawableId = editMode == true? R.drawable.edit_pencil: R.drawable.ex_cancel;
-        editButton.setImageResource(editDrawableId);
-        editMode = editMode == true? false: true;
-        setCheckBoxVisibility();
-        setBodyFatEntryTVParams();
-    }
-
-    private void setCheckBoxVisibility(){
-        bodyFatEntryCheckBox.setChecked(false);
-        int visibility = editMode == false? View.GONE: View.VISIBLE;
-        bodyFatEntryCheckBox.setVisibility(visibility);
-    }
-
-    private void setBodyFatEntryTVParams(){
-        if (editMode == false) {
-            bodyFatEntryTV.setLayoutParams(params1);
-        }
-        else {
-            bodyFatEntryTV.setLayoutParams(params3);
-        }
-    }
-
     private void deleteBodyFatEntry(){
-        if (editMode == false || bodyFatEntryTV.getText().toString().isEmpty() || !bodyFatEntryCheckBox.isChecked()) {
+        if (editMode == false || bodyFatEntryTV.getText().toString().length() < 2 || !bodyFatEntryCheckBox.isChecked()) {
             return;
         }
-        bodyFatModel.deleteBodyFatEntry(currentDate);
-        setEditModeFeatures();
-        setBodyFatEntryTextView();
-        setBodyFatGraphData();
+        bodyFatModel.deleteBodyFatEntry(calendarDate.getText().toString());
+        editMode = bodyFatViewUpdater.setEditModeFeatures();
     }
 
     private void setMonthNames() {
@@ -316,10 +270,7 @@ public class LogBodyFatActivity extends AppCompatActivity {
         monthNames.put("10", "OCTOBER");
         monthNames.put("11", "NOVEMBER");
         monthNames.put("12", "DECEMBER");
-    }
-
-    private void setMonth(String month){
-        graphMonth.setText(monthNames.get(month));
+        this.bodyFatViewUpdater.setMonthNames(monthNames);
     }
 
     private void styleGraph() {
@@ -338,43 +289,14 @@ public class LogBodyFatActivity extends AppCompatActivity {
         bodyFatMonthlyGraph.getAxisRight().setEnabled(false);
     }
 
-    private void setBodyFatGraphData() {
-        ArrayList<Entry> dataEntries = getGraphData();
-        LineDataSet dSetBF = new LineDataSet(dataEntries, "Body Fat %");
-        setDataSetStyling(dSetBF);
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(dSetBF);
-        bodyFatMonthlyGraph.setData(new LineData(dataSets));
-        bodyFatMonthlyGraph.notifyDataSetChanged();
-        bodyFatMonthlyGraph.invalidate();
+    private String getMonth(){
+        String[] split = calendarDate.getText().toString().split("/");
+        return split[1];
     }
 
-    private ArrayList<Entry> getGraphData (){
-        Map<String, String> bodyFatEntriesForMonth = bodyFatModel.getBodyFatEntriesForMonth(currentDate);
-        String[] splitDate = this.currentDate.split("/");
-        return getDataSets(splitDate[1], splitDate[2], bodyFatEntriesForMonth);
-    }
-
-    private ArrayList<Entry> getDataSets(String month, String year, Map<String, String> bodyFatEntriesForMonth){
-        ArrayList<Entry> bodyFatEntries = new ArrayList<Entry>();
-        for (int i = 1; i < 32; i++) {
-            String testDate = String.valueOf(i) + "/" + month + "/" + year;
-            if (bodyFatEntriesForMonth.containsKey(testDate)){
-                bodyFatEntries.add(new Entry (i, Float.valueOf(bodyFatEntriesForMonth.get(testDate))));
-            }
-        }
-        return bodyFatEntries;
-    }
-
-    private void setDataSetStyling(LineDataSet dSet){
-        int colour = Color.BLUE;
-        float lineWidth = 3f;
-        dSet.setDrawCircleHole(false);
-        dSet.setDrawValues(false);
-        dSet.setLineWidth(lineWidth);
-        dSet.setCircleRadius(lineWidth);
-        dSet.setColor(colour);
-        dSet.setCircleColor(colour);
+    private String getYear(){
+        String[] split = calendarDate.getText().toString().split("/");
+        return split[2];
     }
 
 }

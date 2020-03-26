@@ -26,7 +26,7 @@
     <string name="manage_finances">Manage Finances</string>
     <string name="import_transactions">Import Transactions</string>
     <string name="load_transactions">Load Transactions</string>
-    <string name="load_local_file">Load Local CSV File</string>
+    <string name="load_local_file">Load CSV File</string>
     <string name="manually_load">Manually Load</string>
     <string name="set_goals">"Set Goals"</string>
     <string name="title_activity_main_login">MainLoginActivity</string>

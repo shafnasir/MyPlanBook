@@ -33,7 +33,7 @@ public class ManageFinances extends AppCompatActivity {
     static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-    public int got=0;
+    public int total=0;
 
     // Data
     YearlyTransactions yearlyTransactions;
@@ -75,6 +75,7 @@ public class ManageFinances extends AppCompatActivity {
         this.monthlyPieChart.refresh(this.yearlyTransactions);
         this.debitLineGraph.refresh(this.yearlyTransactions);
         this.creditLineGraph.refresh(this.yearlyTransactions);
+        Log.i("[OnComplete]", "Total: "+total);
 
     }
 
@@ -107,12 +108,10 @@ public class ManageFinances extends AppCompatActivity {
 
                         BankTransaction bt = new BankTransaction(document.getData());
                         mt.addTransaction(bt);
-
-                        got++;
-
+                        total += bt.getAmount();
                     }
+                    refreshGraphics();
                     yearlyTransactions.replaceMonth(mt);
-                    refreshGraphics(); Log.i("Recieved", "NUMBER: "+got);
 
                 } else {
                     Log.i("[RefreshData]", "Error loading documents.");

@@ -40,11 +40,7 @@ public class ManuallyLoadTransactions extends AppCompatActivity {
         this.amountInput = (EditText) findViewById(R.id.amount_input);
         this.cardNumInput = (EditText) findViewById(R.id.card_number_input);
         this.calendar = (CalendarView) findViewById(R.id.date_picker);
-        // Buttons
-//        this.debitBtn = (Button) findViewById(R.id.commit_debit);
-//        this.creditBtn = (Button) findViewById(R.id.commit_credit);
-//        this.commitTBtn = (Button) findViewById(R.id.commit_transaction);
-        // ListView
+
         this.listView = (ListView) findViewById(R.id.list_view);
         this.adapter = new ArrayAdapter<String>(ManuallyLoadTransactions.this,
                 android.R.layout.simple_list_item_1, transactions);

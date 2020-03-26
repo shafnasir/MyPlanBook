@@ -1,9 +1,6 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
 
-import android.util.Log;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -13,7 +10,6 @@ public class YearlyTransactions {
 
     public int length = 0;
     CopyOnWriteArrayList<MonthlyTransactions> yearCollection = new CopyOnWriteArrayList<>();
-//    public ArrayList<MonthlyTransactions> yearCollection = new ArrayList<MonthlyTransactions>();
 
     public YearlyTransactions(){
     }
@@ -65,13 +61,11 @@ public class YearlyTransactions {
     }
 
     public HashMap<String, Integer> getTop5Category(HashMap<String, Integer> aggregatedByCategory){
-        print();
         Map.Entry<String, Integer> maxEntry = null;
         HashMap<String, Integer> maxMap = new HashMap<>();
         int i = 0;
         while (i < 5){
             for (Map.Entry<String, Integer> entry: aggregatedByCategory.entrySet()){
-                Log.i("Set", "Category: " +entry.getKey() + ", Size: "+ Integer.toString(entry.getValue()));
                 if (maxEntry == null) maxEntry = entry;
                 if (entry.getValue() > maxEntry.getValue()){
                     maxEntry = entry;
@@ -90,13 +84,6 @@ public class YearlyTransactions {
         }
         maxMap.put("Other", otherTotal);
         return maxMap;
-    }
-
-    public void print(){
-        Log.i("In top 5 category", "Print #");
-        for (MonthlyTransactions m: this.yearCollection){
-            Log.i("[YEARLY]", "[MONTH] = " + m.month + " size: "+m.size());
-        }
     }
 
 

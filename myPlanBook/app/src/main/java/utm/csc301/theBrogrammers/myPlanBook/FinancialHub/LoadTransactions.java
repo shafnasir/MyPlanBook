@@ -5,15 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.DocumentsContract;
-import android.util.Log;
 import android.view.View;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
@@ -24,12 +20,19 @@ import utm.csc301.theBrogrammers.myPlanBook.R;
 public class LoadTransactions extends AppCompatActivity {
 
     private static final int GET_CSV_FILE = 2;
+    NumberPicker monthPicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide(); // Get rid of toolbar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_transactions);
+        monthPicker = findViewById(R.id.monthPicker);
+        monthPicker.setMinValue(0);
+        monthPicker.setMaxValue(11);
+        monthPicker.setDisplayedValues((String[]) FinanceModel.months.toArray());
+        monthPicker.setWrapSelectorWheel(true);
+
 
     }
 
@@ -87,5 +90,23 @@ public class LoadTransactions extends AppCompatActivity {
     public void switchToManualLoadTransaction(View v){
         Intent myIntent = new Intent(getApplicationContext(),  ManuallyLoadTransactions.class);
         startActivity(myIntent);
+    }
+
+    public void voidAllTransactions(View v){
+        for (String month: FinanceModel.months){
+            FinanceModel.deleteMonth(month);
+        }
+        Toast.makeText(LoadTransactions.this,
+                "Deleted all transactions for all months.",
+                Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void voidSingleMonthTransactions(View v){
+        String month = FinanceModel.months.get(monthPicker.getValue());
+        FinanceModel.deleteMonth(month);
+        Toast.makeText(LoadTransactions.this,
+                "Deleted all transactions for "+month+".",
+                Toast.LENGTH_SHORT).show();
     }
 }

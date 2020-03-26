@@ -1,4 +1,4 @@
-package utm.csc301.theBrogrammers.myPlanBook;
+package utm.csc301.theBrogrammers.myPlanBook.Notification;
 
 import android.app.Application;
 import android.app.NotificationManager;
@@ -20,10 +20,10 @@ public class NotificationChannels extends Application {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             android.app.NotificationChannel channel1 = new android.app.NotificationChannel(
                     CHANNEL_1_ID,
-                    "Important Notification",
+                    "Event Notification",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channel1.setDescription("This is the important notifications");
+            channel1.setDescription("This is the event notifications");
 
 //            android.app.NotificationChannel channel2 = new android.app.NotificationChannel(
 //                    CHANNEL_2_ID,

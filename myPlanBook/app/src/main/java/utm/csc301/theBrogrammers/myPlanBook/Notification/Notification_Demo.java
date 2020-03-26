@@ -1,4 +1,4 @@
-package utm.csc301.theBrogrammers.myPlanBook;
+package utm.csc301.theBrogrammers.myPlanBook.Notification;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -18,11 +18,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import android.os.SystemClock;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class Notification_Demo extends AppCompatActivity {
     private Button send;

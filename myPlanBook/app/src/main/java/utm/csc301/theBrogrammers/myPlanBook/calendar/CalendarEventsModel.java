@@ -3,8 +3,9 @@ package utm.csc301.theBrogrammers.myPlanBook.calendar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,27 +14,24 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.divyanshu.colorseekbar.ColorSeekBar;
-import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import utm.csc301.theBrogrammers.myPlanBook.Notification.NotificationReceiver;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class CalendarEventsModel extends AppCompatActivity {
@@ -46,6 +44,8 @@ public class CalendarEventsModel extends AppCompatActivity {
     TimePicker timePicker;
     String result;
     int color;
+
+    private int notificationId = 1;
 
 
     @Override
@@ -65,6 +65,9 @@ public class CalendarEventsModel extends AppCompatActivity {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
         currentDate.setText(sdf.format(dateClickedOn));
+
+
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +90,7 @@ public class CalendarEventsModel extends AppCompatActivity {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 dateClickedOn.setHours(hourOfDay);
                 dateClickedOn.setMinutes(minute);
+                dateClickedOn.setSeconds(0);
             }
         });
 
@@ -99,6 +103,22 @@ public class CalendarEventsModel extends AppCompatActivity {
                 intent.putExtra("eventDetails",result);
                 intent.putExtra("eventColor", color);
                 setResult(RESULT_OK, intent);
+
+                //Set notificationId & text
+                Intent activityIntent = new Intent(CalendarEventsModel.this, NotificationReceiver.class);
+                activityIntent.putExtra("notificationId", notificationId);
+                activityIntent.putExtra("event", result);
+                activityIntent.putExtra("time", dateClickedOn.getTime());
+//
+//                //getBroadcast
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(CalendarEventsModel.this, 0,
+                        activityIntent, PendingIntent.FLAG_ONE_SHOT);
+                AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+//
+//                //set alarm
+                long alarmStart = dateClickedOn.getTime();
+                alarm.set(AlarmManager.RTC_WAKEUP, alarmStart,pendingIntent);
+
                 finish();
             }
         });

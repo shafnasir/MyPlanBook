@@ -3,18 +3,16 @@ package utm.csc301.theBrogrammers.myPlanBook;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import utm.csc301.theBrogrammers.myPlanBook.Notification.Notification_Demo;
 import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 
 public class Settings extends AppCompatActivity {

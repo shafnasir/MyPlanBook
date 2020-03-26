@@ -16,77 +16,67 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
+import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.BodyWeightModel;
+import utm.csc301.theBrogrammers.myPlanBook.LogBodyWeight.BodyWeightViewUpdater;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class LogBodyWeightActivity extends AppCompatActivity {
 
-    private TextView myCalendarDate;
-    private TextView bodyWeightsGraphMonth;
+    private BodyWeightViewUpdater bodyWeightViewUpdater;
+    private BodyWeightModel bodyWeightModel;
     private EditText bodyWeightsInputTextField;
-    private BodyWeightsModel bodyWeightsModel;
-    private Button unitsToggleButton;
-    private Button enterButton;
-    private LineChart bodyWeightsMonthlyGraph;
-    private int currentMonth;
-    private FloatingActionButton editButton;
+    private LinearLayout scrollViewLayoutLogBodyWeight, bodyWeightEntryLayout;
+    private TextView calendarDate, graphMonth, bodyWeightEntryTV;
+    private LinearLayout.LayoutParams params1, params2, params3;
+    private Button enterButton, unitsToggleButton;
+    private CalendarView calendarView;
+    private CheckBox bodyWeightEntryCheckBox;
+    private FloatingActionButton editButton, deleteButton;
+    private LineChart bodyWeightMonthlyGraph;
+    private Map<String,String> monthNames;
     private boolean editMode = false;
-    private FloatingActionButton deleteButton;
-    private LinearLayout.LayoutParams params1;
-    private LinearLayout.LayoutParams params2;
-    private LinearLayout.LayoutParams params3;
-    private HashMap<String,String> monthNames;
-    private String currentDate;
+    private int MARGIN_SIZE, EDIT_MODE_TV_WIDTH, PADDING_SIZE;
     private final String[] dayStrings = {"0", "1", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
-    private LinearLayout scrollViewLayoutLogBodyWeight;
-    private LinearLayout bodyWeightEntryLayout;
-    private TextView bodyWeightEntryTV;
-    private CheckBox bodyWeightEntryCheckBox;
-    private int MARGIN_SIZE, EDIT_MODE_TV_WIDTH, PADDING_SIZE;
-    private CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_body_weight);
+        this.bodyWeightViewUpdater = new BodyWeightViewUpdater();
+        this.bodyWeightModel = new BodyWeightModel();
+        this.bodyWeightModel.attach(this.bodyWeightViewUpdater);
         this.assignParamValues();
         this.assignParams();
-        scrollViewLayoutLogBodyWeight = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_weight);
         this.setBodyWeightInputTextField();
-        this.setCurrentDate();
-        bodyWeightsModel = new BodyWeightsModel();
+        this.assignTextViews();
+        this.assignGraph();
+        this.styleGraph();
+        this.setMonthNames();
+        this.scrollViewLayoutLogBodyWeight = (LinearLayout) findViewById(R.id.scrollview_layout_log_body_weight);
+        this.bodyWeightViewUpdater.setCurrentDate();
         this.createBodyWeightEntryLayout();
         this.createBodyWeightEntryCheckBox();
         this.createBodyWeightEntryTextView();
-        this.setBodyWeightEntryTextView();
         this.setEnterButtonListener();
         this.setToggleUnitsButtonListener();
         this.setCalendarViewListener();
         this.setEditFloatingButtonListener();
         this.setDeleteFloatingButtonListener();
-        this.setMonthNames();
-        bodyWeightsGraphMonth = (TextView) findViewById(R.id.graph_month_tv_body_weight);
-        bodyWeightsMonthlyGraph = (LineChart) findViewById(R.id.body_weight_graph);
-        this.setMonth(String.valueOf(currentMonth));
-        this.styleGraph();
-        this.setBodyWeightGraphData();
+        this.bodyWeightViewUpdater.setGraphMonth();
+        this.bodyWeightModel.notifyObserversEntryChange(this.calendarDate.getText().toString());
+        this.bodyWeightModel.notifyObserversGraphChange(this.getMonth(), this.getYear());
     }
 
     private void assignParamValues(){
@@ -108,21 +98,24 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                 EDIT_MODE_TV_WIDTH,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         params3.setMargins(MARGIN_SIZE,0,MARGIN_SIZE,MARGIN_SIZE);
-    }
-
-    private void setCurrentDate(){
-        myCalendarDate = (TextView)findViewById(R.id.date_log_body_weight);
-        Calendar newCalendar = Calendar.getInstance();
-        int currentYear = newCalendar.get(Calendar.YEAR);
-        currentMonth = newCalendar.get(Calendar.MONTH) + 1;
-        int currentDay = newCalendar.get(Calendar.DAY_OF_MONTH);
-        currentDate = String.valueOf(currentDay) + "/" + String.valueOf(currentMonth) + "/" + String.valueOf(currentYear);
-        myCalendarDate.setText(currentDate);
+        bodyWeightViewUpdater.setParams(params1, params2, params3);
     }
 
     private void setBodyWeightInputTextField(){
         bodyWeightsInputTextField = findViewById(R.id.edit_text_input_weight);
         bodyWeightsInputTextField.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+    }
+
+    private void assignTextViews(){
+        calendarDate = (TextView) findViewById(R.id.date_log_body_weight);
+        graphMonth = (TextView) findViewById(R.id.graph_month_tv_body_weight);
+        bodyWeightViewUpdater.setCalendarDateTV(calendarDate);
+        bodyWeightViewUpdater.setGraphMonthTV(graphMonth);
+    }
+
+    private void assignGraph(){
+        bodyWeightMonthlyGraph = (LineChart) findViewById(R.id.body_weight_graph);
+        bodyWeightViewUpdater.setBodyWeightMonthlyGraph(this.bodyWeightMonthlyGraph);
     }
 
     private void createBodyWeightEntryLayout() {
@@ -134,6 +127,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         scrollViewLayoutLogBodyWeight.addView(this.bodyWeightEntryLayout, 6);
+        bodyWeightViewUpdater.setBodyWeightEntryLayout(this.bodyWeightEntryLayout);
     }
 
     private void createBodyWeightEntryCheckBox() {
@@ -146,6 +140,7 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         checkBoxParams.setMargins(MARGIN_SIZE, 0, 0, 0);
         this.bodyWeightEntryCheckBox.setLayoutParams(checkBoxParams);
         this.bodyWeightEntryLayout.addView(this.bodyWeightEntryCheckBox, 0);
+        bodyWeightViewUpdater.setBodyWeightEntryCheckBox(this.bodyWeightEntryCheckBox);
     }
 
     private void createBodyWeightEntryTextView(){
@@ -159,15 +154,95 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         this.bodyWeightEntryTV.setId(ViewCompat.generateViewId());
         this.bodyWeightEntryTV.setVisibility(View.GONE);
         this.bodyWeightEntryLayout.addView(this.bodyWeightEntryTV, 1);
+        bodyWeightViewUpdater.setBodyWeightEntryTextView(this.bodyWeightEntryTV);
     }
 
-    private void setBodyWeightEntryTextView(){
-        String bodyWeightEntryForDate = bodyWeightsModel.getWeight(currentDate);
-        bodyWeightEntryForDate = bodyWeightEntryForDate == null? "": bodyWeightEntryForDate;
-        this.bodyWeightEntryTV.setText(bodyWeightEntryForDate);
-        int visibility = bodyWeightEntryForDate.isEmpty()? View.GONE: View.VISIBLE;
-        this.bodyWeightEntryTV.setVisibility(visibility);
-        this.bodyWeightEntryLayout.setVisibility(visibility);
+    private void setEnterButtonListener(){
+        enterButton = (Button) findViewById(R.id.button_enter_weight);
+        enterButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if (bodyWeightEntryTV.getText().toString().isEmpty()) {
+                    addBodyWeightEntry();
+                }
+            }
+        });
+    }
+
+    private void addBodyWeightEntry(){
+        String bwInput = bodyWeightsInputTextField.getText().toString();
+        if (bwInput.isEmpty() || bwInput.length() > 6) {
+            return;
+        }
+        double weight = Double.parseDouble(bwInput);
+        String date = calendarDate.getText().toString();
+        String units = unitsToggleButton.getText().toString();
+        String weightInLbsKg = (units.equals("LBS"))? String.format("%.1f", weight)+ " LBS: "
+                + String.format("%.1f", weight*(1/2.20462)) + " KG": String.format("%.1f", weight*(2.20462)) +
+                " LBS: " + String.format("%.1f", weight) + " KG";
+        this.bodyWeightModel.addBodyWeightEntry(date, weightInLbsKg);
+    }
+
+    private void setToggleUnitsButtonListener(){
+        unitsToggleButton = (Button) findViewById(R.id.button_units_toggle);
+        unitsToggleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String units = unitsToggleButton.getText().toString();
+                units = units.equals("LBS")? "KG": "LBS";
+                unitsToggleButton.setText(units);
+            }
+        });
+    }
+
+    private void setCalendarViewListener(){
+        calendarView = (CalendarView) findViewById(R.id.calendar_view_log_body_weight);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                if (editMode == true) { editMode = bodyWeightViewUpdater.setEditModeFeatures(); }
+                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                bodyWeightViewUpdater.setDate(date, month + 1);
+                bodyWeightViewUpdater.setGraphMonth();
+                bodyWeightModel.notifyObserversEntryChange(date);
+                bodyWeightModel.notifyObserversGraphChange(String.valueOf(month + 1), String.valueOf(year));
+            }
+        });
+    }
+
+    private void setEditFloatingButtonListener(){
+        editButton = (FloatingActionButton) findViewById(R.id.edit_button_log_body_weight);
+        this.bodyWeightViewUpdater.setEditButton(editButton);
+        editButton.setImageResource(R.drawable.edit_pencil);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!bodyWeightEntryTV.getText().toString().isEmpty()){
+                    editMode = bodyWeightViewUpdater.setEditModeFeatures();
+                }
+            }
+        });
+    }
+
+    private void setDeleteFloatingButtonListener(){
+        deleteButton = (FloatingActionButton) findViewById(R.id.delete_button_log_body_weight);
+        this.bodyWeightViewUpdater.setDeleteButton(deleteButton);
+        deleteButton.setImageResource(R.drawable.garbage_can);
+        deleteButton.hide();
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteBodyWeightEntry();
+            }
+        });
+    }
+
+    private void deleteBodyWeightEntry() {
+        if (editMode == false || bodyWeightEntryTV.getText().toString().isEmpty() || !bodyWeightEntryCheckBox.isChecked()) {
+            return;
+        }
+        bodyWeightModel.deleteBodyWeightEntry(calendarDate.getText().toString());
+        editMode = bodyWeightViewUpdater.setEditModeFeatures();
     }
 
     private void setMonthNames() {
@@ -184,185 +259,33 @@ public class LogBodyWeightActivity extends AppCompatActivity {
         monthNames.put("10", "OCTOBER");
         monthNames.put("11", "NOVEMBER");
         monthNames.put("12", "DECEMBER");
-    }
-
-    private void setMonth(String month){
-        bodyWeightsGraphMonth.setText(monthNames.get(month));
+        this.bodyWeightViewUpdater.setMonthNames(monthNames);
     }
 
     private void styleGraph() {
-        XAxis xAxis = bodyWeightsMonthlyGraph.getXAxis();
+        XAxis xAxis = bodyWeightMonthlyGraph.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(dayStrings));
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
 
-        YAxis leftAxis = bodyWeightsMonthlyGraph.getAxisLeft();
+        YAxis leftAxis = bodyWeightMonthlyGraph.getAxisLeft();
         leftAxis.setEnabled(true);
         leftAxis.removeAllLimitLines();
         leftAxis.setDrawAxisLine(false);
         leftAxis.setDrawGridLines(false);
 
-        bodyWeightsMonthlyGraph.getDescription().setEnabled(false);
-        bodyWeightsMonthlyGraph.getAxisRight().setEnabled(false);
+        bodyWeightMonthlyGraph.getDescription().setEnabled(false);
+        bodyWeightMonthlyGraph.getAxisRight().setEnabled(false);
     }
 
-    private void setBodyWeightGraphData() {
-        ArrayList<Entry>[] dataEntries = genGraphData(myCalendarDate.getText().toString());
-        LineDataSet dSetLbs = new LineDataSet(dataEntries[0], "BODY WEIGHTS IN LBS");
-        LineDataSet dSetKg = new LineDataSet(dataEntries[1], "BODY WEIGHTS IN KG");
-
-        setDataSetStyling(dSetLbs, "lbs");
-        setDataSetStyling(dSetKg, "kg");
-
-        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(dSetLbs);
-        dataSets.add(dSetKg);
-        bodyWeightsMonthlyGraph.setData(new LineData(dataSets));
-
-        bodyWeightsMonthlyGraph.notifyDataSetChanged();
-        bodyWeightsMonthlyGraph.invalidate();
+    private String getMonth(){
+        String[] split = calendarDate.getText().toString().split("/");
+        return split[1];
     }
 
-    private ArrayList<Entry>[] genGraphData (String calendarDate){
-        HashMap<String, String> bodyWeightsForMonth = bodyWeightsModel.getBodyWeightsForMonth(calendarDate);
-        String[] splitDate = calendarDate.split("/");
-        return getDataSets(splitDate[1], splitDate[2], bodyWeightsForMonth);
+    private String getYear(){
+        String[] split = calendarDate.getText().toString().split("/");
+        return split[2];
     }
 
-    private ArrayList<Entry>[] getDataSets(String month, String year, HashMap<String, String> bodyWeightsForMonth){
-        ArrayList<Entry>[] dataSets = new ArrayList[2];
-        ArrayList<Entry> entriesLbs = new ArrayList<Entry>();
-        ArrayList<Entry> entriesKg = new ArrayList<Entry>();
-
-        for (int i = 1; i < 32; i++) {
-            String testDate = String.valueOf(i) + "/" + month + "/" + year;
-            if (bodyWeightsForMonth.containsKey(testDate)){
-                String[] splitWeights = bodyWeightsForMonth.get(testDate).split(" ");
-                entriesLbs.add(new Entry (i, Float.valueOf(splitWeights[0])));
-                entriesKg.add(new Entry (i, Float.valueOf(splitWeights[2])));
-            }
-        }
-
-        dataSets[0] = entriesLbs;
-        dataSets[1] = entriesKg;
-        return dataSets;
-    }
-
-    private void setDataSetStyling(LineDataSet dSet, String units){
-        int colour = (units.equals("lbs"))? Color.BLUE: Color.RED;
-        float lineWidth = 3f;
-        dSet.setDrawCircleHole(false);
-        dSet.setDrawValues(false);
-        dSet.setLineWidth(lineWidth);
-        dSet.setCircleRadius(lineWidth);
-        dSet.setColor(colour);
-        dSet.setCircleColor(colour);
-    }
-
-    private void setCalendarViewListener(){
-        calendarView = (CalendarView) findViewById(R.id.calendar_view_log_body_weight);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                if (editMode == true) {
-                    setEditModeFeatures();
-                }
-                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
-                myCalendarDate.setText(date);
-                currentDate = date;
-                if (currentMonth != month+1){
-                    currentMonth = month + 1;
-                    setMonth(String.valueOf(currentMonth));
-                    setBodyWeightGraphData();
-                }
-                setBodyWeightEntryTextView();
-            }
-        });
-    }
-
-    private void setEditModeFeatures(){
-        if (editMode == true){
-            editButton.setImageResource(R.drawable.edit_pencil);
-            editMode = false;
-            deleteButton.hide();
-            bodyWeightEntryCheckBox.setVisibility(View.GONE);
-            bodyWeightEntryTV.setLayoutParams(params1);
-        }
-        else {
-            editButton.setImageResource(R.drawable.ex_cancel);
-            editMode = true;
-            deleteButton.show();
-            bodyWeightEntryCheckBox.setVisibility(View.VISIBLE);
-            bodyWeightEntryTV.setLayoutParams(params3);
-        }
-        bodyWeightEntryCheckBox.setChecked(false);
-        int visibility = editMode == false? View.GONE: View.VISIBLE;
-        bodyWeightEntryCheckBox.setVisibility(visibility);
-    }
-
-    private void setEnterButtonListener(){
-        enterButton = (Button) findViewById(R.id.button_enter_weight);
-        enterButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                double weight = Double.parseDouble(bodyWeightsInputTextField.getText().toString());
-                String date = myCalendarDate.getText().toString();
-                if (bodyWeightsInputTextField.getText().toString().isEmpty() || weight > 10000
-                        || bodyWeightsModel.getWeight(date) != null){
-                    return;
-                }
-                String units = unitsToggleButton.getText().toString();
-                String weightInLbsKg = (units.equals("LBS"))? String.format("%.1f", weight)+ " LBS: "
-                        + String.format("%.1f", weight*(1/2.20462)) + " KG": String.format("%.1f", weight*(2.20462)) +
-                        " LBS: " + String.format("%.1f", weight) + " KG";
-                bodyWeightsModel.addWeight(date, weightInLbsKg);
-                setBodyWeightEntryTextView();
-                setMonth(String.valueOf(currentMonth));
-                setBodyWeightGraphData();
-            }
-        });
-    }
-
-    private void setToggleUnitsButtonListener(){
-        unitsToggleButton = (Button) findViewById(R.id.button_units_toggle);
-        unitsToggleButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                String units = unitsToggleButton.getText().toString();
-                units = units.equals("LBS")? "KG": "LBS";
-                unitsToggleButton.setText(units);
-            }
-        });
-    }
-
-    private void setEditFloatingButtonListener(){
-        editButton = (FloatingActionButton) findViewById(R.id.edit_button_log_body_weight);
-        editButton.setImageResource(R.drawable.edit_pencil);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!bodyWeightEntryTV.getText().toString().isEmpty()){
-                    setEditModeFeatures();
-                }
-            }
-        });
-    }
-
-    private void setDeleteFloatingButtonListener(){
-        deleteButton = (FloatingActionButton) findViewById(R.id.delete_button_log_body_weight);
-        deleteButton.setImageResource(R.drawable.garbage_can);
-        deleteButton.hide();
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (editMode == false || bodyWeightEntryTV.getText().toString().isEmpty() || !bodyWeightEntryCheckBox.isChecked()) {
-                    return;
-                }
-                setEditModeFeatures();
-                bodyWeightsModel.removeWeight(myCalendarDate.getText().toString());
-                setBodyWeightEntryTextView();
-                setBodyWeightGraphData();
-            }
-        });
-    }
 }

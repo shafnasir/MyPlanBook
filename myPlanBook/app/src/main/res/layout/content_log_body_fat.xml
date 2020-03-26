@@ -45,6 +45,7 @@
                 android:gravity="center"
                 android:text=""
                 android:textSize="25dp"
+                android:textColor="#858585"
                 android:typeface="sans" />
 
             <TextView
@@ -289,6 +290,7 @@
                 android:padding="10dp"
                 android:gravity="center"
                 android:text=""
+                android:textColor="#858585"
                 android:textSize="25dp"
                 android:typeface="sans" />
 

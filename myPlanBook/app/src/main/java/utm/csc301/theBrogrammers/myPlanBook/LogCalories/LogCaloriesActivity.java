@@ -32,7 +32,6 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private EditText caloriesInputTextField;
     private CaloriesModel caloriesModel;
     private String currentDate;
-    private LinearLayout foodItemsLayout;
     private Button enterFoodButton;
     private FloatingActionButton editCaloriesButton;
     private FloatingActionButton deleteCaloriesButton;
@@ -50,17 +49,19 @@ public class LogCaloriesActivity extends AppCompatActivity {
     private int maxFoodCount = 100;
     private int maxFoodStringLength = 200;
     private int maxCalorieLength = 10;
+    private int MARGIN_SIZE, EDIT_MODE_TV_WIDTH, PADDING_SIZE;
+    private LinearLayout scrollViewLayoutLogCalories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_calories);
+        this.assignParamValues();
         this.assignParams();
-        this.assignFoodItemsLayout();
-        this.createCalendarView();
+        scrollViewLayoutLogCalories = (LinearLayout) findViewById(R.id.scrollview_layout_log_calories);
+        calendarView = (CalendarView) findViewById(R.id.calendar_view_log_calories);
+        this.assignInputTextFields();
         this.setCurrentDate();
-        this.setFoodInputTextField();
-        this.setCaloriesInputTextField();
         this.setTotalCalsTextView();
         caloriesModel = new CaloriesModel(maxFoodCount);
         this.createFoodItemLayouts();
@@ -73,34 +74,34 @@ public class LogCaloriesActivity extends AppCompatActivity {
         this.setDeleteFloatingButtonListener();
     }
 
+    private void assignParamValues(){
+        this.PADDING_SIZE = getResources().getDimensionPixelSize(R.dimen.padding_size);
+        this.EDIT_MODE_TV_WIDTH = 875;
+        this.MARGIN_SIZE = getResources().getDimensionPixelSize(R.dimen.margin_size);
+    }
+
     private void assignParams(){
         params1 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params1.setMargins(45,45,45,0);
+        params1.setMargins(MARGIN_SIZE, 0,MARGIN_SIZE,MARGIN_SIZE);
         params2 = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params2.setMargins(45,0,45,45);
+        params2.setMargins(MARGIN_SIZE,MARGIN_SIZE,MARGIN_SIZE,MARGIN_SIZE);
         params3 = new LinearLayout.LayoutParams(
-                875,
+                EDIT_MODE_TV_WIDTH,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params3.setMargins(45,0,45,45);
+        params3.setMargins(MARGIN_SIZE,0,MARGIN_SIZE,MARGIN_SIZE);
     }
 
-    private void assignFoodItemsLayout() {
-        foodItemsLayout = (LinearLayout) findViewById(R.id.layoutCalories);
-    }
-
-    private void createCalendarView(){
-        calendarView = new CalendarView(this);
-        calendarView.setBackgroundResource(R.drawable.round_outline_bordered);
-        calendarView.setLayoutParams(params1);
-        foodItemsLayout.addView(calendarView, 0);
+    private void assignInputTextFields(){
+        foodInputTextField = findViewById(R.id.edit_text_input_food);
+        caloriesInputTextField = findViewById(R.id.edit_text_input_calories);
     }
 
     private void setCurrentDate(){
-        calendarDate = (TextView)findViewById(R.id.caloriesDate);
+        calendarDate = (TextView)findViewById(R.id.date_log_calories);
         Calendar newCalendar = Calendar.getInstance();
         int currentYear = newCalendar.get(Calendar.YEAR);
         currentMonth = newCalendar.get(Calendar.MONTH) + 1;
@@ -109,16 +110,8 @@ public class LogCaloriesActivity extends AppCompatActivity {
         calendarDate.setText(currentDate);
     }
 
-    private void setFoodInputTextField(){
-        foodInputTextField = findViewById(R.id.inputFoodEditText);
-    }
-
-    private void setCaloriesInputTextField(){
-        caloriesInputTextField = findViewById(R.id.inputCaloriesEditText);
-    }
-
     private void setTotalCalsTextView() {
-        totalCalsTV = findViewById(R.id.totalCaloriesTV);
+        totalCalsTV = findViewById(R.id.total_calories_tv);
     }
 
     private void createFoodItemLayouts() {
@@ -132,7 +125,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
             foodItemLayout.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));
-            foodItemsLayout.addView(foodItemLayout, i + 6);
+            scrollViewLayoutLogCalories.addView(foodItemLayout, i + 10);
         }
     }
 
@@ -146,7 +139,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
             LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            checkBoxParams.setMargins(45, 0, 0, 0);
+            checkBoxParams.setMargins(MARGIN_SIZE, 0, 0, 0);
             foodItemCheckBox.setLayoutParams(checkBoxParams);
             LinearLayout foodItemLayout = (LinearLayout) findViewById(foodItemLayoutIds[i]);
             foodItemLayout.addView(foodItemCheckBox, 0);
@@ -157,12 +150,12 @@ public class LogCaloriesActivity extends AppCompatActivity {
         this.foodItemTVIds = new int[maxFoodCount];
         for (int i = 0; i < maxFoodCount; i++){
             TextView foodItemTV = new TextView(this);
-            foodItemTV.setBackgroundResource(R.drawable.round_outline);
-            foodItemTV.setLayoutParams(params2);
-            foodItemTV.setPadding(40,40,40,40);
-            foodItemTV.setTextColor(Color.parseColor("#000000"));
+            foodItemTV.setBackgroundResource(R.drawable.box_outline_bordered);
+            foodItemTV.setLayoutParams(params1);
+            foodItemTV.setPadding(PADDING_SIZE,PADDING_SIZE,PADDING_SIZE,PADDING_SIZE);
+            foodItemTV.setTextColor(Color.parseColor("#858585"));
             foodItemTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size));
-            foodItemTV.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+            foodItemTV.setTypeface(Typeface.SANS_SERIF);
             foodItemTV.setId(ViewCompat.generateViewId());
             this.foodItemTVIds[i] = foodItemTV.getId();
             foodItemTV.setVisibility(View.GONE);
@@ -266,7 +259,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
         for (int i = 0; i < maxFoodCount; i++) {
             TextView foodItemTV = (TextView) findViewById(foodItemTVIds[i]);
             if (editMode == false) {
-                foodItemTV.setLayoutParams(params2);
+                foodItemTV.setLayoutParams(params1);
             }
             else {
                 foodItemTV.setLayoutParams(params3);
@@ -275,7 +268,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     }
 
     private void setEnterFoodButtonListener(){
-        enterFoodButton = (Button) findViewById(R.id.enterFoodButton);
+        enterFoodButton = (Button) findViewById(R.id.button_enter_calories);
         enterFoodButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -299,7 +292,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     }
 
     private void setEditFloatingButtonListener(){
-        editCaloriesButton = (FloatingActionButton) findViewById(R.id.editCaloriesButton);
+        editCaloriesButton = (FloatingActionButton) findViewById(R.id.edit_button_log_calories);
         editCaloriesButton.setImageResource(R.drawable.edit_pencil);
         editCaloriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -313,7 +306,7 @@ public class LogCaloriesActivity extends AppCompatActivity {
     }
 
     private void setDeleteFloatingButtonListener(){
-        deleteCaloriesButton = (FloatingActionButton) findViewById(R.id.caloriesDeleteButton);
+        deleteCaloriesButton = (FloatingActionButton) findViewById(R.id.delete_button_log_calories);
         deleteCaloriesButton.setImageResource(R.drawable.garbage_can);
         deleteCaloriesButton.hide();
         deleteCaloriesButton.setOnClickListener(new View.OnClickListener() {

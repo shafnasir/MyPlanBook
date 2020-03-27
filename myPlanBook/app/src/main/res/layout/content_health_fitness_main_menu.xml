@@ -42,19 +42,6 @@
 
 
         <Button
-            android:id="@+id/logWorkoutsLinkButton"
-            android:layout_width="200sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="#2196F3"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Workouts"
-            android:textColor="@color/colorWhite" />
-
-
-        <Button
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:id="@+id/logBodyFatLinkButton"

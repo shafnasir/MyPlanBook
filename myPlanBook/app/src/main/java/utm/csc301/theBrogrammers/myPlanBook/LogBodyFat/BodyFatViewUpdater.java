@@ -34,7 +34,7 @@ public class BodyFatViewUpdater implements BodyFatObserver {
 
     public BodyFatViewUpdater(){ }
 
-    public void hideCheckBox(){
+    public void setCheckBoxVisibility(){
         bodyFatEntryCheckBox.setChecked(false);
         int visibility = editMode == false? View.GONE: View.VISIBLE;
         bodyFatEntryCheckBox.setVisibility(visibility);
@@ -58,7 +58,7 @@ public class BodyFatViewUpdater implements BodyFatObserver {
         }
         int editDrawableId = editMode == false? R.drawable.edit_pencil: R.drawable.ex_cancel;
         editButton.setImageResource(editDrawableId);
-        hideCheckBox();
+        setCheckBoxVisibility();
         setBodyFatEntryTVParams();
         return editMode;
     }

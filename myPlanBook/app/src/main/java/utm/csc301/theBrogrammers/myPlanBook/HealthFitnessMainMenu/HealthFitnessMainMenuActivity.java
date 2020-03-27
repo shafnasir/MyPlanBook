@@ -43,14 +43,6 @@ public class HealthFitnessMainMenuActivity extends AppCompatActivity {
             }
         });
 
-        logWorkoutsLink = (Button) findViewById(R.id.logWorkoutsLinkButton);
-        logWorkoutsLink.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent intent = new Intent(HealthFitnessMainMenuActivity.this, LogWorkoutsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         logBodyFatLink = (Button) findViewById(R.id.logBodyFatLinkButton);
         logBodyFatLink.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){

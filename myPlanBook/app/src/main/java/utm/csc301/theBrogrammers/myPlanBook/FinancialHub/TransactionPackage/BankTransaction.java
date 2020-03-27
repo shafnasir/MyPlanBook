@@ -33,6 +33,7 @@ public class BankTransaction {
                            String cardNum, boolean isDebit){
         this.category = category;
         this.amount = amount;
+        this.amount = Math.round(this.amount *100)/100;
         this.isDebit = isDebit;
         this.cardNum = cardNum;
         this.date = date;

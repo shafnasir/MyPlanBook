@@ -122,15 +122,17 @@ public class DebitLineGraph {
     private ArrayList<Entry> genData(YearlyTransactions yt){
         ArrayList<Entry> entries = new ArrayList<>();
         if (yt == null || yt.length == 0) return entries;
-        int index = 0;
-        for (MonthlyTransactions monthly: yt.getList()){
+
+        for (int monthIndex=0; monthIndex< yt.getList().size(); monthIndex++){
+            MonthlyTransactions monthly = yt.getIndexedMonth(monthIndex);
+            if (monthly == null) continue;
             double total = 0;
+            Log.i("["+monthIndex+"]", "Month = "+ monthly.month+ ", Amount = "+total);
             for (BankTransaction b: monthly.getCollection()){
-                Log.i("isDebit", "bool = "+ Boolean.toString(b.isDebit()));
+                Log.i("["+monthly.month+"]", "Amount = "+b.getAmount());
                 if (b.isDebit()) total += b.getAmount();
             }
-            entries.add(new Entry(index, (float) total));
-            index++;
+            entries.add(new Entry(monthIndex, (float) total));
         } return entries;
 
     }
@@ -139,4 +141,5 @@ public class DebitLineGraph {
         setExpenditureData(yt);
         this.graph.invalidate();
     }
+
 }

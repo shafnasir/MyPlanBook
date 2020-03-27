@@ -1,6 +1,8 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage;
 
 
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -84,6 +86,14 @@ public class YearlyTransactions {
         }
         maxMap.put("Other", otherTotal);
         return maxMap;
+    }
+
+    public MonthlyTransactions getIndexedMonth(int month){
+        for (int i=0; i<this.yearCollection.size(); i++){
+            if (month == this.yearCollection.get(i).index){
+                return this.yearCollection.get(i);
+            }
+        } return null;
     }
 
 

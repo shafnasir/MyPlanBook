@@ -27,8 +27,6 @@ import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.Mont
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.YearlyTransactions;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
-import static utm.csc301.theBrogrammers.myPlanBook.R.id.previewExpChart;
-
 public class DebitLineGraph {
 
     private Context context;
@@ -57,8 +55,6 @@ public class DebitLineGraph {
         YAxis leftAxis = graph.getAxisLeft();
         leftAxis.setEnabled(false);
         leftAxis.removeAllLimitLines();
-//        leftAxis.setAxisMaximum(100f);
-//        leftAxis.setAxisMinimum(0f);
 
         graph.getDescription().setEnabled(false);
         graph.getXAxis().setDrawGridLines(false);
@@ -127,9 +123,7 @@ public class DebitLineGraph {
             MonthlyTransactions monthly = yt.getIndexedMonth(monthIndex);
             if (monthly == null) continue;
             double total = 0;
-            Log.i("["+monthIndex+"]", "Month = "+ monthly.month+ ", Amount = "+total);
             for (BankTransaction b: monthly.getCollection()){
-                Log.i("["+monthly.month+"]", "Amount = "+b.getAmount());
                 if (b.isDebit()) total += b.getAmount();
             }
             entries.add(new Entry(monthIndex, (float) total));

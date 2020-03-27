@@ -34,7 +34,7 @@ public class FinanceModel {
 
     // URI Collection constants
     static final String ROOT = "Finances";
-    static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    public static final List<String> months = Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
 
@@ -85,14 +85,12 @@ public class FinanceModel {
                         BankTransaction bt = new BankTransaction(document.getData());
                         mt.addTransaction(bt);
                         Log.i("ProcessMonth", document.getId() + " => " + document.getData());
-//                        Log.i("ProcessMonth", document.getId() + " => " + document.getData());
                     }
                 } else {
-//                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
+                    Log.d("ProcessMonth", "Error getting documents.", task.getException());
                 }
             }
         });
-        Log.i("[Monthly Size]", "SIZE : "+ mt.length);
         return mt;
     }
 

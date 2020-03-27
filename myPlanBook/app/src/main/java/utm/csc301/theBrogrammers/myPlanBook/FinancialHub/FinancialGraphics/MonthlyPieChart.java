@@ -31,7 +31,6 @@ public class MonthlyPieChart {
 
 
         for(MonthlyTransactions monthly: yt.getList()){
-            Log.i("[Month]", "Month: "+ monthly.month + ", size = " + Integer.toString(monthly.size()));
             if (monthly.size() < 1) continue;
             entryList.add(new PieEntry(monthly.size(), monthly.month));
         }

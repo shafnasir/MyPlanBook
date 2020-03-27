@@ -43,10 +43,6 @@ public class ReadCSV {
             list[4] = "false";
         }
 
-        Log.i("[Transaction]", list[0]+ ", "+
-                list[1] + ", " + list[2] + ", " +
-        list[3] + ", " + list[4]);
-
         int index = 1; String inst = "";
         while (index < data.length-3){
             inst+= data[index];
@@ -55,15 +51,7 @@ public class ReadCSV {
         return list;
     }
 
-    public static void print(String[] data){
-        int i = 0;
-        Log.i("len" + Integer.toString(data.length),  "--");
-        for(String s: data){
-            Log.i("" + Integer.toString(i),  s);
-            i++;
-        }
 
-    }
 
 
 

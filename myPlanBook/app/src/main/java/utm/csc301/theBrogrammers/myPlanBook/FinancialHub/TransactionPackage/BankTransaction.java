@@ -24,6 +24,7 @@ public class BankTransaction {
         this.category = (String) hashMap.get("category");
         this.cardNum = (String) hashMap.get("cardNumber");
         this.amount = (double) hashMap.get("amount");
+        this.amount = Math.round(this.amount *100)/100;
         this.isDebit = (boolean) hashMap.get("isDebit");
 
     }
@@ -32,6 +33,7 @@ public class BankTransaction {
                            String cardNum, boolean isDebit){
         this.category = category;
         this.amount = amount;
+        this.amount = Math.round(this.amount *100)/100;
         this.isDebit = isDebit;
         this.cardNum = cardNum;
         this.date = date;

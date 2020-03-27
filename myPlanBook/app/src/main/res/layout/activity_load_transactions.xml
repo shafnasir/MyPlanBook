@@ -56,6 +56,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/deleteAllBtn"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="452dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginRight="112dp"
+        android:background="@color/babyBlue"
+        android:enabled="true"
+        android:onClick="voidAllTransactions"
+        android:text="Delete All"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deleteMonthBtn"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="522dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginRight="112dp"
+        android:background="@color/babyBlue"
+        android:enabled="true"
+        android:onClick="voidSingleMonthTransactions"
+        android:text="Delete Month"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <View android:id="@+id/rectangle_at_the_top"
         android:layout_width="match_parent"
         android:layout_height="10dp"
@@ -96,6 +130,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/form_icon" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="41dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="445dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginRight="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/trash" />
+
+    <NumberPicker
+        android:id="@+id/monthPicker"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginRight="296dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

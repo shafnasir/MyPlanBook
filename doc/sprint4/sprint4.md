@@ -66,7 +66,20 @@ User Story Ticket Number on Jira: User Story Name
 	- *Delete Events*: Allow the user to delete events in the calendar. Estimated time: 2h.
 	
 ## THEB-74: Standardize Layouts
-- Assigned to: Various
+- Assigned to: Alexei Blinov, William Wu, Brandon Joubran, Michael De Lisio
 - Subtasks
 	- *Standardize Body Weight Logger*: Standardize the layout style of the body weight logger. Estimated time: 1h. Assigned to: Alexei Blinov.
 	- *Standardize Calorie Logger*: Standardize the layout style of the Calorie Logger. Estimated time: 2h. Assigned to: Alexei Blinov.
+	- *Standardize the Calendar*: adjust calendar UI to meet newly decided on style guidelines.
+	- *Standardize the Financial Hub*: adjust FinancialHubActivity UI to meet newly decided on style guidelines.
+	- *Standardize Health and Fitness*: adjust HealthAndFitness UI to meet newly decided on style guidelines.
+	- *Standardize Item Goals*: adjust item goals of the Saving Goals activity UI to meet newly decided on style guidelines.
+
+## THEB-8: Graph Transactions
+- Assigned to: Michael De Lisio
+- Subtasks
+	- *Categorize Transaction*: Graphically display monthly transactions:
+		- By transaction category in a bar chart (with the 5 most transacted categories display and all else as "other").
+		- ie chart of card number transactions.
+		- Transaction amount distribution, where transaction amount ranges are mapped to.
+	- *Yearly Expenditure Goals*: Display the yearly expenditure chart with your yearly spending goals and yearly projections calculated and displayed.

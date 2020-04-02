@@ -17,7 +17,8 @@ import utm.csc301.theBrogrammers.myPlanBook.ui.login.LoginActivity;
 
 public class Settings extends AppCompatActivity {
 
-    private Button changepass, feedback, notificationdemo, BackSettings;
+    private Button changepass, feedback, BackSettings;
+//    private Button notificationdemo;
     private ImageButton ProfileButton;
     private ImageButton sign_out;
     private FirebaseAuth FireLogout;
@@ -51,13 +52,13 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        notificationdemo = findViewById(R.id.button4);
-        notificationdemo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickNotificationDemo();
-            }
-        });
+//        notificationdemo = findViewById(R.id.button4);
+//        notificationdemo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickNotificationDemo();
+//            }
+//        });
 
         BackSettings = findViewById(R.id.backSettings);
         BackSettings.setOnClickListener(new View.OnClickListener() {
@@ -94,11 +95,11 @@ public class Settings extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clickNotificationDemo(){
-        Intent intent = new Intent(this, Notification_Demo.class);
-        startActivity(intent);
-
-    }
+//    public void clickNotificationDemo(){
+//        Intent intent = new Intent(this, Notification_Demo.class);
+//        startActivity(intent);
+//
+//    }
 
     private void backSettings(View v){
         Intent intent = new Intent(this, MainActivity.class);

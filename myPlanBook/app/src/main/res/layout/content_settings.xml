@@ -58,20 +58,6 @@
                 android:textStyle="bold"
                 android:typeface="sans" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Notification Demo"
-                android:background="@color/babyBlue"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@color/colorWhite"
-                android:textSize="25sp"
-                android:layout_margin="15dp"
-                android:padding="15dp"
-                android:textStyle="bold"
-                android:typeface="sans"/>
-
             <ImageButton
                 android:id="@+id/Log_out"
                 android:layout_width="match_parent"

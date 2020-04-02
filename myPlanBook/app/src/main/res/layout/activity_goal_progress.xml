@@ -11,12 +11,12 @@
         android:id="@+id/title"
         android:layout_width="412dp"
         android:layout_height="83dp"
-        android:background="#E2E3E6"
-        android:paddingLeft="30dp"
-        android:paddingTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/gray"
+        android:gravity="center"
         android:text="Goals"
         android:textColor="#2196F3"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,18 +24,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:layout_width="102dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:background="#DDDDDD"
+        android:gravity="center_vertical"
+
+        app:srcCompat="@drawable/goals_icon"
+        tools:ignore="VectorDrawableCompat" />
+
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="36dp"
         android:max="100"
         android:min="0"
         android:scaleY="2"
         app:layout_constraintBottom_toTopOf="@+id/gainedText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -52,23 +64,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <Button
         android:id="@+id/enterButton"
         android:layout_width="88dp"
         android:layout_height="44dp"
         android:layout_gravity="center"
-        android:layout_marginTop="24dp"
         android:background="#2196F3"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Enter"
         android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goalText" />
+        app:layout_constraintTop_toBottomOf="@+id/priceText" />
 
     <Button
         android:id="@+id/changeButton"
@@ -87,29 +99,12 @@
         app:layout_constraintTop_toBottomOf="@+id/spendText"
         app:layout_constraintVertical_bias="0.252" />
 
-    <Button
-        android:id="@+id/switchToYearly"
-        android:layout_width="93dp"
-        android:layout_height="42dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:background="#2196F3"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Yearly Savings"
-        android:textColor="@color/colorWhite"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spendText"
-        app:layout_constraintVertical_bias="1.0" />
-
     <EditText
         android:id="@+id/gainedText"
         android:layout_width="404dp"
         android:layout_height="64dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="268dp"
         android:ems="10"
         android:hint="Gained"
@@ -137,7 +132,7 @@
         android:id="@+id/progressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="16dp"
         android:text="0%"
         app:layout_constraintBottom_toTopOf="@+id/gainedText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,12 +148,12 @@
         android:ems="10"
         android:hint="Goal "
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/priceText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceText"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.49" />
 
     <TextView
         android:id="@+id/floatPriceText"

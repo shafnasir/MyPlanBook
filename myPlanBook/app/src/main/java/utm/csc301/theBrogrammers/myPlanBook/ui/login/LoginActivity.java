@@ -37,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
+        //loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
+                //.get(LoginViewModel.class);
 
 
         usernameInput = findViewById(R.id.EmailInput);

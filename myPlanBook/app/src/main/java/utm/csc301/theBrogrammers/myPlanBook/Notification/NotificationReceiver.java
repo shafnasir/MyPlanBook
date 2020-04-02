@@ -28,20 +28,22 @@ public class NotificationReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
                 activityIntent, 0);
 
+        notificationManager = NotificationManagerCompat.from(context);
+
+//        System.out.println(notId);
 
         Notification notification = new NotificationCompat.Builder(context, NotificationChannels.CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentTitle(event)
                 .setWhen(time)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setDefaults(Notification.DEFAULT_ALL)
 //                .setCategory(NotificationCompat.CATEGORY_REMINDER)
                 .setContentIntent(pendingIntent)
                 .setGroup("Event")
                 .build();
 
-        notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(notId, notification);
     }
 

@@ -45,7 +45,7 @@ public class CalendarEventsModel extends AppCompatActivity {
     String result;
     int color;
 
-    private int notificationId = 1;
+    private static int notificationId = 1;
 
 
     @Override
@@ -90,7 +90,7 @@ public class CalendarEventsModel extends AppCompatActivity {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 dateClickedOn.setHours(hourOfDay);
                 dateClickedOn.setMinutes(minute);
-                dateClickedOn.setSeconds(0);
+//                dateClickedOn.setSeconds(0);
             }
         });
 
@@ -111,13 +111,15 @@ public class CalendarEventsModel extends AppCompatActivity {
                 activityIntent.putExtra("time", dateClickedOn.getTime());
 //
 //                //getBroadcast
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(CalendarEventsModel.this, 0,
-                        activityIntent, PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(CalendarEventsModel.this, notificationId,
+                        activityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
 //
 //                //set alarm
                 long alarmStart = dateClickedOn.getTime();
                 alarm.set(AlarmManager.RTC_WAKEUP, alarmStart,pendingIntent);
+
+                notificationId++;
 
                 finish();
             }

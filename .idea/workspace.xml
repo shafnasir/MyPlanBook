@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a0c98a8-3455-4226-aaa9-2a19bd10c501" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/FinancialGraphics/MonthlyPieChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/FinancialGraphics/MonthlyPieChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/ManageFinances.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/ManageFinances.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/ManuallyLoadTransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/ManuallyLoadTransactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/BankTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/BankTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/FinanceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/FinanceModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/YearlyTransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/myPlanBook/app/src/main/java/utm/csc301/theBrogrammers/myPlanBook/FinancialHub/TransactionPackage/YearlyTransactions.java" afterDir="false" />
-    </list>
+    <list default="true" id="7a0c98a8-3455-4226-aaa9-2a19bd10c501" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,16 +15,107 @@
     <option name="x" value="73" />
     <option name="y" value="23" />
     <option name="width" value="1349" />
-    <option name="height" value="943" />
+    <option name="height" value="852" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utm" type="462c0819:PsiDirectoryNode" />
+              <item name="csc301" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utm" type="462c0819:PsiDirectoryNode" />
+              <item name="csc301" type="462c0819:PsiDirectoryNode" />
+              <item name="theBrogrammers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-thebrogrammers" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-thebrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utm" type="462c0819:PsiDirectoryNode" />
+              <item name="csc301" type="462c0819:PsiDirectoryNode" />
+              <item name="theBrogrammers" type="462c0819:PsiDirectoryNode" />
+              <item name="myPlanBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -64,7 +148,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="23" width="1349" height="943" extended-state="0" />
+    <frame x="73" y="23" width="1349" height="852" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3298193" />

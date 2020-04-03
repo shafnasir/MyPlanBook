@@ -1,36 +1,27 @@
 package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 
 import android.animation.ObjectAnimator;
-import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
@@ -73,22 +64,15 @@ public class GoalProgress extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         user_email = user.getUid();
 
-        switchToYearly = findViewById(R.id.switchToYearly);
-        switchToYearly.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GoalProgress.this, YearlySavings.class);
-                startActivity(intent);
-            }
-        });
-
         db = FirebaseDatabase.getInstance().getReference().child("Goals").child(user_email);
 
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.getChildrenCount() == 0){
+                if(dataSnapshot.getChildrenCount() < 3){
+                    db.child("currently_at").setValue("0");
+                    db.child("set").setValue("0");
                     return;
                 }
 
@@ -211,7 +195,7 @@ public class GoalProgress extends AppCompatActivity {
         progressText = findViewById(R.id.progressText);
         if(set > 100){
             set = 100;
-            currently_at = 100;
+            //currently_at = 100;
         }else if(currently_at < 0){
             set = 0;
             bgDrawable.setColorFilter(Color.RED, android.graphics.PorterDuff.Mode.MULTIPLY);

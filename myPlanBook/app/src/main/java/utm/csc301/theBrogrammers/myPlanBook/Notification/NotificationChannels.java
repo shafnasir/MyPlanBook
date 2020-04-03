@@ -4,6 +4,8 @@ import android.app.Application;
 import android.app.NotificationManager;
 import android.os.Build;
 
+import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.TransactionPieChart;
+
 public class NotificationChannels extends Application {
     public static final String CHANNEL_1_ID = "Important Notification";
 //    public static final String CHANNEL_2_ID = "Minor Notification0";
@@ -16,8 +18,8 @@ public class NotificationChannels extends Application {
         createNotificationChannels();
     }
 
-    private void createNotificationChannels(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+    private void createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             android.app.NotificationChannel channel1 = new android.app.NotificationChannel(
                     CHANNEL_1_ID,
                     "Event Notification",

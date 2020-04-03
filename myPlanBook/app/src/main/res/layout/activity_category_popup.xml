@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@color/gray"
+    tools:context=".FinancialHub.FinancialHubActivity"
+    >
+
+
+    <TextView
+        android:layout_width="116dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="136dp"
+        android:gravity="center"
+
+        android:text="Name"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:fontFamily="sans-serif-condensed-medium"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="178dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Debit Amount"
+
+
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:fontFamily="sans-serif-condensed-medium"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entryLabel"
+        android:layout_width="210dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="108dp"
+        android:text="Name"
+        android:textAlignment="center"
+
+        android:textColor="@color/babyBlue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:fontFamily="sans-serif-thin"
+        android:gravity="center"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+    android:id="@+id/entryAmount"
+    android:layout_width="141dp"
+    android:layout_height="55dp"
+    android:layout_marginTop="32dp"
+    android:text="Name"
+    android:textAlignment="center"
+
+    android:textColor="@color/babyBlue"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    android:typeface="sans"
+    app:fontFamily="sans-serif-thin"
+        android:gravity="center"
+
+
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.833"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

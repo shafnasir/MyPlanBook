@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="Goals"
+                android:text="Financial hub"
                 android:textColor="@color/colorWhite"
                 android:background="@color/babyBlue"
                 android:textSize="25sp"

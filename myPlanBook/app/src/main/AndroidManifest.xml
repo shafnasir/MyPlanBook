@@ -17,6 +17,9 @@
             android:name=".FinancialHub.YearlySavings"
             android:label="@string/title_activity_yearly_savings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".FinancialHub.CategoryPopup"
+            android:theme="@style/AppTheme.popUpTheme"/>
         <activity android:name=".FinancialHub.ManageFinances" />
         <activity
             android:name=".FinancialHub.GoalProgress"

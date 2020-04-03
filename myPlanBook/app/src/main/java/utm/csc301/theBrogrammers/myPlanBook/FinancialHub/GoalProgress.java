@@ -74,6 +74,7 @@ public class GoalProgress extends AppCompatActivity {
                     db.child("currently_at").setValue("0");
                     db.child("set").setValue("0");
                     return;
+                    
                 }
 
                 goal_name = dataSnapshot.child("goal_name").getValue().toString();

@@ -71,7 +71,7 @@ public class LoadTransactions extends AppCompatActivity {
             TransactionCollection tc = ReadCSV.parse(reader);
             FinanceModel.loadMonthlyCollection(tc.toMonthlyCollection());
             Toast.makeText(LoadTransactions.this,
-                    "Imported " + tc.length() + " transactions from . Check \"Manage Transactions" +
+                    "Imported " + tc.length() + " transactions. Check \"Manage Transactions" +
                            "\" page to view them.",
                     Toast.LENGTH_LONG).show();
 

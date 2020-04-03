@@ -3,9 +3,12 @@ package utm.csc301.theBrogrammers.myPlanBook.FinancialHub;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
+import com.github.mikephil.charting.data.Entry;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +28,7 @@ import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.FinancialGraphics.Trans
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.BankTransaction;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.MonthlyTransactions;
 import utm.csc301.theBrogrammers.myPlanBook.FinancialHub.TransactionPackage.YearlyTransactions;
+import utm.csc301.theBrogrammers.myPlanBook.Notification.NotificationChannels;
 import utm.csc301.theBrogrammers.myPlanBook.R;
 
 public class ManageFinances extends AppCompatActivity {
@@ -62,7 +66,7 @@ public class ManageFinances extends AppCompatActivity {
     }
 
     private void initializeGraphics(){
-        pieChart = new TransactionPieChart(findViewById(R.id.categoryPieChart));
+        pieChart = new TransactionPieChart(findViewById(R.id.categoryPieChart), this);
         monthlyPieChart = new MonthlyPieChart(findViewById(R.id.monthlyPieChart));
         debitLineGraph = new DebitLineGraph(findViewById(R.id.debitChart), this);
         creditLineGraph = new CreditLineGraph(findViewById(R.id.creditChart), this);
@@ -119,6 +123,14 @@ public class ManageFinances extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void popUp(String label, Float f){
+
+        Intent myIntent = new Intent(getApplicationContext(), CategoryPopup.class);
+        myIntent.putExtra("entryLabel", label);
+        myIntent.putExtra("entryAmt",  f);
+        startActivity(myIntent);
     }
 
 

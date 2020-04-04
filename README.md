@@ -69,9 +69,25 @@ This is a standard login page, where you are able to enter an email address and 
 
 This is another standard signup page, asking for your name, username, password and cell number. If you enter an invalid email, then the signup will fail, if not and all fields have input then the signup will succeed, and your account will be registered in Firebase.
 
+## Wish List
+
+### Enter Wish
+
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/wishlist.png" width="216" height="384">
+
+At the top of this page, there is an input zone which allows user to enter their wishes, and on the right side of the input zone, there is a button named "ADD TO LIST". This button can not be clicked if user hasn't entered anything. After the user click this button, the entered wish will be saved and will show up at the middle of this page. There is a wish list at the middle of this page, all entered wishes will be showed up there. The wish list part was designed to be a scrollview so no matter how many wishes the user entered, it is able to store all of them.
+
+### Delete Wish
+
+Above the wish list show up zone, there is a button named "DELETE". Whenever the user click this button, all wishes will be deleted, and a toast message will pop up at the bottom of this page says that "All Wishes Deleted :(". And then the wish list show up zone will be cleaned.
+
+### Share Wish
+
+At the right side of the "DELETE" button, there is another button named "SHARE". When user entered some of his/her wishes, he can click this button, so a small choose panel will pop up at the bottom of this page. It will let the user share their wishes either through email or through text message. No matter which way the user choose, all his/her wished will be copied automatically. Say we use email, then all user's wishes will be copied in to the email, then all you have to do is just enter your friend's email address and click send. After a few seconds, your friend will receive a list of your wishes.
+
 ## Main Page
 
-This is the main page you will see after login. You can select to go to Calender, Financial Hub, Body Log ,or Setting page from this page.
+This is the main page you will see after login. You can select to go to Calender, Financial Hub, Body Log, Wish List, or Setting page from this page.
 
 ## Setting Page
 

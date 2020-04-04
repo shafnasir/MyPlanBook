@@ -68,4 +68,16 @@ This is a standard login page, where you are able to enter an email address and 
 
 This is another standard signup page, asking for your name, username, password and cell number. If you enter an invalid email, then the signup will fail, if not and all fields have input then the signup will succeed, and your account will be registered in Firebase.
 
+## Main Page
 
+This is the main page you will see after login. You can select to go to Calender, Financial Hub, Body Log ,or Setting page from this page.
+
+## Setting Page
+
+### Change Password
+This is the page where you can change your account password. You are asked to enter your old password to verify your account. Then you need to enter a new password and reenter the new password again to verify your new password. Using the Firebase API, if the old password is correct, then the new password will be updated if the new password and the reentered new password are the same. If the old password is not correct, a popup will notify you that the old password is incorrect.
+
+### Provide Feedback
+This is the page you can provide any feedback to the developers. You can type in text box and click Send to upload your advice.
+
+### Profile

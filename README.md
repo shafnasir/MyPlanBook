@@ -19,7 +19,7 @@ myPlanBook is an Android mobile application that runs on Android API 16 to the l
 https://developer.android.com/studio/run/device
 
 1. Install Android Studio
-2. Clone the repository and import in Android Studio
+2. Clone the repository and import the build.gradle file in Android Studio
 3. On your Android device open the Settings app, select Developer options, and then enable USB debugging.
    - Note: If you do not see Developer options, follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
 4. When you are set up and plugged in over USB, you can click Run in Android Studio to build and run the app on the device.
@@ -94,3 +94,15 @@ This feature of the Calendar allows the user to input events into the calendar. 
 
 This feature of the Calendar allows the user to update or delete events in the calendar. When you select a certain date with events the user will be able to see a list of the events for that day under the calendar. From there you can either click the update or delete button to make changes to the calendar. If you click the update button the user will go back to the add events screen to make changes to that event. If you click the delete button, the event will be removed from the calendar.
 
+## Health and Fitness Loggers
+
+There are 3 loggers as part of the Health and Fitness loggers: the calorie logger, the body fat logger, and the body weight logger.
+To get to these loggers, simply login, tap Health and Fitness, and then tap one of the appropriate buttons to get to a specific logger.
+These three tools allow you to log your daily caloric intake, calculate and log your daily body fat percentages, and log your body weight.
+To use these three logging tools, simply input the required data and tap enter. If you want to remove any entries, simply tap the pencil edit icon,
+check the entries via the check boxes, and tap the garbage icon. Tap X to exit edit mode. For the body fat and the body weight loggers, you can
+see a graphical representation of the change in body fat or body weight at the bottom for the given month with the x axis being the days of the month.
+As for the calorie logger, you'll see the total calories for a given date. Also, tap on KG or LBS to toggle the body weight unit in the body weight
+logger. Finally, tap on a date in the calendar at the top to change the date and see the data for that specific date.
+
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/bodyFat.png" width="216" height="384">

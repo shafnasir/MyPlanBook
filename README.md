@@ -106,5 +106,5 @@ As for the calorie logger, you'll see the total calories for a given date. Also,
 logger. Finally, tap on a date in the calendar at the top to change the date and see the data for that specific date.
 
 <img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/bodyWeight.png" width="216" height="384">
-<img align="center" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/bodyFat.png" width="216" height="384">
-<img align="left" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/calories.png" width="216" height="384">
+<img div style="text-align:center" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/bodyFat.png" width="216" height="384">
+<img div style="text-align:center" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/calories.png" width="216" height="384">

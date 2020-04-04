@@ -79,7 +79,7 @@ At the top of this page, there is an input zone which allows user to enter their
 
 ### Delete Wish
 
-Above the wish list show up zone, there is a button named "DELETE". Whenever the user click this button, all wishes will be deleted, and a toast message will pop up at the bottom of this page says that "All Wishes Deleted :(". And then the wish list show up zone will be cleaned.
+Above the wish list show up zone, there is a button named "DELETE". Whenever the user click this button, all wishes will be deleted, and a toast message will pop up at the bottom of this page says that "All Wishes Deleted :(". And then the wish list show up zone will be cleared.
 
 ### Share Wish
 

@@ -9,6 +9,14 @@
 
 ## Installation
 
+https://developer.android.com/studio/run/device
+
+1. Install Android Studio
+2. Clone the repository and import in Android Studio
+3. On your Android device open the Settings app, select Developer options, and then enable USB debugging.
+   - Note: If you do not see Developer options, follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
+4. When you are set up and plugged in over USB, you can click Run in Android Studio to build and run the app on the device.
+
 ## Financial Hub
 
 

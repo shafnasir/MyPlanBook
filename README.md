@@ -8,6 +8,8 @@
 
 ## Introduction
 
+myPlanBook is a virtual secretary, wherever everything in your day to day life can be planned. We offer different features, such as ways to manage your daily events, financials, and fitness. 
+
 ## Installation
 
 ## Financial Hub

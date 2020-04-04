@@ -11,7 +11,13 @@
 
 ## Financial Hub
 
-![Financial Hub Window](https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png "Main Menu")
+
+
+<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png" width="216" height="384">
+
+<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances2.png" width="216" height="384">
+
+<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances1.png" width="216" height="384">
 
 ### Load Transactions
 

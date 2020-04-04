@@ -90,5 +90,5 @@ This feature of the Calendar allows the user to input events into the calendar. 
 
 ### Update/Delete Events
 
-This feature of the Calendar allows the user to delete or update events in the calendar. When you select a certain date with events the user will be able to see a list of the events for that day under the calendar. From there you can either click the update or delete button to make changes to the calendar. If you click the update button the user will go back to the add events screen to make changes to that event. If you click the delete button, the event will be removed from the calendar.
+This feature of the Calendar allows the user to update or delete events in the calendar. When you select a certain date with events the user will be able to see a list of the events for that day under the calendar. From there you can either click the update or delete button to make changes to the calendar. If you click the update button the user will go back to the add events screen to make changes to that event. If you click the delete button, the event will be removed from the calendar.
 

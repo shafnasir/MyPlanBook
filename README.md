@@ -86,6 +86,8 @@ This is the page you can provide any feedback to the developers. You can type in
 
 ### Add Events
 
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/calendar.png" width="216" height="384">
+
 This feature of the Calendar allows the user to input events into the calendar. When you select a certain date on the calendar then click on "Add Event", the user is presented with a new activity where they can input their event details. The user can specify a description for the event, a time for the event and they can choose a color to be displayed on the calendar for that event. Once the event is ready you click "save" to save the event into the calendar. You can then view the event with its corresponding color on the calendar.
 
 ### Update/Delete Events

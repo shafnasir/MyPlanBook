@@ -83,6 +83,15 @@ This is the page you can provide any feedback to the developers. You can type in
 
 ### Profile
 
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/profilesetting.png" width="216" height="384">
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/Profile.PNG" width="216" height="384">
+
+This page allows the user to view their personal information such as name, email addess, account number, phone number, city, and country. This is a scrollview so it is suitable for most of the screen sizes. It also allows the user to choose their icon from the android gallery. Whenever the user click the icon at the top of this page, a selector will pop up which allows user to choose picture from android gallery. If user wants their own picture to be the icon, they can also upload their own pictures to the android gallery first, and then choose from the gallery.
+
+### Profile Setting
+
+At the bottom of the Profile page, there is a button named "CHANGE INFORMATION" which will lead to the profile setting page. Whenever user click that button, it will lead the user to the profile setting page. In that page, user can change any of their personal information including name, email address, account number, phone number, city, and country. When the user finish entering information, there is a button at the bottom of this page named "CONFIRM". When user click it, the application will bring him back to the profile page and there a toast message will come up at the bottom of the screen says that all the changed have been successfully made. 
+
 ## Calendar
 
 ### Add Events

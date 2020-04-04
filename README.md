@@ -5,7 +5,13 @@
 2. Installation
 3. Financial Hub
 
+---
+
 ## Introduction
+
+myPlanBook is an Android mobile application that runs on Android API 16 to the latest release as of this application's first release (API 29). The application aims to be its users own virtual personal secretary by helping its users track their engagements and upcoming deadlines using its Calendar feature. Through the app's Financial Hub, users can track their monthly and yearly spending while setting yearly saving goals to help manage their spending. The Health and Fitness feature allows users to measure their body weight, body fat and workout routines. The app also provides a wish list feature.
+
+---
 
 ## Installation
 
@@ -17,15 +23,16 @@ https://developer.android.com/studio/run/device
    - Note: If you do not see Developer options, follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
 4. When you are set up and plugged in over USB, you can click Run in Android Studio to build and run the app on the device.
 
+
+---
+
 ## Financial Hub
 
 
 
-<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png" width="216" height="384">
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png" width="216" height="384">
 
-<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances2.png" width="216" height="384">
 
-<img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances1.png" width="216" height="384">
 
 ### Load Transactions
 
@@ -41,6 +48,8 @@ To delete financial data already imported and saved to your account, you can eit
 ### Set Goals
 
 ### Manage Finances
+
+<img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances1.png" width="216" height="384">
 
 After loading transactions into the account either manually or automatically,
 the **Manage Finances** feature graphically displays the transactions in a user friendly way. The first pie chart labeled "Transactions by Category" displays the top 5 transactions by amount over the given year. Clicking on a percentile of the pie chart produces a information box about that transaction category. 

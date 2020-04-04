@@ -4,6 +4,7 @@
 1. Introduction
 2. Installation
 3. Financial Hub
+4. Login pages
 
 ---
 
@@ -23,15 +24,12 @@ https://developer.android.com/studio/run/device
    - Note: If you do not see Developer options, follow the instructions to [enable developer options](https://developer.android.com/studio/debug/dev-options).
 4. When you are set up and plugged in over USB, you can click Run in Android Studio to build and run the app on the device.
 
-
 ---
 
 ## Financial Hub
 
 
-
 <img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png" width="216" height="384">
-
 
 
 ### Load Transactions
@@ -47,6 +45,10 @@ To delete financial data already imported and saved to your account, you can eit
 
 ### Set Goals
 
+This feature of the **Financial Hub** allows a way for users to set a goal for themselves, and a way to see how close they are to achieiving that goal. Most people have something that they want to buy and are saving for, and this function helps with that. A user can enter the name and price of whatever they want, and allows users to enter income and expenditures. Whenever something is entered, a progress bar is altered to show progress towards the goal amount, and below the bar tells you how much money you've gained/lost since tracking, and how close you are to the goal amount (in %).
+
+The information is stored in the database, this way whenever you leave the app you're inputs and progress are saved. You are also able to switch goals. For example, if the price of your goal changes, then you can re-enter the changed amount, and the progress bar will reflect those changes. 
+
 ### Manage Finances
 
 <img align="right" src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/manageFinances1.png" width="216" height="384">
@@ -56,6 +58,14 @@ the **Manage Finances** feature graphically displays the transactions in a user 
 
 The second pie chart, labeled "Monthly Transactions", charts the amount of transactions made each month as a portion of the pie chart. The bottom charts display debit and credit expenditures for each month as a line graph. The interactive graph responds to zooms and clicks on mapped data points.
 
+## Login Pages
 
+### Login
+
+This is a standard login page, where you are able to enter an email address and password of your account. Using the Firebase API, if the information is linked to an account then the login will be successful, and if not a popup will notify you that the email/password is incorrect. If you do not have an account, then there is a button that takes you to a signup page.
+
+### Signup 
+
+This is another standard signup page, asking for your name, username, password and cell number. If you enter an invalid email, then the signup will fail, if not and all fields have input then the signup will succeed, and your account will be registered in Firebase.
 
 

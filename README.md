@@ -11,6 +11,8 @@
 
 ## Financial Hub
 
+![Financial Hub Window](https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/financialHub.png "Main Menu")
+
 ### Load Transactions
 
 This feature of the **Financial Hub** provides a few features which include: a auto-load feature, a manual load feature, and deletion features. The auto-load feature allows users to upload their banking transactions via a CSV file, provided by their bank. Most banks provide this functionality through their online account services. When you click on "Load CSV File", the user is presented with the Android local file explorer, from where they can import a banking .csv file. After clicking the csv of revelance, the app will report through a popup window either success of the operation or error. You can verify that your transactions were imported properly by navigating to the **Manage Finances** feature.

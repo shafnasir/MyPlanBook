@@ -81,3 +81,14 @@ This is the page where you can change your account password. You are asked to en
 This is the page you can provide any feedback to the developers. You can type in text box and click Send to upload your advice.
 
 ### Profile
+
+## Calendar
+
+### Add Events
+
+This feature of the Calendar allows the user to input events into the calendar. When you select a certain date on the calendar then click on "Add Event", the user is presented with a new activity where they can input their event details. The user can specify a description for the event, a time for the event and they can choose a color to be displayed on the calendar for that event. Once the event is ready you click "save" to save the event into the calendar. You can then view the event with its corresponding color on the calendar.
+
+### Update/Delete Events
+
+This feature of the Calendar allows the user to delete or update events in the calendar. When you select a certain date with events the user will be able to see a list of the events for that day under the calendar. From there you can either click the update or delete button to make changes to the calendar. If you click the update button the user will go back to the add events screen to make changes to that event. If you click the delete button, the event will be removed from the calendar.
+

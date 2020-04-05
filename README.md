@@ -88,14 +88,24 @@ At the right side of the "DELETE" button, there is another button named "SHARE".
 ## Main Page
 
 This is the main page you will see after login. You can select to go to Calender, Financial Hub, Body Log, Wish List, or Setting page from this page.
+<p float="left">
+  <img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/MainPage.png" width="216" height="384" />
+</p>
 
 ## Setting Page
 
 ### Change Password
+
 This is the page where you can change your account password. You are asked to enter your old password to verify your account. Then you need to enter a new password and reenter the new password again to verify your new password. Using the Firebase API, if the old password is correct, then the new password will be updated if the new password and the reentered new password are the same. If the old password is not correct, a popup will notify you that the old password is incorrect.
 
 ### Provide Feedback
-This is the page you can provide any feedback to the developers. You can type in text box and click Send to upload your advice.
+This is the page you can provide any feedback to the developers. You can type in text box and click Submit to upload your advice.
+
+<p float="left">
+  <img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/profile.png" width="216" height="384" />
+  <img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/ChangePassword.png" width="216" height="384" /> 
+  <img src="https://github.com/UTMCSC301/project-thebrogrammers/blob/master/doc/screenshots/Feedback.png" width="216" height="384" />
+</p>
 
 ### Profile
 

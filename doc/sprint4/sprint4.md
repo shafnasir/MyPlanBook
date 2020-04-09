@@ -74,6 +74,7 @@ User Story Ticket Number on Jira: User Story Name
 	- *Standardize the Financial Hub*: adjust FinancialHubActivity UI to meet newly decided on style guidelines.
 	- *Standardize Health and Fitness*: adjust HealthAndFitness UI to meet newly decided on style guidelines.
 	- *Standardize Item Goals*: adjust item goals of the Saving Goals activity UI to meet newly decided on style guidelines.
+	- *Standardize Main Activity & Settings*: Standardize the layout style of the Main page and Setting page. Estimated time: 3h. Assigned to: William Wu.
 
 ## THEB-8: Graph Transactions
 - Assigned to: Michael De Lisio
